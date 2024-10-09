@@ -31,6 +31,12 @@ const TypewriterEffect = ({ messages, onComplete }) => {
         }, 1000);
         return () => clearTimeout(timeout);
       }
+    } else {
+      // This ensures there's a brief pause with empty text before the next message starts
+      const timeout = setTimeout(() => {
+        setIsTyping(true);
+      }, 500);
+      return () => clearTimeout(timeout);
     }
   }, [currentMessageIndex, currentText, isTyping, messages, onComplete]);
 
