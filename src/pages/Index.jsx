@@ -6,8 +6,11 @@ import { RocketIcon, TargetIcon, TrendingUpIcon } from 'lucide-react';
 const Index = () => {
   return (
     <div className="min-h-screen bg-gradient-to-b from-blue-100 to-white">
-      <header className="container mx-auto py-8">
-        <h1 className="text-4xl font-bold text-blue-900">RocketNow</h1>
+      <header className="container mx-auto py-8 flex items-center justify-between">
+        <div className="flex items-center">
+          <img src="/rocket-logo.png" alt="Rocket Logo" className="h-12 w-auto mr-4" />
+          <h1 className="text-4xl font-bold text-blue-900">RocketNow</h1>
+        </div>
       </header>
       
       <main className="container mx-auto px-4">
