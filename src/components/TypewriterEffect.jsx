@@ -5,7 +5,6 @@ const TypewriterEffect = ({ messages, onComplete }) => {
   const [currentText, setCurrentText] = useState('');
   const [isTyping, setIsTyping] = useState(true);
   const [isUntyping, setIsUntyping] = useState(false);
-  const [isDisplaying, setIsDisplaying] = useState(false);
 
   useEffect(() => {
     if (currentMessageIndex >= messages.length) {
@@ -23,9 +22,7 @@ const TypewriterEffect = ({ messages, onComplete }) => {
         return () => clearTimeout(timeout);
       } else {
         setIsTyping(false);
-        setIsDisplaying(true);
         const timeout = setTimeout(() => {
-          setIsDisplaying(false);
           setIsUntyping(true);
         }, 2000); // Display duration: 2 seconds
         return () => clearTimeout(timeout);
@@ -45,7 +42,7 @@ const TypewriterEffect = ({ messages, onComplete }) => {
         return () => clearTimeout(timeout);
       }
     }
-  }, [currentMessageIndex, currentText, isTyping, isUntyping, isDisplaying, messages, onComplete]);
+  }, [currentMessageIndex, currentText, isTyping, isUntyping, messages, onComplete]);
 
   return (
     <p className="text-xl mb-10 max-w-2xl mx-auto relative z-10">
