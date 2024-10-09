@@ -59,6 +59,7 @@ module.exports = {
       },
       fontFamily: {
         sans: ['Arboria-Bold', 'sans-serif'],
+        poppins: ['Poppins', 'sans-serif'],
       },
       keyframes: {
         "accordion-down": {

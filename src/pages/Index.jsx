@@ -27,13 +27,13 @@ const Index = () => {
     <div className="min-h-screen bg-white">
       <header className="bg-gradient-to-b from-[#0FCEFD] to-[#0097FD] text-white py-16">
         <div className="container mx-auto">
-          <h1 className="text-4xl font-bold">ROCKET NOW</h1>
+          <h1 className="text-4xl font-bold font-poppins">ROCKET NOW</h1>
         </div>
       </header>
       
       <main className="container mx-auto px-4">
         <section className="text-center py-32 bg-gradient-to-b from-[#0FCEFD] to-[#0097FD] text-white rounded-lg my-16 shadow-2xl backdrop-blur-md bg-opacity-90">
-          <h2 className="text-5xl font-extrabold mb-8">
+          <h2 className="text-5xl font-extrabold mb-8 font-poppins">
             Revenue Acceleration
           </h2>
           <p className="text-xl mb-10 max-w-2xl mx-auto">
@@ -47,7 +47,7 @@ const Index = () => {
         <CandySlider items={sliderItems} />
 
         <section className="py-32 bg-gradient-to-b from-white to-[#E6F7FF] text-[#0097FD] rounded-lg shadow-2xl my-16 backdrop-blur-md bg-opacity-90 px-[10%]">
-          <h3 className="text-3xl font-bold text-center mb-16">
+          <h3 className="text-3xl font-bold text-center mb-16 font-poppins">
             Why CMOs Choose ROCKET NOW
           </h3>
           <div className="grid md:grid-cols-3 gap-12">
@@ -70,7 +70,7 @@ const Index = () => {
         </section>
 
         <section className="py-32 bg-gradient-to-b from-[#0FCEFD] to-[#0097FD] text-white rounded-lg shadow-2xl my-16 backdrop-blur-md bg-opacity-90">
-          <h3 className="text-3xl font-bold mb-8 text-center">
+          <h3 className="text-3xl font-bold mb-8 text-center font-poppins">
             Business Match-Making Service
           </h3>
           <p className="text-xl mb-10 max-w-2xl mx-auto text-center">
@@ -84,7 +84,7 @@ const Index = () => {
         </section>
 
         <section className="py-32 bg-gradient-to-b from-white to-[#E6F7FF] text-[#0097FD] rounded-lg shadow-2xl my-16 backdrop-blur-md bg-opacity-90">
-          <h3 className="text-3xl font-bold text-center mb-10">
+          <h3 className="text-3xl font-bold text-center mb-10 font-poppins">
             Their Problem + Your Solution
           </h3>
           <p className="text-xl text-center mb-10 max-w-3xl mx-auto">
@@ -98,7 +98,7 @@ const Index = () => {
         </section>
 
         <section className="py-32 bg-gradient-to-b from-[#0FCEFD] to-[#0097FD] text-white rounded-lg shadow-2xl my-16 backdrop-blur-md bg-opacity-90">
-          <h3 className="text-3xl font-bold mb-8 text-center">
+          <h3 className="text-3xl font-bold mb-8 text-center font-poppins">
             Customer (signaling) intent based outreach
           </h3>
           <p className="text-xl mb-10 max-w-2xl mx-auto text-center">
@@ -112,7 +112,7 @@ const Index = () => {
         </section>
 
         <section className="py-32 bg-gradient-to-b from-white to-[#E6F7FF] text-[#0097FD] rounded-lg shadow-2xl my-16 backdrop-blur-md bg-opacity-90">
-          <h3 className="text-3xl font-bold text-center mb-10">
+          <h3 className="text-3xl font-bold text-center mb-10 font-poppins">
             Pre-qualified conversations…not cold leads
           </h3>
           <p className="text-xl text-center mb-10 max-w-3xl mx-auto">
@@ -142,7 +142,7 @@ const FeatureCard = ({ icon, title, description }) => {
       <CardHeader>
         <CardTitle className="flex flex-col items-center">
           {icon}
-          <span className="mt-4 text-xl font-semibold">{title}</span>
+          <span className="mt-4 text-xl font-semibold font-poppins">{title}</span>
         </CardTitle>
       </CardHeader>
       <CardContent>
