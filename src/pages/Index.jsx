@@ -20,7 +20,7 @@ const Index = () => {
           <p className="text-xl mb-10 max-w-2xl mx-auto">
             Got Milk? You do huh. How about Leads? No? Ok, let's talk.
           </p>
-          <Button size="lg" className="bg-[#E51010] hover:bg-red-700 text-white shadow-lg">
+          <Button size="lg" className="bg-[#E51010] hover:bg-white hover:text-[#E51010] text-white shadow-lg transition-colors">
             Let's Talk Leads
           </Button>
         </section>
@@ -56,7 +56,7 @@ const Index = () => {
             We're not just another agency – at ROCKET NOW, we offer the highest level of service available in the industry. Our relentless dedication to your growth sets us apart.
           </p>
           <div className="text-center">
-            <Button size="lg" className="bg-[#E51010] hover:bg-red-700 text-white shadow-lg">
+            <Button size="lg" className="bg-[#E51010] hover:bg-white hover:text-[#E51010] text-white shadow-lg transition-colors">
               Accelerate Your Growth
             </Button>
           </div>
@@ -70,7 +70,7 @@ const Index = () => {
             Your marketing deserves a breakthrough, not just an average return. ROCKET NOW brings cutting-edge digital strategies that translate directly into business growth.
           </p>
           <div className="flex justify-center">
-            <Button size="lg" className="bg-[#E51010] hover:bg-red-700 text-white shadow-lg">
+            <Button size="lg" className="bg-[#E51010] hover:bg-white hover:text-[#E51010] text-white shadow-lg transition-colors">
               Get Your Breakthrough
             </Button>
           </div>
@@ -84,7 +84,7 @@ const Index = () => {
             With our multi-channel attribution and customer-first approach, ROCKET NOW ensures you get the best return on every marketing dollar—empowering you to hit your KPIs faster than ever.
           </p>
           <div className="text-center">
-            <Button size="lg" className="bg-[#E51010] hover:bg-red-700 text-white shadow-lg">
+            <Button size="lg" className="bg-[#E51010] hover:bg-white hover:text-[#E51010] text-white shadow-lg transition-colors">
               Maximize Your ROI
             </Button>
           </div>
