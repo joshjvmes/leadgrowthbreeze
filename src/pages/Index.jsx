@@ -1,7 +1,7 @@
 import React from 'react';
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import { RocketIcon, TargetIcon, TrendingUpIcon, UsersIcon, PuzzleIcon, SignalIcon, PhoneCallIcon } from 'lucide-react';
+import { RocketIcon, TargetIcon, TrendingUpIcon } from 'lucide-react';
 import CandySlider from '../components/CandySlider';
 
 const Index = () => {
@@ -25,9 +25,12 @@ const Index = () => {
 
   return (
     <div className="min-h-screen bg-white">
-      <header className="bg-gradient-to-b from-[#0FCEFD] to-[#0097FD] text-white py-16">
-        <div className="container mx-auto">
-          <h1 className="text-4xl font-bold font-poppins">ROCKET NOW</h1>
+      <header className="bg-gradient-to-b from-[#0FCEFD] to-[#0097FD] text-white py-4">
+        <div className="container mx-auto flex justify-between items-center">
+          <h1 className="text-2xl font-bold font-poppins">ROCKET NOW</h1>
+          <Button className="bg-[#E51010] hover:bg-white hover:text-[#E51010] text-white">
+            Get Started
+          </Button>
         </div>
       </header>
       
