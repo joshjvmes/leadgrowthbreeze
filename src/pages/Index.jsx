@@ -13,6 +13,7 @@ const Index = () => {
         </div>
       </header>
       
+      {/* Rest of the component remains unchanged */}
       <main className="container mx-auto px-4">
         <section className="text-center py-20">
           <h2 className="text-5xl font-extrabold mb-6">
