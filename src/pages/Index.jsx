@@ -7,13 +7,9 @@ const Index = () => {
   return (
     <div className="min-h-screen bg-gradient-to-b from-[#0FCEFD] to-[#0097FD] text-white">
       <header className="container mx-auto py-8 flex items-center justify-between">
-        <div className="flex items-center">
-          <img src="/rocket-logo.png" alt="Rocket Logo" className="h-12 w-auto mr-4" />
-          <h1 className="text-4xl font-bold">RocketNow</h1>
-        </div>
+        <h1 className="text-4xl font-bold">RocketNow</h1>
       </header>
       
-      {/* Rest of the component remains unchanged */}
       <main className="container mx-auto px-4">
         <section className="text-center py-20">
           <h2 className="text-5xl font-extrabold mb-6">
