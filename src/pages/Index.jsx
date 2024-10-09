@@ -1,10 +1,20 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { RocketIcon, TargetIcon, TrendingUpIcon } from 'lucide-react';
 import CandySlider from '../components/CandySlider';
+import TypewriterEffect from '../components/TypewriterEffect';
 
 const Index = () => {
+  const [typingComplete, setTypingComplete] = useState(false);
+  const messages = [
+    "Got Milk..?",
+    "You do huh..",
+    "Got Leads..?",
+    "No..? Ok. Let's Talk..",
+    "Click below to get started."
+  ];
+
   const sliderItems = [
     {
       title: "Your Bridge Between Customization and Scale",
@@ -39,12 +49,15 @@ const Index = () => {
           <h2 className="text-5xl font-extrabold mb-8 font-poppins">
             Revenue Acceleration
           </h2>
-          <p className="text-xl mb-10 max-w-2xl mx-auto">
-            Got Milk? You do huh. How about Leads? No? Ok, let's talk.
-          </p>
-          <Button size="lg" className="bg-[#E51010] hover:bg-white hover:text-[#E51010] text-white shadow-lg transition-colors">
-            Let's Talk Leads
-          </Button>
+          <TypewriterEffect 
+            messages={messages} 
+            onComplete={() => setTypingComplete(true)} 
+          />
+          {typingComplete && (
+            <Button size="lg" className="bg-[#E51010] hover:bg-white hover:text-[#E51010] text-white shadow-lg transition-colors">
+              Let's Talk Leads
+            </Button>
+          )}
         </section>
 
         <CandySlider items={sliderItems} />
