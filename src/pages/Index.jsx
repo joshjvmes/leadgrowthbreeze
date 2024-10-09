@@ -27,7 +27,7 @@ const Index = () => {
     <div className="min-h-screen bg-white">
       <header className="bg-gradient-to-b from-[#0FCEFD] to-[#0097FD] text-white py-4">
         <div className="container mx-auto flex justify-between items-center">
-          <h1 className="text-2xl font-bold font-poppins">ROCKET NOW</h1>
+          <img src="/rocket-logo.png" alt="ROCKET NOW" className="h-12 w-auto" />
           <Button className="bg-[#E51010] hover:bg-white hover:text-[#E51010] text-white">
             Get Started
           </Button>
