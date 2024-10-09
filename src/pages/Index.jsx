@@ -5,13 +5,15 @@ import { RocketIcon, TargetIcon, TrendingUpIcon, DollarSignIcon } from 'lucide-r
 
 const Index = () => {
   return (
-    <div className="min-h-screen bg-gradient-to-b from-[#0FCEFD] to-[#0097FD] text-white">
-      <header className="container mx-auto py-8 flex items-center justify-between">
-        <h1 className="text-4xl font-bold">ROCKET NOW</h1>
+    <div className="min-h-screen bg-white">
+      <header className="bg-gradient-to-b from-[#0FCEFD] to-[#0097FD] text-white py-12">
+        <div className="container mx-auto">
+          <h1 className="text-4xl font-bold">ROCKET NOW</h1>
+        </div>
       </header>
       
       <main className="container mx-auto px-4">
-        <section className="text-center py-20">
+        <section className="text-center py-24 bg-gradient-to-b from-[#0FCEFD] to-[#0097FD] text-white rounded-lg my-12">
           <h2 className="text-5xl font-extrabold mb-6">
             Revenue Acceleration
           </h2>
@@ -23,7 +25,7 @@ const Index = () => {
           </Button>
         </section>
 
-        <section className="py-16 bg-white text-[#0097FD] rounded-lg shadow-xl">
+        <section className="py-24 bg-gradient-to-b from-white to-[#E6F7FF] text-[#0097FD] rounded-lg shadow-xl my-12">
           <h3 className="text-3xl font-bold text-center mb-12">
             Why CMOs Choose ROCKET NOW
           </h3>
@@ -46,19 +48,21 @@ const Index = () => {
           </div>
         </section>
 
-        <section className="py-16 text-center">
-          <h3 className="text-3xl font-bold mb-6">
+        <section className="py-24 bg-gradient-to-b from-[#0FCEFD] to-[#0097FD] text-white rounded-lg my-12">
+          <h3 className="text-3xl font-bold mb-6 text-center">
             Your Bridge Between Customization and Scale
           </h3>
-          <p className="text-xl mb-8 max-w-2xl mx-auto">
+          <p className="text-xl mb-8 max-w-2xl mx-auto text-center">
             We're not just another agency – at ROCKET NOW, we offer the highest level of service available in the industry. Our relentless dedication to your growth sets us apart.
           </p>
-          <Button size="lg" className="bg-[#E51010] hover:bg-red-700 text-white">
-            Accelerate Your Growth
-          </Button>
+          <div className="text-center">
+            <Button size="lg" className="bg-[#E51010] hover:bg-red-700 text-white">
+              Accelerate Your Growth
+            </Button>
+          </div>
         </section>
 
-        <section className="py-16 bg-white text-[#0097FD] rounded-lg shadow-xl">
+        <section className="py-24 bg-gradient-to-b from-white to-[#E6F7FF] text-[#0097FD] rounded-lg shadow-xl my-12">
           <h3 className="text-3xl font-bold text-center mb-8">
             Marketing Strategies Underperforming?
           </h3>
@@ -72,20 +76,22 @@ const Index = () => {
           </div>
         </section>
 
-        <section className="py-16 text-center">
-          <h3 className="text-3xl font-bold mb-6">
+        <section className="py-24 bg-gradient-to-b from-[#0FCEFD] to-[#0097FD] text-white rounded-lg my-12">
+          <h3 className="text-3xl font-bold mb-6 text-center">
             Need ROI? Book Out Your Sales Team?
           </h3>
-          <p className="text-xl mb-8 max-w-2xl mx-auto">
+          <p className="text-xl mb-8 max-w-2xl mx-auto text-center">
             With our multi-channel attribution and customer-first approach, ROCKET NOW ensures you get the best return on every marketing dollar—empowering you to hit your KPIs faster than ever.
           </p>
-          <Button size="lg" className="bg-[#E51010] hover:bg-red-700 text-white">
-            Maximize Your ROI
-          </Button>
+          <div className="text-center">
+            <Button size="lg" className="bg-[#E51010] hover:bg-red-700 text-white">
+              Maximize Your ROI
+            </Button>
+          </div>
         </section>
       </main>
 
-      <footer className="bg-[#0097FD] text-white py-8">
+      <footer className="bg-[#0097FD] text-white py-12">
         <div className="container mx-auto text-center">
           <p>&copy; 2023 ROCKET NOW. All rights reserved.</p>
           <p className="mt-2">The best marketing agency near you, period.</p>
