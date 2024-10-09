@@ -46,7 +46,7 @@ const Index = () => {
 
         <CandySlider items={sliderItems} />
 
-        <section className="py-32 bg-gradient-to-b from-white to-[#E6F7FF] text-[#0097FD] rounded-lg shadow-2xl my-16 backdrop-blur-md bg-opacity-90">
+        <section className="py-32 bg-gradient-to-b from-white to-[#E6F7FF] text-[#0097FD] rounded-lg shadow-2xl my-16 backdrop-blur-md bg-opacity-90 px-[10%]">
           <h3 className="text-3xl font-bold text-center mb-16">
             Why CMOs Choose ROCKET NOW
           </h3>
