@@ -1,7 +1,7 @@
 import React from 'react';
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import { RocketIcon, TargetIcon, TrendingUpIcon } from 'lucide-react';
+import { RocketIcon, TargetIcon, TrendingUpIcon, UsersIcon, PuzzleIcon, SignalIcon, PhoneCallIcon } from 'lucide-react';
 
 const Index = () => {
   return (
@@ -50,42 +50,56 @@ const Index = () => {
 
         <section className="py-32 bg-gradient-to-b from-[#0FCEFD] to-[#0097FD] text-white rounded-lg shadow-2xl my-16 backdrop-blur-md bg-opacity-90">
           <h3 className="text-3xl font-bold mb-8 text-center">
-            Your Bridge Between Customization and Scale
+            Business Match-Making Service
           </h3>
           <p className="text-xl mb-10 max-w-2xl mx-auto text-center">
-            We're not just another agency – at ROCKET NOW, we offer the highest level of service available in the industry. Our relentless dedication to your growth sets us apart.
+            We connect your business with the perfect clients, creating lasting partnerships that drive mutual growth and success.
           </p>
           <div className="text-center">
             <Button size="lg" className="bg-[#E51010] hover:bg-white hover:text-[#E51010] text-white shadow-lg transition-colors">
-              Accelerate Your Growth
+              Find Your Perfect Match
             </Button>
           </div>
         </section>
 
         <section className="py-32 bg-gradient-to-b from-white to-[#E6F7FF] text-[#0097FD] rounded-lg shadow-2xl my-16 backdrop-blur-md bg-opacity-90">
           <h3 className="text-3xl font-bold text-center mb-10">
-            Marketing Strategies Underperforming?
+            Their Problem + Your Solution
           </h3>
           <p className="text-xl text-center mb-10 max-w-3xl mx-auto">
-            Your marketing deserves a breakthrough, not just an average return. ROCKET NOW brings cutting-edge digital strategies that translate directly into business growth.
+            We identify your potential clients' pain points and showcase how your unique solutions address them, creating a perfect match between need and offering.
           </p>
           <div className="flex justify-center">
             <Button size="lg" className="bg-[#E51010] hover:bg-white hover:text-[#E51010] text-white shadow-lg transition-colors">
-              Get Your Breakthrough
+              Solve Real Problems
             </Button>
           </div>
         </section>
 
         <section className="py-32 bg-gradient-to-b from-[#0FCEFD] to-[#0097FD] text-white rounded-lg shadow-2xl my-16 backdrop-blur-md bg-opacity-90">
           <h3 className="text-3xl font-bold mb-8 text-center">
-            Need ROI? Book Out Your Sales Team?
+            Customer (signaling) intent based outreach
           </h3>
           <p className="text-xl mb-10 max-w-2xl mx-auto text-center">
-            With our multi-channel attribution and customer-first approach, ROCKET NOW ensures you get the best return on every marketing dollar—empowering you to hit your KPIs faster than ever.
+            Our AI-driven approach detects and responds to customer signals, ensuring your outreach is always timely, relevant, and welcomed.
           </p>
           <div className="text-center">
             <Button size="lg" className="bg-[#E51010] hover:bg-white hover:text-[#E51010] text-white shadow-lg transition-colors">
-              Maximize Your ROI
+              Leverage Intent Signals
+            </Button>
+          </div>
+        </section>
+
+        <section className="py-32 bg-gradient-to-b from-white to-[#E6F7FF] text-[#0097FD] rounded-lg shadow-2xl my-16 backdrop-blur-md bg-opacity-90">
+          <h3 className="text-3xl font-bold text-center mb-10">
+            Pre-qualified conversations…not cold leads
+          </h3>
+          <p className="text-xl text-center mb-10 max-w-3xl mx-auto">
+            Say goodbye to cold calling. We deliver warm, pre-qualified leads ready for meaningful conversations that convert into lasting business relationships.
+          </p>
+          <div className="flex justify-center">
+            <Button size="lg" className="bg-[#E51010] hover:bg-white hover:text-[#E51010] text-white shadow-lg transition-colors">
+              Start Warm Conversations
             </Button>
           </div>
         </section>
