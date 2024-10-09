@@ -23,7 +23,7 @@ const TypewriterEffect = ({ messages, onComplete }) => {
         setIsTyping(false);
         const timeout = setTimeout(() => {
           setIsTyping(true);
-          setCurrentMessageIndex(currentMessageIndex + 1);
+          setCurrentMessageIndex(prevIndex => prevIndex + 1);
           setCurrentText('');
         }, 1000);
         return () => clearTimeout(timeout);
