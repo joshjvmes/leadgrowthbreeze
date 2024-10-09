@@ -2,8 +2,27 @@ import React from 'react';
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { RocketIcon, TargetIcon, TrendingUpIcon, UsersIcon, PuzzleIcon, SignalIcon, PhoneCallIcon } from 'lucide-react';
+import CandySlider from '../components/CandySlider';
 
 const Index = () => {
+  const sliderItems = [
+    {
+      title: "Your Bridge Between Customization and Scale",
+      description: "We're not just another agency – at ROCKET NOW, we offer the highest level of service available in the industry. Our relentless dedication to your growth sets us apart.",
+      buttonText: "Accelerate Your Growth"
+    },
+    {
+      title: "Marketing Strategies Underperforming?",
+      description: "Your marketing deserves a breakthrough, not just an average return. ROCKET NOW brings cutting-edge digital strategies that translate directly into business growth.",
+      buttonText: "Get Your Breakthrough"
+    },
+    {
+      title: "Need ROI? Book Out Your Sales Team?",
+      description: "With our multi-channel attribution and customer-first approach, ROCKET NOW ensures you get the best return on every marketing dollar—empowering you to hit your KPIs faster than ever.",
+      buttonText: "Maximize Your ROI"
+    }
+  ];
+
   return (
     <div className="min-h-screen bg-white">
       <header className="bg-gradient-to-b from-[#0FCEFD] to-[#0097FD] text-white py-16">
@@ -47,6 +66,8 @@ const Index = () => {
             />
           </div>
         </section>
+
+        <CandySlider items={sliderItems} />
 
         <section className="py-32 bg-gradient-to-b from-[#0FCEFD] to-[#0097FD] text-white rounded-lg shadow-2xl my-16 backdrop-blur-md bg-opacity-90">
           <h3 className="text-3xl font-bold mb-8 text-center">
