@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useRef } from 'react';
 import { Button } from "@/components/ui/button";
 import { RocketIcon, TargetIcon, TrendingUpIcon } from 'lucide-react';
 import CandySlider from '../components/CandySlider';
@@ -10,6 +10,8 @@ import TimelineSection from '../components/TimelineSection';
 import AnimatedBackground from '../components/AnimatedBackground';
 
 const Index = () => {
+  const nextSectionRef = useRef(null);
+
   const sliderItems = [
     {
       title: "Your Bridge Between Customization and Scale",
@@ -41,6 +43,14 @@ const Index = () => {
     );
   };
 
+  const handleScrollToNext = () => {
+    nextSectionRef.current?.scrollIntoView({ behavior: 'smooth' });
+    document.body.classList.add('milky-reveal');
+    setTimeout(() => {
+      document.body.classList.remove('milky-reveal');
+    }, 1000);
+  };
+
   return (
     <div className="min-h-screen bg-white">
       <header className="bg-gradient-to-b from-[#0FCEFD] to-[#0097FD] text-white py-4 relative">
@@ -60,15 +70,21 @@ const Index = () => {
               <h2 className="text-3xl sm:text-5xl font-extrabold mb-6 sm:mb-8 font-poppins">
                 Revenue Acceleration
               </h2>
-              <Button size="lg" className="bg-[#E51010] hover:bg-white hover:text-[#E51010] text-white shadow-lg transition-colors mt-4">
-                Let's talk leads
+              <Button 
+                size="lg" 
+                className="bg-[#E51010] hover:bg-white hover:text-[#E51010] text-white shadow-lg transition-colors mt-4"
+                onClick={handleScrollToNext}
+              >
+                Got Milk..?
               </Button>
             </div>
           </section>
         </FadeInSection>
 
         <FadeInSection>
-          <CandySlider items={sliderItems} />
+          <div ref={nextSectionRef}>
+            <CandySlider items={sliderItems} />
+          </div>
         </FadeInSection>
 
         <FadeInSection>
