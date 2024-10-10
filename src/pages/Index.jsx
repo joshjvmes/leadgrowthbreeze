@@ -57,8 +57,8 @@ const Index = () => {
   return (
     <div className="min-h-screen relative">
       <WizardSceneBackground />
-      <header className="bg-gradient-to-b from-[#0FCEFD] to-[#0097FD] text-white py-4 relative">
-        <div className="container mx-auto px-4 flex justify-between items-center relative z-10">
+      <header className="bg-gradient-to-b from-[#0FCEFD] to-[#0097FD] text-white py-4 relative z-10">
+        <div className="container mx-auto px-4 flex justify-between items-center">
           <img src="/rocket-logo.png" alt="ROCKET NOW" className="h-8 w-auto sm:h-12" />
           <Link to="/contact">
             <Button className="bg-[#E51010] hover:bg-white hover:text-[#E51010] text-white text-sm sm:text-base">
@@ -68,9 +68,9 @@ const Index = () => {
         </div>
       </header>
       
-      <main className="container mx-auto px-4">
+      <main className="container mx-auto px-4 relative z-10">
         <FadeInSection>
-          <section className="text-center py-16 sm:py-32 bg-gradient-to-b from-[#0FCEFD] to-[#0097FD] text-white rounded-lg my-8 sm:my-16 shadow-2xl backdrop-blur-md bg-opacity-90 relative overflow-hidden">
+          <section className="text-center py-16 sm:py-32 bg-gradient-to-b from-[#0FCEFD] to-[#0097FD] text-white rounded-lg my-8 sm:my-16 shadow-2xl backdrop-blur-md bg-opacity-80 relative overflow-hidden">
             <AnimatedBackground />
             <div className="relative z-10">
               <h2 className="text-3xl sm:text-5xl font-extrabold mb-6 sm:mb-8 font-poppins small-caps gradient-text">
@@ -106,7 +106,7 @@ const Index = () => {
         </FadeInSection>
 
         <FadeInSection>
-          <section className="py-16 sm:py-32 bg-gradient-to-b from-white to-[#E6F7FF] text-[#0097FD] rounded-lg shadow-2xl my-8 sm:my-16 backdrop-blur-md bg-opacity-90 px-4 sm:px-[10%]">
+          <section className="py-16 sm:py-32 bg-gradient-to-b from-white to-[#E6F7FF] text-[#0097FD] rounded-lg shadow-2xl my-8 sm:my-16 backdrop-blur-md bg-opacity-80 px-4 sm:px-[10%]">
             <h3 className="text-2xl sm:text-3xl font-bold text-center mb-8 sm:mb-16 font-poppins small-caps gradient-text">
               Why CMOs Choose ROCKET NOW
             </h3>
@@ -131,7 +131,7 @@ const Index = () => {
         </FadeInSection>
 
         <FadeInSection>
-          <section className="py-16 sm:py-32 bg-gradient-to-b from-[#0FCEFD] to-[#0097FD] text-white rounded-lg shadow-2xl my-8 sm:my-16 backdrop-blur-md bg-opacity-90">
+          <section className="py-16 sm:py-32 bg-gradient-to-b from-[#0FCEFD] to-[#0097FD] text-white rounded-lg shadow-2xl my-8 sm:my-16 backdrop-blur-md bg-opacity-80">
             <h3 className="text-2xl sm:text-3xl font-bold mb-6 sm:mb-8 text-center font-poppins small-caps gradient-text">
               Marketing Costs Calculator
             </h3>
@@ -142,7 +142,7 @@ const Index = () => {
         </FadeInSection>
 
         <FadeInSection>
-          <section className="py-16 sm:py-32 bg-white rounded-lg shadow-2xl my-8 sm:my-16">
+          <section className="py-16 sm:py-32 bg-white rounded-lg shadow-2xl my-8 sm:my-16 backdrop-blur-md bg-opacity-80">
             <h3 className="text-2xl sm:text-3xl font-bold mb-6 sm:mb-8 text-center font-poppins small-caps gradient-text">
               Unlock Your Potential
             </h3>
@@ -156,7 +156,7 @@ const Index = () => {
 
 const FeatureCard = ({ icon, title, description }) => {
   return (
-    <div className="bg-[#0FCEFD] text-white shadow-xl rounded-lg p-6">
+    <div className="bg-[#0FCEFD] bg-opacity-80 text-white shadow-xl rounded-lg p-6">
       <div className="flex flex-col items-center">
         <div className="bg-white rounded-full p-3 mb-4">
           {React.cloneElement(icon, { className: `${icon.props.className} text-[#E51010]` })}
