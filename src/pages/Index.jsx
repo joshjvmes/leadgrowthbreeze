@@ -6,6 +6,7 @@ import TypewriterEffect from '../components/TypewriterEffect';
 import { useInView } from 'react-intersection-observer';
 import MarketingCostsCalculator from '../components/MarketingCostsCalculator';
 import CaseStudiesSection from '../components/CaseStudiesSection';
+import ReviewsSection from '../components/ReviewsSection';
 
 const Index = () => {
   const [typingComplete, setTypingComplete] = useState(false);
@@ -85,6 +86,10 @@ const Index = () => {
 
         <FadeInSection>
           <CaseStudiesSection />
+        </FadeInSection>
+
+        <FadeInSection>
+          <ReviewsSection />
         </FadeInSection>
 
         <FadeInSection>
