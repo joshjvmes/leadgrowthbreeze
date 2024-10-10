@@ -7,18 +7,14 @@ const WizardHatPopup = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [showStars, setShowStars] = useState(false);
 
-  const handleHatClick = () => {
-    setShowStars(true);
-    setTimeout(() => setShowStars(false), 1000); // Reset after animation
-    setIsOpen(true);
-  };
-
   return (
     <Dialog open={isOpen} onOpenChange={setIsOpen}>
       <DialogTrigger asChild>
         <button 
           className="mx-auto block transition-transform hover:scale-110 relative"
-          onClick={handleHatClick}
+          onMouseEnter={() => setShowStars(true)}
+          onMouseLeave={() => setShowStars(false)}
+          onClick={() => setIsOpen(true)}
         >
           <img src="/wizard-hat.svg" alt="Wizard Hat" className="w-24 h-24 sm:w-32 sm:h-32" />
           {showStars && (

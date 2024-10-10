@@ -106,7 +106,7 @@
   height: 10px;
   background-color: yellow;
   clip-path: polygon(50% 0%, 61% 35%, 98% 35%, 68% 57%, 79% 91%, 50% 70%, 21% 91%, 32% 57%, 2% 35%, 39% 35%);
-  animation: shootStar 1s ease-out forwards;
+  animation: twinkle 1s ease-in-out infinite alternate;
 }
 
 .star-1 { top: 50%; left: 50%; }
@@ -115,19 +115,19 @@
 .star-4 { top: 20%; left: 50%; animation-delay: 0.3s; }
 .star-5 { top: 80%; left: 50%; animation-delay: 0.4s; }
 
-@keyframes shootStar {
+@keyframes twinkle {
   0% {
-    transform: scale(0) translate(0, 0);
-    opacity: 1;
+    transform: scale(0.5) translate(0, 0);
+    opacity: 0.5;
   }
   100% {
     transform: scale(1) translate(var(--tx), var(--ty));
-    opacity: 0;
+    opacity: 1;
   }
 }
 
-.star-1 { --tx: -50px; --ty: -50px; }
-.star-2 { --tx: 50px; --ty: -50px; }
-.star-3 { --tx: -50px; --ty: 50px; }
-.star-4 { --tx: 0px; --ty: -70px; }
-.star-5 { --tx: 0px; --ty: 70px; }
+.star-1 { --tx: -20px; --ty: -20px; }
+.star-2 { --tx: 20px; --ty: -20px; }
+.star-3 { --tx: -20px; --ty: 20px; }
+.star-4 { --tx: 0px; --ty: -30px; }
+.star-5 { --tx: 0px; --ty: 30px; }
