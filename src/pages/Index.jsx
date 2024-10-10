@@ -7,6 +7,7 @@ import { useInView } from 'react-intersection-observer';
 import MarketingCostsCalculator from '../components/MarketingCostsCalculator';
 import CaseStudiesSection from '../components/CaseStudiesSection';
 import ReviewsSection from '../components/ReviewsSection';
+import TimelineSection from '../components/TimelineSection';
 
 const Index = () => {
   const [typingComplete, setTypingComplete] = useState(false);
@@ -85,6 +86,10 @@ const Index = () => {
         </FadeInSection>
 
         <FadeInSection>
+          <TimelineSection />
+        </FadeInSection>
+
+        <FadeInSection>
           <CaseStudiesSection />
         </FadeInSection>
 
@@ -120,70 +125,6 @@ const Index = () => {
         <FadeInSection>
           <section className="py-16 sm:py-32 bg-gradient-to-b from-[#0FCEFD] to-[#0097FD] text-white rounded-lg shadow-2xl my-8 sm:my-16 backdrop-blur-md bg-opacity-90">
             <h3 className="text-2xl sm:text-3xl font-bold mb-6 sm:mb-8 text-center font-poppins">
-              Business Match-Making Service
-            </h3>
-            <p className="text-lg sm:text-xl mb-8 sm:mb-10 max-w-2xl mx-auto text-center px-4">
-              We connect your business with the perfect clients, creating lasting partnerships that drive mutual growth and success.
-            </p>
-            <div className="text-center">
-              <Button size="lg" className="bg-[#E51010] hover:bg-white hover:text-[#E51010] text-white shadow-lg transition-colors">
-                Find Your Perfect Match
-              </Button>
-            </div>
-          </section>
-        </FadeInSection>
-
-        <FadeInSection>
-          <section className="py-16 sm:py-32 bg-gradient-to-b from-white to-[#E6F7FF] text-[#0097FD] rounded-lg shadow-2xl my-8 sm:my-16 backdrop-blur-md bg-opacity-90">
-            <h3 className="text-2xl sm:text-3xl font-bold text-center mb-6 sm:mb-10 font-poppins px-4">
-              Their Problem + Your Solution
-            </h3>
-            <p className="text-lg sm:text-xl text-center mb-8 sm:mb-10 max-w-3xl mx-auto px-4">
-              We identify your potential clients' pain points and showcase how your unique solutions address them, creating a perfect match between need and offering.
-            </p>
-            <div className="flex justify-center">
-              <Button size="lg" className="bg-[#E51010] hover:bg-white hover:text-[#E51010] text-white shadow-lg transition-colors">
-                Solve Real Problems
-              </Button>
-            </div>
-          </section>
-        </FadeInSection>
-
-        <FadeInSection>
-          <section className="py-16 sm:py-32 bg-gradient-to-b from-[#0FCEFD] to-[#0097FD] text-white rounded-lg shadow-2xl my-8 sm:my-16 backdrop-blur-md bg-opacity-90">
-            <h3 className="text-2xl sm:text-3xl font-bold mb-6 sm:mb-8 text-center font-poppins px-4">
-              Customer (signaling) intent based outreach
-            </h3>
-            <p className="text-lg sm:text-xl mb-8 sm:mb-10 max-w-2xl mx-auto text-center px-4">
-              Our AI-driven approach detects and responds to customer signals, ensuring your outreach is always timely, relevant, and welcomed.
-            </p>
-            <div className="text-center">
-              <Button size="lg" className="bg-[#E51010] hover:bg-white hover:text-[#E51010] text-white shadow-lg transition-colors">
-                Leverage Intent Signals
-              </Button>
-            </div>
-          </section>
-        </FadeInSection>
-
-        <FadeInSection>
-          <section className="py-16 sm:py-32 bg-gradient-to-b from-white to-[#E6F7FF] text-[#0097FD] rounded-lg shadow-2xl my-8 sm:my-16 backdrop-blur-md bg-opacity-90">
-            <h3 className="text-2xl sm:text-3xl font-bold text-center mb-6 sm:mb-10 font-poppins px-4">
-              Pre-qualified conversations…not cold leads
-            </h3>
-            <p className="text-lg sm:text-xl text-center mb-8 sm:mb-10 max-w-3xl mx-auto px-4">
-              Say goodbye to cold calling. We deliver warm, pre-qualified leads ready for meaningful conversations that convert into lasting business relationships.
-            </p>
-            <div className="flex justify-center">
-              <Button size="lg" className="bg-[#E51010] hover:bg-white hover:text-[#E51010] text-white shadow-lg transition-colors">
-                Start Warm Conversations
-              </Button>
-            </div>
-          </section>
-        </FadeInSection>
-
-        <FadeInSection>
-          <section className="py-16 sm:py-32 bg-gradient-to-b from-[#0FCEFD] to-[#0097FD] text-white rounded-lg shadow-2xl my-8 sm:my-16 backdrop-blur-md bg-opacity-90">
-            <h3 className="text-2xl sm:text-3xl font-bold mb-6 sm:mb-8 text-center font-poppins px-4">
               Marketing Costs Calculator
             </h3>
             <div className="max-w-2xl mx-auto">
