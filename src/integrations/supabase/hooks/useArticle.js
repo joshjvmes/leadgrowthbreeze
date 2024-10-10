@@ -3,7 +3,10 @@ import { supabase } from '../supabase';
 
 const fromSupabase = async (query) => {
     const { data, error } = await query;
-    if (error) throw new Error(error.message);
+    if (error) {
+        console.error('Supabase error:', error);
+        throw error;
+    }
     return data;
 };
 
@@ -33,6 +36,7 @@ export const useArticle = (id) => useQuery({
 export const useArticles = () => useQuery({
     queryKey: ['articles'],
     queryFn: () => fromSupabase(supabase.from('Article').select('*')),
+    retry: false,
 });
 
 export const useAddArticle = () => {

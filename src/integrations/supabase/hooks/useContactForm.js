@@ -18,6 +18,7 @@ export const useContactForm = (id) => useQuery({
 export const useContactForms = () => useQuery({
     queryKey: ['contactForms'],
     queryFn: () => fromSupabase(supabase.from('contact_submissions').select('*')),
+    retry: false,
 });
 
 export const useAddContactForm = () => {
