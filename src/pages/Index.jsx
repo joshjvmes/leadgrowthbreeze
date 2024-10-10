@@ -70,7 +70,7 @@ const Index = () => {
           <section className="text-center py-16 sm:py-32 bg-gradient-to-b from-[#0FCEFD] to-[#0097FD] text-white rounded-lg my-8 sm:my-16 shadow-2xl backdrop-blur-md bg-opacity-90 relative overflow-hidden">
             <AnimatedBackground />
             <div className="relative z-10">
-              <h2 className="text-3xl sm:text-5xl font-extrabold mb-6 sm:mb-8 font-poppins">
+              <h2 className="text-3xl sm:text-5xl font-extrabold mb-6 sm:mb-8 font-poppins small-caps gradient-text">
                 Revenue Acceleration
               </h2>
               <Button 
@@ -104,7 +104,7 @@ const Index = () => {
 
         <FadeInSection>
           <section className="py-16 sm:py-32 bg-gradient-to-b from-white to-[#E6F7FF] text-[#0097FD] rounded-lg shadow-2xl my-8 sm:my-16 backdrop-blur-md bg-opacity-90 px-4 sm:px-[10%]">
-            <h3 className="text-2xl sm:text-3xl font-bold text-center mb-8 sm:mb-16 font-poppins">
+            <h3 className="text-2xl sm:text-3xl font-bold text-center mb-8 sm:mb-16 font-poppins small-caps gradient-text">
               Why CMOs Choose ROCKET NOW
             </h3>
             <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
@@ -129,7 +129,7 @@ const Index = () => {
 
         <FadeInSection>
           <section className="py-16 sm:py-32 bg-gradient-to-b from-[#0FCEFD] to-[#0097FD] text-white rounded-lg shadow-2xl my-8 sm:my-16 backdrop-blur-md bg-opacity-90">
-            <h3 className="text-2xl sm:text-3xl font-bold mb-6 sm:mb-8 text-center font-poppins">
+            <h3 className="text-2xl sm:text-3xl font-bold mb-6 sm:mb-8 text-center font-poppins small-caps gradient-text">
               Marketing Costs Calculator
             </h3>
             <div className="max-w-2xl mx-auto">
@@ -149,7 +149,7 @@ const FeatureCard = ({ icon, title, description }) => {
         <div className="bg-white rounded-full p-3 mb-4">
           {React.cloneElement(icon, { className: `${icon.props.className} text-[#E51010]` })}
         </div>
-        <h4 className="mt-4 text-lg sm:text-xl font-semibold font-poppins mb-2">{title}</h4>
+        <h4 className="mt-4 text-lg sm:text-xl font-semibold font-poppins mb-2 small-caps">{title}</h4>
       </div>
       <p className="text-center text-sm sm:text-base">{description}</p>
     </div>

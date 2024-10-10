@@ -26,7 +26,7 @@ const CaseStudiesSection = () => {
   return (
     <section className="py-16 sm:py-32 bg-gradient-to-b from-white to-[#E6F7FF] rounded-lg shadow-2xl my-8 sm:my-16 backdrop-blur-md bg-opacity-90">
       <div className="container mx-auto px-4">
-        <h2 className="text-3xl sm:text-4xl font-bold text-center mb-12 text-[#0097FD] font-poppins">
+        <h2 className="text-3xl sm:text-4xl font-bold text-center mb-12 text-[#0097FD] font-poppins small-caps gradient-text">
           Case Studies: Real Results, Real Growth
         </h2>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">

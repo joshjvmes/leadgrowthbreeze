@@ -99,3 +99,14 @@
     opacity: 0;
   }
 }
+
+.small-caps {
+  font-variant: small-caps;
+}
+
+.gradient-text {
+  background: linear-gradient(45deg, #0FCEFD, #0097FD);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
