@@ -8,7 +8,7 @@ import { useInView } from 'react-intersection-observer';
 
 const Index = () => {
   const [typingComplete, setTypingComplete] = useState(false);
-  const [ref, inView] = useInView({
+  const { ref, inView } = useInView({
     triggerOnce: true,
     threshold: 0.1,
   });
@@ -74,13 +74,11 @@ const Index = () => {
                 onComplete={() => setTypingComplete(true)} 
               />
             </div>
-            <div ref={ref} className={`transition-opacity duration-1000 ${inView ? 'opacity-100' : 'opacity-0'}`}>
-              {typingComplete && inView && (
-                <Button size="lg" className="bg-[#E51010] hover:bg-white hover:text-[#E51010] text-white shadow-lg transition-colors mt-4">
-                  Let's talk leads then
-                </Button>
-              )}
-            </div>
+            {typingComplete && (
+              <Button size="lg" className="bg-[#E51010] hover:bg-white hover:text-[#E51010] text-white shadow-lg transition-colors mt-4">
+                Let's talk leads then
+              </Button>
+            )}
           </section>
         </FadeInSection>
 
