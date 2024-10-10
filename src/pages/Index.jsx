@@ -8,6 +8,7 @@ import MarketingCostsCalculator from '../components/MarketingCostsCalculator';
 import CaseStudiesSection from '../components/CaseStudiesSection';
 import ReviewsSection from '../components/ReviewsSection';
 import TimelineSection from '../components/TimelineSection';
+import AnimatedBackground from '../components/AnimatedBackground';
 
 const Index = () => {
   const [typingComplete, setTypingComplete] = useState(false);
@@ -52,8 +53,9 @@ const Index = () => {
 
   return (
     <div className="min-h-screen bg-white">
-      <header className="bg-gradient-to-b from-[#0FCEFD] to-[#0097FD] text-white py-4">
-        <div className="container mx-auto px-4 flex justify-between items-center">
+      <header className="bg-gradient-to-b from-[#0FCEFD] to-[#0097FD] text-white py-4 relative">
+        <AnimatedBackground />
+        <div className="container mx-auto px-4 flex justify-between items-center relative z-10">
           <img src="/rocket-logo.png" alt="ROCKET NOW" className="h-8 w-auto sm:h-12" />
           <Button className="bg-[#E51010] hover:bg-white hover:text-[#E51010] text-white text-sm sm:text-base">
             Get Started
@@ -63,21 +65,24 @@ const Index = () => {
       
       <main className="container mx-auto px-4">
         <FadeInSection>
-          <section className="text-center py-16 sm:py-32 bg-gradient-to-b from-[#0FCEFD] to-[#0097FD] text-white rounded-lg my-8 sm:my-16 shadow-2xl backdrop-blur-md bg-opacity-90">
-            <h2 className="text-3xl sm:text-5xl font-extrabold mb-6 sm:mb-8 font-poppins">
-              Revenue Acceleration
-            </h2>
-            <div className="mb-6 sm:mb-8">
-              <TypewriterEffect 
-                messages={messages} 
-                onComplete={() => setTypingComplete(true)} 
-              />
+          <section className="text-center py-16 sm:py-32 bg-gradient-to-b from-[#0FCEFD] to-[#0097FD] text-white rounded-lg my-8 sm:my-16 shadow-2xl backdrop-blur-md bg-opacity-90 relative overflow-hidden">
+            <AnimatedBackground />
+            <div className="relative z-10">
+              <h2 className="text-3xl sm:text-5xl font-extrabold mb-6 sm:mb-8 font-poppins">
+                Revenue Acceleration
+              </h2>
+              <div className="mb-6 sm:mb-8">
+                <TypewriterEffect 
+                  messages={messages} 
+                  onComplete={() => setTypingComplete(true)} 
+                />
+              </div>
+              {typingComplete && (
+                <Button size="lg" className="bg-[#E51010] hover:bg-white hover:text-[#E51010] text-white shadow-lg transition-colors mt-4">
+                  Let's talk leads then
+                </Button>
+              )}
             </div>
-            {typingComplete && (
-              <Button size="lg" className="bg-[#E51010] hover:bg-white hover:text-[#E51010] text-white shadow-lg transition-colors mt-4">
-                Let's talk leads then
-              </Button>
-            )}
           </section>
         </FadeInSection>
 
