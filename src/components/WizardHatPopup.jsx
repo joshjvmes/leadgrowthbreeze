@@ -5,12 +5,31 @@ import { Link } from 'react-router-dom';
 
 const WizardHatPopup = () => {
   const [isOpen, setIsOpen] = useState(false);
+  const [showStars, setShowStars] = useState(false);
+
+  const handleHatClick = () => {
+    setShowStars(true);
+    setTimeout(() => setShowStars(false), 1000); // Reset after animation
+    setIsOpen(true);
+  };
 
   return (
     <Dialog open={isOpen} onOpenChange={setIsOpen}>
       <DialogTrigger asChild>
-        <button className="mx-auto block transition-transform hover:scale-110">
+        <button 
+          className="mx-auto block transition-transform hover:scale-110 relative"
+          onClick={handleHatClick}
+        >
           <img src="/wizard-hat.svg" alt="Wizard Hat" className="w-24 h-24 sm:w-32 sm:h-32" />
+          {showStars && (
+            <>
+              <div className="star-animation star-1"></div>
+              <div className="star-animation star-2"></div>
+              <div className="star-animation star-3"></div>
+              <div className="star-animation star-4"></div>
+              <div className="star-animation star-5"></div>
+            </>
+          )}
         </button>
       </DialogTrigger>
       <DialogContent className="w-[95vw] max-w-4xl max-h-[90vh] overflow-y-auto">
