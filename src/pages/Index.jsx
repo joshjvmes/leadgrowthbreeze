@@ -159,7 +159,9 @@ const FeatureCard = ({ icon, title, description }) => {
     <Card className="bg-[#0FCEFD] text-white shadow-xl">
       <CardHeader>
         <CardTitle className="flex flex-col items-center">
-          {icon}
+          <div className="bg-white rounded-full p-3 mb-4">
+            {React.cloneElement(icon, { className: `${icon.props.className} text-[#E51010]` })}
+          </div>
           <span className="mt-4 text-lg sm:text-xl font-semibold font-poppins">{title}</span>
         </CardTitle>
       </CardHeader>
