@@ -8,11 +8,11 @@ import TypewriterEffect from '../components/TypewriterEffect';
 const Index = () => {
   const [typingComplete, setTypingComplete] = useState(false);
   const messages = [
-    "Got Milk..?",
-    "You do huh..",
-    "Got Leads..?",
-    "No..? Ok. Let's Talk..",
-    "Click below to get started."
+    "Got Milk?",
+    "You do huh.",
+    "How about Leads?",
+    "No?",
+    "Ok, let's talk."
   ];
 
   const sliderItems = [
