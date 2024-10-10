@@ -2,28 +2,23 @@ import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { ArrowLeft } from 'lucide-react';
 import { Button } from "@/components/ui/button";
+import { useSupabaseAuth } from '../integrations/supabase';
+import AdminDashboard from '../components/AdminDashboard';
 
 const Admin = () => {
-  const [isLoggedIn, setIsLoggedIn] = useState(false);
-  const [username, setUsername] = useState('');
+  const { session, signIn, signOut } = useSupabaseAuth();
+  const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
-  const [messages, setMessages] = useState([]);
 
-  useEffect(() => {
-    if (isLoggedIn) {
-      const storedMessages = JSON.parse(localStorage.getItem('contactMessages') || '[]');
-      setMessages(storedMessages);
-    }
-  }, [isLoggedIn]);
-
-  const handleLogin = (e) => {
+  const handleLogin = async (e) => {
     e.preventDefault();
-    // In a real app, you'd validate against a backend here
-    if (username === 'admin' && password === 'password') {
-      setIsLoggedIn(true);
-    } else {
-      alert('Invalid credentials');
-    }
+    const { error } = await signIn({ email, password });
+    if (error) alert('Error logging in: ' + error.message);
+  };
+
+  const handleLogout = async () => {
+    const { error } = await signOut();
+    if (error) alert('Error logging out: ' + error.message);
   };
 
   return (
@@ -34,12 +29,12 @@ const Admin = () => {
           Go Back
         </Link>
         <h1 className="text-4xl sm:text-5xl font-extrabold mb-8 text-center font-poppins">Admin Panel</h1>
-        {!isLoggedIn ? (
+        {!session ? (
           <div className="max-w-md mx-auto bg-white rounded-lg shadow-xl p-8">
             <form onSubmit={handleLogin} className="space-y-6">
               <div>
-                <label htmlFor="username" className="block text-sm font-medium text-gray-700">Username</label>
-                <input type="text" id="username" value={username} onChange={(e) => setUsername(e.target.value)} className="mt-1 block w-full border-gray-300 rounded-md shadow-sm focus:ring-[#E51010] focus:border-[#E51010]" required />
+                <label htmlFor="email" className="block text-sm font-medium text-gray-700">Email</label>
+                <input type="email" id="email" value={email} onChange={(e) => setEmail(e.target.value)} className="mt-1 block w-full border-gray-300 rounded-md shadow-sm focus:ring-[#E51010] focus:border-[#E51010]" required />
               </div>
               <div>
                 <label htmlFor="password" className="block text-sm font-medium text-gray-700">Password</label>
@@ -52,21 +47,10 @@ const Admin = () => {
           </div>
         ) : (
           <div className="bg-white rounded-lg shadow-xl p-8 text-gray-800">
-            <h2 className="text-2xl font-bold mb-4">Contact Messages</h2>
-            {messages.length === 0 ? (
-              <p>No messages yet.</p>
-            ) : (
-              <ul className="space-y-4">
-                {messages.map((msg, index) => (
-                  <li key={index} className="border-b pb-2">
-                    <p><strong>Name:</strong> {msg.name}</p>
-                    <p><strong>Email:</strong> {msg.email}</p>
-                    <p><strong>Message:</strong> {msg.message}</p>
-                    <p><strong>Date:</strong> {new Date(msg.date).toLocaleString()}</p>
-                  </li>
-                ))}
-              </ul>
-            )}
+            <Button onClick={handleLogout} className="mb-4 bg-[#E51010] hover:bg-[#0097FD] text-white font-bold py-2 px-4 rounded transition-colors">
+              Logout
+            </Button>
+            <AdminDashboard />
           </div>
         )}
       </div>

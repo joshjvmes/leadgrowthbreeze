@@ -2,21 +2,27 @@ import React, { useState } from 'react';
 import { Button } from "@/components/ui/button";
 import { Link } from 'react-router-dom';
 import { ArrowLeft } from 'lucide-react';
+import { useAddContactForm } from '../integrations/supabase';
 
 const Contact = () => {
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
   const [message, setMessage] = useState('');
+  const addContactForm = useAddContactForm();
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    const submission = { name, email, message, date: new Date().toISOString() };
-    const existingMessages = JSON.parse(localStorage.getItem('contactMessages') || '[]');
-    localStorage.setItem('contactMessages', JSON.stringify([...existingMessages, submission]));
-    alert('Message sent successfully!');
-    setName('');
-    setEmail('');
-    setMessage('');
+    addContactForm.mutate({ name, email, message }, {
+      onSuccess: () => {
+        alert('Message sent successfully!');
+        setName('');
+        setEmail('');
+        setMessage('');
+      },
+      onError: (error) => {
+        alert('Error sending message: ' + error.message);
+      }
+    });
   };
 
   return (
