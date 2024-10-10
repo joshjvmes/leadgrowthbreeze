@@ -73,9 +73,9 @@ const Index = () => {
         </div>
       </header>
       
-      <main className="container mx-auto px-4 sm:px-6 relative z-10">
+      <main className="container mx-auto px-4 relative z-10">
         <FadeInSection>
-          <section className="text-center py-16 sm:py-32 bg-gradient-to-b from-[#0FCEFD] to-[#0097FD] text-white rounded-lg my-12 sm:my-24 shadow-2xl backdrop-blur-md bg-opacity-80 relative overflow-hidden">
+          <section className="text-center py-16 sm:py-32 bg-gradient-to-b from-[#0FCEFD] to-[#0097FD] text-white rounded-lg my-10 sm:my-20 shadow-2xl backdrop-blur-md bg-opacity-80 relative overflow-hidden">
             <AnimatedBackground />
             <div className="relative z-10">
               <h2 className="text-3xl sm:text-5xl font-extrabold mb-6 sm:mb-8 font-poppins small-caps gradient-text">
@@ -93,31 +93,31 @@ const Index = () => {
         </FadeInSection>
 
         <FadeInSection>
-          <div ref={nextSectionRef} className="my-12 sm:my-24">
+          <div ref={nextSectionRef} className="my-10 sm:my-20">
             <CandySlider items={sliderItems} setShowProspectingPopup={setShowProspectingPopup} />
           </div>
         </FadeInSection>
 
         <FadeInSection>
-          <div className="my-12 sm:my-24">
+          <div className="my-10 sm:my-20">
             <TimelineSection />
           </div>
         </FadeInSection>
 
         <FadeInSection>
-          <div className="my-12 sm:my-24">
+          <div className="my-10 sm:my-20">
             <CaseStudiesSection />
           </div>
         </FadeInSection>
 
         <FadeInSection>
-          <div className="my-12 sm:my-24">
+          <div className="my-10 sm:my-20">
             <ReviewsSection />
           </div>
         </FadeInSection>
 
         <FadeInSection>
-          <section className="py-16 sm:py-32 bg-gradient-to-b from-white to-[#E6F7FF] text-[#0097FD] rounded-lg shadow-2xl my-12 sm:my-24 backdrop-blur-md bg-opacity-80 px-4 sm:px-[10%]">
+          <section className="py-16 sm:py-32 bg-gradient-to-b from-white to-[#E6F7FF] text-[#0097FD] rounded-lg shadow-2xl my-10 sm:my-20 backdrop-blur-md bg-opacity-80 px-4 sm:px-[10%]">
             <h3 className="text-2xl sm:text-3xl font-bold text-center mb-8 sm:mb-16 font-poppins small-caps gradient-text">
               Why CMOs Choose ROCKET NOW
             </h3>
@@ -142,7 +142,7 @@ const Index = () => {
         </FadeInSection>
 
         <FadeInSection>
-          <section id="marketing-costs-calculator" className="py-16 sm:py-32 bg-gradient-to-b from-[#0FCEFD] to-[#0097FD] text-white rounded-lg shadow-2xl my-12 sm:my-24 backdrop-blur-md bg-opacity-80">
+          <section id="marketing-costs-calculator" className="py-16 sm:py-32 bg-gradient-to-b from-[#0FCEFD] to-[#0097FD] text-white rounded-lg shadow-2xl my-10 sm:my-20 backdrop-blur-md bg-opacity-80">
             <h3 className="text-2xl sm:text-3xl font-bold mb-6 sm:mb-8 text-center font-poppins small-caps gradient-text">
               Marketing Costs Calculator
             </h3>
@@ -153,7 +153,7 @@ const Index = () => {
         </FadeInSection>
 
         <FadeInSection>
-          <section className="py-16 sm:py-32 bg-white rounded-lg shadow-2xl my-12 sm:my-24 backdrop-blur-md bg-opacity-80">
+          <section className="py-16 sm:py-32 bg-white rounded-lg shadow-2xl my-10 sm:my-20 backdrop-blur-md bg-opacity-80">
             <h3 className="text-2xl sm:text-3xl font-bold mb-6 sm:mb-8 text-center font-poppins small-caps gradient-text">
               Unlock Your Potential
             </h3>
