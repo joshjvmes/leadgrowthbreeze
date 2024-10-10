@@ -1,17 +1,13 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import { Button } from "@/components/ui/button";
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { RocketIcon, TargetIcon, TrendingUpIcon } from 'lucide-react';
 import CandySlider from '../components/CandySlider';
 import TypewriterEffect from '../components/TypewriterEffect';
 import { useInView } from 'react-intersection-observer';
+import MarketingCostsCalculator from '../components/MarketingCostsCalculator';
 
 const Index = () => {
   const [typingComplete, setTypingComplete] = useState(false);
-  const { ref, inView } = useInView({
-    triggerOnce: true,
-    threshold: 0.1,
-  });
 
   const messages = [
     "Got Milk? You do huh..",
@@ -39,7 +35,7 @@ const Index = () => {
   ];
 
   const FadeInSection = ({ children }) => {
-    const [ref, inView] = useInView({
+    const { ref, inView } = useInView({
       triggerOnce: true,
       threshold: 0.1,
     });
@@ -174,6 +170,17 @@ const Index = () => {
             </div>
           </section>
         </FadeInSection>
+
+        <FadeInSection>
+          <section className="py-16 sm:py-32 bg-gradient-to-b from-[#0FCEFD] to-[#0097FD] text-white rounded-lg shadow-2xl my-8 sm:my-16 backdrop-blur-md bg-opacity-90">
+            <h3 className="text-2xl sm:text-3xl font-bold mb-6 sm:mb-8 text-center font-poppins px-4">
+              Marketing Costs Calculator
+            </h3>
+            <div className="max-w-2xl mx-auto">
+              <MarketingCostsCalculator />
+            </div>
+          </section>
+        </FadeInSection>
       </main>
 
       <footer className="bg-[#0097FD] text-white py-8 sm:py-16">
@@ -188,19 +195,15 @@ const Index = () => {
 
 const FeatureCard = ({ icon, title, description }) => {
   return (
-    <Card className="bg-[#0FCEFD] text-white shadow-xl">
-      <CardHeader>
-        <CardTitle className="flex flex-col items-center">
-          <div className="bg-white rounded-full p-3 mb-4">
-            {React.cloneElement(icon, { className: `${icon.props.className} text-[#E51010]` })}
-          </div>
-          <span className="mt-4 text-lg sm:text-xl font-semibold font-poppins">{title}</span>
-        </CardTitle>
-      </CardHeader>
-      <CardContent>
-        <p className="text-center text-sm sm:text-base">{description}</p>
-      </CardContent>
-    </Card>
+    <div className="bg-[#0FCEFD] text-white shadow-xl rounded-lg p-6">
+      <div className="flex flex-col items-center">
+        <div className="bg-white rounded-full p-3 mb-4">
+          {React.cloneElement(icon, { className: `${icon.props.className} text-[#E51010]` })}
+        </div>
+        <h4 className="mt-4 text-lg sm:text-xl font-semibold font-poppins mb-2">{title}</h4>
+      </div>
+      <p className="text-center text-sm sm:text-base">{description}</p>
+    </div>
   );
 };
 
