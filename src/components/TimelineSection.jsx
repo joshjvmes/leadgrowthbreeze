@@ -61,8 +61,8 @@ const TimelineSection = () => {
   ];
 
   return (
-    <section className="py-16 sm:py-32 bg-gradient-to-b from-white to-[#E6F7FF] rounded-lg shadow-2xl">
-      <div className="container mx-auto px-6 sm:px-4">
+    <section className="py-16 sm:py-32 bg-gradient-to-b from-white to-[#E6F7FF] rounded-lg shadow-2xl my-8 sm:my-16">
+      <div className="container mx-auto px-4">
         <h2 className="text-3xl sm:text-4xl font-bold text-center mb-12 text-[#0097FD] font-poppins">
           Our Proven Growth Timeline
         </h2>

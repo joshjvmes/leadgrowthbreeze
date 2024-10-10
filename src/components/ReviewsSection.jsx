@@ -1,25 +1,18 @@
 import React from 'react';
 import { Star } from 'lucide-react';
 
-const ReviewCard = ({ name, company, review }) => (
-  <div className="bg-white p-6 rounded-lg shadow-md">
-    <div className="flex items-center mb-4">
-      <div className="flex-shrink-0 mr-3">
-        <div className="w-10 h-10 rounded-full bg-[#0097FD] flex items-center justify-center text-white font-bold">
-          {name.charAt(0)}
-        </div>
-      </div>
-      <div>
-        <h4 className="font-bold">{name}</h4>
-        <p className="text-sm text-gray-600">{company}</p>
-      </div>
-    </div>
-    <div className="flex mb-2">
-      {[...Array(5)].map((_, i) => (
-        <Star key={i} className="w-5 h-5 text-yellow-400 fill-current" />
+const Review = ({ name, company, content, rating }) => (
+  <div className="bg-white rounded-lg shadow-xl p-6 flex flex-col space-y-4">
+    <div className="flex items-center space-x-2">
+      {[...Array(rating)].map((_, i) => (
+        <Star key={i} className="text-yellow-400 fill-current" size={20} />
       ))}
     </div>
-    <p className="text-gray-700">{review}</p>
+    <p className="text-gray-700 italic">"{content}"</p>
+    <div className="text-right">
+      <p className="font-bold text-[#0097FD]">{name}</p>
+      <p className="text-sm text-gray-600">{company}</p>
+    </div>
   </div>
 );
 
@@ -46,14 +39,14 @@ const ReviewsSection = () => {
   ];
 
   return (
-    <section className="py-16 sm:py-32 bg-gradient-to-b from-[#0FCEFD] to-[#0097FD] rounded-lg shadow-2xl">
-      <div className="container mx-auto px-6 sm:px-4">
-        <h2 className="text-3xl sm:text-4xl font-bold text-center mb-12 text-white font-poppins">
+    <section className="py-16 sm:py-32 bg-gradient-to-b from-[#0FCEFD] to-[#0097FD] text-white rounded-lg shadow-2xl my-8 sm:my-16 backdrop-blur-md bg-opacity-90">
+      <div className="container mx-auto px-4">
+        <h2 className="text-3xl sm:text-4xl font-bold text-center mb-12 font-poppins">
           What Our Clients Say
         </h2>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {reviews.map((review, index) => (
-            <ReviewCard key={index} {...review} />
+            <Review key={index} {...review} />
           ))}
         </div>
       </div>
