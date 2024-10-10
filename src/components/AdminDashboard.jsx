@@ -3,8 +3,8 @@ import { useArticles, useAddArticle, useUpdateArticle, useDeleteArticle, useCont
 
 const AdminDashboard = () => {
   const [selectedArticle, setSelectedArticle] = useState(null);
-  const { data: articles } = useArticles();
-  const { data: contactForms } = useContactForms();
+  const { data: articles, isLoading: articlesLoading, error: articlesError } = useArticles();
+  const { data: contactForms, isLoading: contactFormsLoading, error: contactFormsError } = useContactForms();
   const addArticle = useAddArticle();
   const updateArticle = useUpdateArticle();
   const deleteArticle = useDeleteArticle();
@@ -34,6 +34,10 @@ const AdminDashboard = () => {
       deleteArticle.mutate(id);
     }
   };
+
+  if (articlesLoading || contactFormsLoading) return <div>Loading...</div>;
+  if (articlesError) return <div>Error loading articles: {articlesError.message}</div>;
+  if (contactFormsError) return <div>Error loading contact forms: {contactFormsError.message}</div>;
 
   return (
     <div className="container mx-auto p-4">

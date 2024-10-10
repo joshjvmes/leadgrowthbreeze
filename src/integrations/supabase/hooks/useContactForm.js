@@ -3,25 +3,12 @@ import { supabase } from '../supabase';
 
 const fromSupabase = async (query) => {
     const { data, error } = await query;
-    if (error) throw new Error(error.message);
+    if (error) {
+        console.error('Supabase error:', error);
+        throw new Error(error.message);
+    }
     return data;
 };
-
-/*
-### ContactForm
-
-| name       | type     | format    | required |
-|------------|----------|-----------|----------|
-| id         | integer  | bigint    | true     |
-| name       | string   | text      | true     |
-| email      | string   | text      | true     |
-| message    | string   | text      | true     |
-| created_at | string   | timestamp | true     |
-
-Note: 
-- 'id' is the Primary Key.
-- 'created_at' has a default value of now().
-*/
 
 export const useContactForm = (id) => useQuery({
     queryKey: ['contactForm', id],

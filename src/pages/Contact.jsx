@@ -10,19 +10,17 @@ const Contact = () => {
   const [message, setMessage] = useState('');
   const addContactForm = useAddContactForm();
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    addContactForm.mutate({ name, email, message }, {
-      onSuccess: () => {
-        alert('Message sent successfully!');
-        setName('');
-        setEmail('');
-        setMessage('');
-      },
-      onError: (error) => {
-        alert('Error sending message: ' + error.message);
-      }
-    });
+    try {
+      await addContactForm.mutateAsync({ name, email, message });
+      alert('Message sent successfully!');
+      setName('');
+      setEmail('');
+      setMessage('');
+    } catch (error) {
+      alert('Error sending message: ' + error.message);
+    }
   };
 
   return (
