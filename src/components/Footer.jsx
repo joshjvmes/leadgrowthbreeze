@@ -5,17 +5,17 @@ const Footer = () => {
   return (
     <footer className="bg-[#0097FD] text-white py-8">
       <div className="container mx-auto px-4">
-        <div className="flex flex-col md:flex-row justify-between items-center">
-          <p>&copy; 2023 ROCKET NOW. All rights reserved.</p>
-          <nav className="mt-4 md:mt-0">
-            <ul className="flex space-x-4">
-              <li><Link to="/" className="hover:text-[#E51010]">Home</Link></li>
-              <li><Link to="/contact" className="hover:text-[#E51010]">Contact</Link></li>
-              <li><Link to="/admin" className="hover:text-[#E51010]">Admin</Link></li>
-            </ul>
-          </nav>
+        <nav className="mb-4">
+          <ul className="flex justify-center space-x-4">
+            <li><Link to="/" className="hover:text-[#E51010]">Home</Link></li>
+            <li><Link to="/contact" className="hover:text-[#E51010]">Contact</Link></li>
+            <li><Link to="/admin" className="hover:text-[#E51010]">Admin</Link></li>
+          </ul>
+        </nav>
+        <div className="text-center">
+          <p>&copy; 2014-2024 ROCKET NOW. All rights reserved.</p>
+          <p className="mt-2">The best marketing agency near you, period.</p>
         </div>
-        <p className="mt-4 text-center">The best marketing agency near you, period.</p>
       </div>
     </footer>
   );
