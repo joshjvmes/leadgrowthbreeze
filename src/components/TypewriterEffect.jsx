@@ -37,7 +37,7 @@ const TypewriterEffect = ({ messages, onComplete }) => {
   }, [currentMessageIndex, currentText, isTyping, messages, onComplete]);
 
   return (
-    <p className={`text-xl mb-10 max-w-2xl mx-auto ${isFlashing ? 'animate-pulse' : ''}`}>
+    <p className={`text-lg sm:text-xl mb-6 sm:mb-10 max-w-2xl mx-auto ${isFlashing ? 'animate-pulse' : ''}`}>
       {currentText}
     </p>
   );
