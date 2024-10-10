@@ -1,4 +1,4 @@
-import React, { useRef, useState } from 'react';
+import React, { useRef, useState, useEffect } from 'react';
 import { Button } from "@/components/ui/button";
 import { RocketIcon, TargetIcon, TrendingUpIcon } from 'lucide-react';
 import CandySlider from '../components/CandySlider';
@@ -12,10 +12,21 @@ import WizardHatPopup from '../components/WizardHatPopup';
 import WizardSceneBackground from '../components/WizardSceneBackground';
 import { Link } from 'react-router-dom';
 import ProspectingPopup from '../components/ProspectingPopup';
+import { motion } from 'framer-motion';
 
 const Index = () => {
   const nextSectionRef = useRef(null);
   const [showProspectingPopup, setShowProspectingPopup] = useState(false);
+  const [scrollY, setScrollY] = useState(0);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      setScrollY(window.scrollY);
+    };
+
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
 
   const sliderItems = [
     {
@@ -45,9 +56,14 @@ const Index = () => {
     });
 
     return (
-      <div ref={ref} className={`transition-opacity duration-1000 ${inView ? 'opacity-100' : 'opacity-0'}`}>
+      <motion.div
+        ref={ref}
+        initial={{ opacity: 0, y: 50 }}
+        animate={inView ? { opacity: 1, y: 0 } : { opacity: 0, y: 50 }}
+        transition={{ duration: 0.8 }}
+      >
         {children}
-      </div>
+      </motion.div>
     );
   };
 
@@ -62,32 +78,54 @@ const Index = () => {
   return (
     <div className="min-h-screen relative">
       <WizardSceneBackground />
-      <header className="bg-gradient-to-b from-[#0FCEFD] to-[#0097FD] text-white py-4 relative z-10">
+      <header className="bg-gradient-to-b from-[#0FCEFD] to-[#0097FD] text-white py-4 fixed w-full z-50 transition-all duration-300" style={{ backgroundColor: `rgba(15, 206, 253, ${Math.min(scrollY / 500, 0.9)})` }}>
         <div className="container mx-auto px-4 flex justify-between items-center">
-          <img src="/rocket-logo.png" alt="ROCKET NOW" className="h-8 w-auto sm:h-12" />
+          <motion.img 
+            src="/rocket-logo.png" 
+            alt="ROCKET NOW" 
+            className="h-8 w-auto sm:h-12"
+            initial={{ opacity: 0, x: -50 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.5 }}
+          />
           <Link to="/contact">
-            <Button className="bg-[#E51010] hover:bg-white hover:text-[#E51010] text-white text-sm sm:text-base">
-              Get Started
-            </Button>
+            <motion.div
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
+            >
+              <Button className="bg-[#E51010] hover:bg-white hover:text-[#E51010] text-white text-sm sm:text-base transition-all duration-300">
+                Get Started
+              </Button>
+            </motion.div>
           </Link>
         </div>
       </header>
       
-      <main className="container mx-auto px-4 relative z-10">
+      <main className="container mx-auto px-4 relative z-10 pt-20">
         <FadeInSection>
           <section className="text-center py-16 sm:py-32 bg-gradient-to-b from-[#0FCEFD] to-[#0097FD] text-white rounded-lg my-10 sm:my-20 shadow-2xl backdrop-blur-md bg-opacity-80 relative overflow-hidden">
             <AnimatedBackground />
             <div className="relative z-10">
-              <h2 className="text-3xl sm:text-5xl font-extrabold mb-6 sm:mb-8 font-poppins small-caps gradient-text">
-                Revenue Acceleration
-              </h2>
-              <Button 
-                size="lg" 
-                className="bg-[#E51010] hover:bg-white hover:text-[#E51010] text-white shadow-lg transition-colors mt-4"
-                onClick={handleScrollToNext}
+              <motion.h2 
+                className="text-3xl sm:text-5xl font-extrabold mb-6 sm:mb-8 font-poppins small-caps gradient-text"
+                initial={{ opacity: 0, y: -50 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.8, delay: 0.2 }}
               >
-                Got Milk..?
-              </Button>
+                Revenue Acceleration
+              </motion.h2>
+              <motion.div
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.95 }}
+              >
+                <Button 
+                  size="lg" 
+                  className="bg-[#E51010] hover:bg-white hover:text-[#E51010] text-white shadow-lg transition-colors mt-4"
+                  onClick={handleScrollToNext}
+                >
+                  Got Milk..?
+                </Button>
+              </motion.div>
             </div>
           </section>
         </FadeInSection>
@@ -168,7 +206,11 @@ const Index = () => {
 
 const FeatureCard = ({ icon, title, description }) => {
   return (
-    <div className="bg-[#0FCEFD] bg-opacity-80 text-white shadow-xl rounded-lg p-6">
+    <motion.div 
+      className="bg-[#0FCEFD] bg-opacity-80 text-white shadow-xl rounded-lg p-6"
+      whileHover={{ scale: 1.05 }}
+      transition={{ type: "spring", stiffness: 300 }}
+    >
       <div className="flex flex-col items-center">
         <div className="bg-white rounded-full p-3 mb-4">
           {React.cloneElement(icon, { className: `${icon.props.className} text-[#E51010]` })}
@@ -176,7 +218,7 @@ const FeatureCard = ({ icon, title, description }) => {
         <h4 className="mt-4 text-lg sm:text-xl font-semibold font-poppins mb-2 small-caps">{title}</h4>
       </div>
       <p className="text-center text-sm sm:text-base">{description}</p>
-    </div>
+    </motion.div>
   );
 };
 
