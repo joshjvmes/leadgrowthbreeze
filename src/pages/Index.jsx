@@ -1,8 +1,7 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { Button } from "@/components/ui/button";
 import { RocketIcon, TargetIcon, TrendingUpIcon } from 'lucide-react';
 import CandySlider from '../components/CandySlider';
-import TypewriterEffect from '../components/TypewriterEffect';
 import { useInView } from 'react-intersection-observer';
 import MarketingCostsCalculator from '../components/MarketingCostsCalculator';
 import CaseStudiesSection from '../components/CaseStudiesSection';
@@ -11,15 +10,6 @@ import TimelineSection from '../components/TimelineSection';
 import AnimatedBackground from '../components/AnimatedBackground';
 
 const Index = () => {
-  const [typingComplete, setTypingComplete] = useState(false);
-
-  const messages = [
-    "Got Milk? You do huh..",
-    "How about Leads..?",
-    "No..?",
-    "Ok, let's talk."
-  ];
-
   const sliderItems = [
     {
       title: "Your Bridge Between Customization and Scale",
@@ -70,17 +60,9 @@ const Index = () => {
               <h2 className="text-3xl sm:text-5xl font-extrabold mb-6 sm:mb-8 font-poppins">
                 Revenue Acceleration
               </h2>
-              <div className="mb-6 sm:mb-8">
-                <TypewriterEffect 
-                  messages={messages} 
-                  onComplete={() => setTypingComplete(true)} 
-                />
-              </div>
-              {typingComplete && (
-                <Button size="lg" className="bg-[#E51010] hover:bg-white hover:text-[#E51010] text-white shadow-lg transition-colors mt-4">
-                  Let's talk leads then
-                </Button>
-              )}
+              <Button size="lg" className="bg-[#E51010] hover:bg-white hover:text-[#E51010] text-white shadow-lg transition-colors mt-4">
+                Let's talk leads
+              </Button>
             </div>
           </section>
         </FadeInSection>
