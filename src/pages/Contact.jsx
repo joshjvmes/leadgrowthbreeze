@@ -1,10 +1,16 @@
 import React from 'react';
 import { Button } from "@/components/ui/button";
+import { Link } from 'react-router-dom';
+import { ArrowLeft } from 'lucide-react';
 
 const Contact = () => {
   return (
     <div className="min-h-screen bg-gradient-to-b from-[#0FCEFD] to-[#0097FD] text-white py-16">
       <div className="container mx-auto px-4">
+        <Link to="/" className="inline-flex items-center text-white hover:text-[#E51010] mb-8 transition-colors">
+          <ArrowLeft className="mr-2 h-4 w-4" />
+          Go Back
+        </Link>
         <h1 className="text-4xl sm:text-5xl font-extrabold mb-8 text-center font-poppins">Contact Us</h1>
         <div className="max-w-md mx-auto bg-white rounded-lg shadow-xl p-8">
           <form className="space-y-6">
