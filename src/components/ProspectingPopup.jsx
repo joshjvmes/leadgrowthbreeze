@@ -6,12 +6,20 @@ import {
   DialogTitle,
   DialogDescription,
 } from "@/components/ui/dialog";
+import { X } from 'lucide-react';
 
 const ProspectingPopup = ({ open, onOpenChange }) => {
   return (
     <Dialog open={open} onOpenChange={onOpenChange}>
-      <DialogContent className="sm:max-w-[425px]">
-        <DialogHeader>
+      <DialogContent className="sm:max-w-[425px] max-h-[90vh] overflow-y-auto">
+        <DialogHeader className="relative">
+          <button
+            onClick={() => onOpenChange(false)}
+            className="absolute right-2 top-2 p-2 rounded-full hover:bg-gray-100 transition-colors"
+            aria-label="Close"
+          >
+            <X className="h-4 w-4" />
+          </button>
           <DialogTitle>The New Era of Prospecting</DialogTitle>
           <DialogDescription>
             Discover why traditional prospecting is dead and how ROCKET NOW is revolutionizing customer acquisition.
