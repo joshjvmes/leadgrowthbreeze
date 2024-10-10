@@ -8,7 +8,7 @@ const AnimatedBackground = () => {
     const minDuration = 5;
     const maxDuration = 15;
     const gridSize = 4; // 4x4 grid
-    const colors = ['#0FCEFD', '#0097FD', '#E51010', '#FFFFFF']; // Added multiple colors
+    const colors = ['#E51010', '#B30000', '#FFFFFF', '#FFE6E6']; // Updated colors
 
     const positions = [];
     for (let i = 0; i < gridSize; i++) {
@@ -25,13 +25,13 @@ const AnimatedBackground = () => {
       size: Math.random() * (maxSize - minSize) + minSize,
       duration: Math.random() * (maxDuration - minDuration) + minDuration,
       delay: Math.random() * 5,
-      color: colors[Math.floor(Math.random() * colors.length)], // Randomly select a color
+      color: colors[Math.floor(Math.random() * colors.length)],
     }));
   }, []);
 
   return (
     <div className="absolute inset-0 overflow-hidden">
-      <div className="absolute inset-0 bg-gradient-to-br from-[#0FCEFD] to-[#0097FD] opacity-50"></div>
+      <div className="absolute inset-0 bg-gradient-to-br from-[#E51010] to-[#B30000] opacity-50"></div>
       {bubbles.map((bubble, i) => (
         <div
           key={i}
