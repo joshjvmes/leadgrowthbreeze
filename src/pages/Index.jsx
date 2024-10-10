@@ -1,4 +1,4 @@
-import React, { useRef } from 'react';
+import React, { useRef, useState } from 'react';
 import { Button } from "@/components/ui/button";
 import { RocketIcon, TargetIcon, TrendingUpIcon } from 'lucide-react';
 import CandySlider from '../components/CandySlider';
@@ -11,25 +11,30 @@ import AnimatedBackground from '../components/AnimatedBackground';
 import WizardHatPopup from '../components/WizardHatPopup';
 import WizardSceneBackground from '../components/WizardSceneBackground';
 import { Link } from 'react-router-dom';
+import ProspectingPopup from '../components/ProspectingPopup';
 
 const Index = () => {
   const nextSectionRef = useRef(null);
+  const [showProspectingPopup, setShowProspectingPopup] = useState(false);
 
   const sliderItems = [
     {
       title: "Your Bridge Between Customization and Scale",
       description: "We're not just another agency – at ROCKET NOW, we offer the highest level of service available in the industry. Our relentless dedication to your growth sets us apart.",
-      buttonText: "Accelerate Your Growth"
+      buttonText: "Accelerate Your Growth",
+      action: 'accelerate'
     },
     {
       title: "Marketing Strategies Underperforming?",
       description: "Your marketing deserves a breakthrough, not just an average return. ROCKET NOW brings cutting-edge digital strategies that translate directly into business growth.",
-      buttonText: "Get Your Breakthrough"
+      buttonText: "Get Your Breakthrough",
+      action: 'breakthrough'
     },
     {
       title: "Need ROI? Book Out Your Sales Team?",
       description: "With our multi-channel attribution and customer-first approach, ROCKET NOW ensures you get the best return on every marketing dollar—empowering you to hit your KPIs faster than ever.",
-      buttonText: "Maximize Your ROI"
+      buttonText: "Maximize Your ROI",
+      action: 'maximize'
     }
   ];
 
@@ -89,7 +94,7 @@ const Index = () => {
 
         <FadeInSection>
           <div ref={nextSectionRef} className="my-10 sm:my-20">
-            <CandySlider items={sliderItems} />
+            <CandySlider items={sliderItems} setShowProspectingPopup={setShowProspectingPopup} />
           </div>
         </FadeInSection>
 
@@ -137,7 +142,7 @@ const Index = () => {
         </FadeInSection>
 
         <FadeInSection>
-          <section className="py-16 sm:py-32 bg-gradient-to-b from-[#0FCEFD] to-[#0097FD] text-white rounded-lg shadow-2xl my-10 sm:my-20 backdrop-blur-md bg-opacity-80">
+          <section id="marketing-costs-calculator" className="py-16 sm:py-32 bg-gradient-to-b from-[#0FCEFD] to-[#0097FD] text-white rounded-lg shadow-2xl my-10 sm:my-20 backdrop-blur-md bg-opacity-80">
             <h3 className="text-2xl sm:text-3xl font-bold mb-6 sm:mb-8 text-center font-poppins small-caps gradient-text">
               Marketing Costs Calculator
             </h3>
@@ -156,6 +161,7 @@ const Index = () => {
           </section>
         </FadeInSection>
       </main>
+      <ProspectingPopup open={showProspectingPopup} onOpenChange={setShowProspectingPopup} />
     </div>
   );
 };
