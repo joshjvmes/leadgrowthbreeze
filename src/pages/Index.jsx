@@ -8,6 +8,7 @@ import CaseStudiesSection from '../components/CaseStudiesSection';
 import ReviewsSection from '../components/ReviewsSection';
 import TimelineSection from '../components/TimelineSection';
 import AnimatedBackground from '../components/AnimatedBackground';
+import { Link } from 'react-router-dom';
 
 const Index = () => {
   const nextSectionRef = useRef(null);
@@ -56,9 +57,11 @@ const Index = () => {
       <header className="bg-gradient-to-b from-[#0FCEFD] to-[#0097FD] text-white py-4 relative">
         <div className="container mx-auto px-4 flex justify-between items-center relative z-10">
           <img src="/rocket-logo.png" alt="ROCKET NOW" className="h-8 w-auto sm:h-12" />
-          <Button className="bg-[#E51010] hover:bg-white hover:text-[#E51010] text-white text-sm sm:text-base">
-            Get Started
-          </Button>
+          <Link to="/contact">
+            <Button className="bg-[#E51010] hover:bg-white hover:text-[#E51010] text-white text-sm sm:text-base">
+              Get Started
+            </Button>
+          </Link>
         </div>
       </header>
       
