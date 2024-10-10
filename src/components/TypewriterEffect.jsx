@@ -4,7 +4,7 @@ const TypewriterEffect = ({ messages, onComplete }) => {
   const [currentMessageIndex, setCurrentMessageIndex] = useState(0);
   const [currentText, setCurrentText] = useState('');
   const [isTyping, setIsTyping] = useState(true);
-  const [isUntyping, setIsUntyping] = useState(false);
+  const [isFlashing, setIsFlashing] = useState(false);
 
   useEffect(() => {
     if (currentMessageIndex >= messages.length) {
@@ -22,30 +22,20 @@ const TypewriterEffect = ({ messages, onComplete }) => {
         return () => clearTimeout(timeout);
       } else {
         setIsTyping(false);
+        setIsFlashing(true);
         const timeout = setTimeout(() => {
-          setIsUntyping(true);
-        }, 2000); // Display duration: 2 seconds
-        return () => clearTimeout(timeout);
-      }
-    } else if (isUntyping) {
-      if (currentText.length > 0) {
-        const timeout = setTimeout(() => {
-          setCurrentText(currentText.slice(0, -1));
-        }, 30);
-        return () => clearTimeout(timeout);
-      } else {
-        setIsUntyping(false);
-        const timeout = setTimeout(() => {
-          setCurrentMessageIndex(prevIndex => prevIndex + 1);
+          setIsFlashing(false);
           setIsTyping(true);
-        }, 500);
+          setCurrentMessageIndex(prevIndex => prevIndex + 1);
+          setCurrentText('');
+        }, 1000);
         return () => clearTimeout(timeout);
       }
     }
-  }, [currentMessageIndex, currentText, isTyping, isUntyping, messages, onComplete]);
+  }, [currentMessageIndex, currentText, isTyping, messages, onComplete]);
 
   return (
-    <p className="text-xl mb-10 max-w-2xl mx-auto relative z-10">
+    <p className={`text-xl mb-10 max-w-2xl mx-auto ${isFlashing ? 'animate-pulse' : ''}`}>
       {currentText}
     </p>
   );
