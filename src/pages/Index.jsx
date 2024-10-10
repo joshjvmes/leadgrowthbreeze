@@ -55,7 +55,7 @@ const Index = () => {
   };
 
   return (
-    <div className="min-h-screen bg-white relative">
+    <div className="min-h-screen relative">
       <WizardSceneBackground />
       <header className="bg-gradient-to-b from-[#0FCEFD] to-[#0097FD] text-white py-4 relative">
         <div className="container mx-auto px-4 flex justify-between items-center relative z-10">
