@@ -21,7 +21,8 @@ const Index = () => {
     {
       title: "Your Bridge Between Customization and Scale",
       description: "We're not just another agency – at ROCKET NOW, we offer the highest level of service available in the industry. Our relentless dedication to your growth sets us apart.",
-      buttonText: "Accelerate Your Growth"
+      buttonText: "Accelerate Your Growth",
+      onButtonClick: () => setShowProspectingPopup(true)
     },
     {
       title: "Marketing Strategies Underperforming?",
@@ -81,9 +82,9 @@ const Index = () => {
               <Button 
                 size="lg" 
                 className="bg-[#E51010] hover:bg-white hover:text-[#E51010] text-white shadow-lg transition-colors mt-4"
-                onClick={() => setShowProspectingPopup(true)}
+                onClick={handleScrollToNext}
               >
-                Accelerate Your Growth
+                Got Milk..?
               </Button>
             </div>
           </section>
