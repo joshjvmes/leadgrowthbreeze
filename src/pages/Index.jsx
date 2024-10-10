@@ -54,7 +54,6 @@ const Index = () => {
   return (
     <div className="min-h-screen bg-white">
       <header className="bg-gradient-to-b from-[#0FCEFD] to-[#0097FD] text-white py-4 relative">
-        <AnimatedBackground />
         <div className="container mx-auto px-4 flex justify-between items-center relative z-10">
           <img src="/rocket-logo.png" alt="ROCKET NOW" className="h-8 w-auto sm:h-12" />
           <Button className="bg-[#E51010] hover:bg-white hover:text-[#E51010] text-white text-sm sm:text-base">

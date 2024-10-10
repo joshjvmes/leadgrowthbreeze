@@ -8,6 +8,7 @@ const AnimatedBackground = () => {
     const minDuration = 5;
     const maxDuration = 15;
     const gridSize = 4; // 4x4 grid
+    const colors = ['#0FCEFD', '#0097FD', '#E51010', '#FFFFFF']; // Added multiple colors
 
     const positions = [];
     for (let i = 0; i < gridSize; i++) {
@@ -24,6 +25,7 @@ const AnimatedBackground = () => {
       size: Math.random() * (maxSize - minSize) + minSize,
       duration: Math.random() * (maxDuration - minDuration) + minDuration,
       delay: Math.random() * 5,
+      color: colors[Math.floor(Math.random() * colors.length)], // Randomly select a color
     }));
   }, []);
 
@@ -33,12 +35,14 @@ const AnimatedBackground = () => {
       {bubbles.map((bubble, i) => (
         <div
           key={i}
-          className="absolute rounded-full bg-white opacity-10 animate-float"
+          className="absolute rounded-full animate-float"
           style={{
             width: `${bubble.size}px`,
             height: `${bubble.size}px`,
             left: bubble.left,
             top: bubble.top,
+            backgroundColor: bubble.color,
+            opacity: 0.3,
             animationDuration: `${bubble.duration}s`,
             animationDelay: `${bubble.delay}s`,
           }}
