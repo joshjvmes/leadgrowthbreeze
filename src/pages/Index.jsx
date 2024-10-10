@@ -5,6 +5,7 @@ import CandySlider from '../components/CandySlider';
 import TypewriterEffect from '../components/TypewriterEffect';
 import { useInView } from 'react-intersection-observer';
 import MarketingCostsCalculator from '../components/MarketingCostsCalculator';
+import CaseStudiesSection from '../components/CaseStudiesSection';
 
 const Index = () => {
   const [typingComplete, setTypingComplete] = useState(false);
@@ -80,6 +81,10 @@ const Index = () => {
 
         <FadeInSection>
           <CandySlider items={sliderItems} />
+        </FadeInSection>
+
+        <FadeInSection>
+          <CaseStudiesSection />
         </FadeInSection>
 
         <FadeInSection>
