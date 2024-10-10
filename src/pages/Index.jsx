@@ -138,13 +138,6 @@ const Index = () => {
           </section>
         </FadeInSection>
       </main>
-
-      <footer className="bg-[#0097FD] text-white py-8 sm:py-16">
-        <div className="container mx-auto text-center px-4">
-          <p>&copy; 2023 ROCKET NOW. All rights reserved.</p>
-          <p className="mt-2">The best marketing agency near you, period.</p>
-        </div>
-      </footer>
     </div>
   );
 };
