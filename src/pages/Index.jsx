@@ -1,17 +1,22 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { RocketIcon, TargetIcon, TrendingUpIcon } from 'lucide-react';
 import CandySlider from '../components/CandySlider';
 import TypewriterEffect from '../components/TypewriterEffect';
+import { useInView } from 'react-intersection-observer';
 
 const Index = () => {
   const [typingComplete, setTypingComplete] = useState(false);
+  const [ref, inView] = useInView({
+    triggerOnce: true,
+    threshold: 0.1,
+  });
+
   const messages = [
-    "Got Milk?",
-    "You do huh.",
-    "How about Leads?",
-    "No?",
+    "Got Milk? You do huh..",
+    "How about Leads..?",
+    "No..?",
     "Ok, let's talk."
   ];
 
@@ -55,11 +60,13 @@ const Index = () => {
               onComplete={() => setTypingComplete(true)} 
             />
           </div>
-          {typingComplete && (
-            <Button size="lg" className="bg-[#E51010] hover:bg-white hover:text-[#E51010] text-white shadow-lg transition-colors mt-4">
-              Let's Talk Leads
-            </Button>
-          )}
+          <div ref={ref} className={`transition-opacity duration-1000 ${inView ? 'opacity-100' : 'opacity-0'}`}>
+            {typingComplete && inView && (
+              <Button size="lg" className="bg-[#E51010] hover:bg-white hover:text-[#E51010] text-white shadow-lg transition-colors mt-4">
+                Let's talk leads then
+              </Button>
+            )}
+          </div>
         </section>
 
         <CandySlider items={sliderItems} />
