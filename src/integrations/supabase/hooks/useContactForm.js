@@ -12,18 +12,18 @@ const fromSupabase = async (query) => {
 
 export const useContactForm = (id) => useQuery({
     queryKey: ['contactForm', id],
-    queryFn: () => fromSupabase(supabase.from('ContactForm').select('*').eq('id', id).single()),
+    queryFn: () => fromSupabase(supabase.from('contact_form').select('*').eq('id', id).single()),
 });
 
 export const useContactForms = () => useQuery({
     queryKey: ['contactForms'],
-    queryFn: () => fromSupabase(supabase.from('ContactForm').select('*')),
+    queryFn: () => fromSupabase(supabase.from('contact_form').select('*')),
 });
 
 export const useAddContactForm = () => {
     const queryClient = useQueryClient();
     return useMutation({
-        mutationFn: (newContactForm) => fromSupabase(supabase.from('ContactForm').insert([newContactForm])),
+        mutationFn: (newContactForm) => fromSupabase(supabase.from('contact_form').insert([newContactForm])),
         onSuccess: () => {
             queryClient.invalidateQueries({ queryKey: ['contactForms'] });
         },
