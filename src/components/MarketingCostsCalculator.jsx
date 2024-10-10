@@ -12,18 +12,16 @@ const MarketingCostsCalculator = () => {
 
   const calculateResults = () => {
     let resultText = '';
-    if (budget < 2500) {
-      resultText = 'Limited reach: Basic social media management and content creation';
-    } else if (budget < 5000) {
-      resultText = 'Moderate impact: Enhanced social media, content creation, and basic SEO';
-    } else if (budget < 7500) {
-      resultText = 'Growing presence: Comprehensive digital marketing strategy with PPC advertising';
-    } else if (budget < 10000) {
-      resultText = 'Significant reach: Multi-channel marketing campaign with advanced analytics';
-    } else if (budget < 12500) {
-      resultText = 'Extensive impact: Full-scale marketing automation and personalized campaigns';
+    if (budget < 100) {
+      resultText = 'Limited reach: Basic social media management';
+    } else if (budget < 200) {
+      resultText = 'Moderate impact: Social media + basic content creation';
+    } else if (budget < 300) {
+      resultText = 'Growing presence: Social media, content, and basic SEO';
+    } else if (budget < 400) {
+      resultText = 'Significant reach: Comprehensive digital marketing strategy';
     } else {
-      resultText = 'Maximum impact: Enterprise-level, AI-driven marketing strategies across all channels';
+      resultText = 'Maximum impact: Full-scale multi-channel marketing campaign';
     }
     setResult(resultText);
   };
@@ -33,12 +31,12 @@ const MarketingCostsCalculator = () => {
       <h3 className="text-2xl font-bold mb-4 text-[#0097FD]">Marketing Costs Calculator</h3>
       <div className="mb-4">
         <label className="block text-sm font-medium text-gray-700 mb-2">
-          Marketing Budget: ${budget.toLocaleString()}
+          Marketing Budget: ${budget}
         </label>
         <Slider
           defaultValue={[0]}
-          max={15000}
-          step={500}
+          max={500}
+          step={50}
           onValueChange={handleSliderChange}
         />
       </div>
