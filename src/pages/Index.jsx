@@ -1,4 +1,4 @@
-import React, { useRef } from 'react';
+import React, { useRef, useState } from 'react';
 import { Button } from "@/components/ui/button";
 import { RocketIcon, TargetIcon, TrendingUpIcon } from 'lucide-react';
 import CandySlider from '../components/CandySlider';
@@ -11,9 +11,11 @@ import AnimatedBackground from '../components/AnimatedBackground';
 import WizardHatPopup from '../components/WizardHatPopup';
 import WizardSceneBackground from '../components/WizardSceneBackground';
 import { Link } from 'react-router-dom';
+import ProspectingPopup from '../components/ProspectingPopup';
 
 const Index = () => {
   const nextSectionRef = useRef(null);
+  const [showProspectingPopup, setShowProspectingPopup] = useState(false);
 
   const sliderItems = [
     {
@@ -79,9 +81,9 @@ const Index = () => {
               <Button 
                 size="lg" 
                 className="bg-[#E51010] hover:bg-white hover:text-[#E51010] text-white shadow-lg transition-colors mt-4"
-                onClick={handleScrollToNext}
+                onClick={() => setShowProspectingPopup(true)}
               >
-                Got Milk..?
+                Accelerate Your Growth
               </Button>
             </div>
           </section>
@@ -156,6 +158,7 @@ const Index = () => {
           </section>
         </FadeInSection>
       </main>
+      <ProspectingPopup open={showProspectingPopup} onOpenChange={setShowProspectingPopup} />
     </div>
   );
 };
