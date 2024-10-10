@@ -5,19 +5,31 @@ const fromSupabase = async (query) => {
     const { data, error } = await query;
     if (error) {
         console.error('Supabase error:', error);
-        throw new Error(error.message);
+        return { error };
     }
-    return data;
+    return { data };
 };
 
 export const useContactForm = (id) => useQuery({
     queryKey: ['contactForm', id],
-    queryFn: () => fromSupabase(supabase.from('contact_submissions').select('*').eq('id', id).single()),
+    queryFn: async () => {
+        const result = await fromSupabase(supabase.from('contact_submissions').select('*').eq('id', id).single());
+        if (result.error && result.error.code === '42P01') {
+            return { error: 'Table does not exist' };
+        }
+        return result;
+    },
 });
 
 export const useContactForms = () => useQuery({
     queryKey: ['contactForms'],
-    queryFn: () => fromSupabase(supabase.from('contact_submissions').select('*')),
+    queryFn: async () => {
+        const result = await fromSupabase(supabase.from('contact_submissions').select('*'));
+        if (result.error && result.error.code === '42P01') {
+            return { error: 'Table does not exist' };
+        }
+        return result;
+    },
     retry: false,
 });
 

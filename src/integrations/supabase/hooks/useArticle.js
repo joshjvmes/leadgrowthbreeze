@@ -5,37 +5,31 @@ const fromSupabase = async (query) => {
     const { data, error } = await query;
     if (error) {
         console.error('Supabase error:', error);
-        throw error;
+        return { error };
     }
-    return data;
+    return { data };
 };
-
-/*
-### Article
-
-| name       | type     | format    | required |
-|------------|----------|-----------|----------|
-| id         | integer  | bigint    | true     |
-| title      | string   | text      | true     |
-| content    | string   | text      | true     |
-| author_id  | integer  | bigint    | true     |
-| created_at | string   | timestamp | true     |
-| updated_at | string   | timestamp | true     |
-
-Note: 
-- 'id' is the Primary Key.
-- 'created_at' and 'updated_at' have default values of now().
-- 'author_id' is a foreign key referencing the 'id' column in the 'users' table.
-*/
 
 export const useArticle = (id) => useQuery({
     queryKey: ['article', id],
-    queryFn: () => fromSupabase(supabase.from('Article').select('*').eq('id', id).single()),
+    queryFn: async () => {
+        const result = await fromSupabase(supabase.from('Article').select('*').eq('id', id).single());
+        if (result.error && result.error.code === '42P01') {
+            return { error: 'Table does not exist' };
+        }
+        return result;
+    },
 });
 
 export const useArticles = () => useQuery({
     queryKey: ['articles'],
-    queryFn: () => fromSupabase(supabase.from('Article').select('*')),
+    queryFn: async () => {
+        const result = await fromSupabase(supabase.from('Article').select('*'));
+        if (result.error && result.error.code === '42P01') {
+            return { error: 'Table does not exist' };
+        }
+        return result;
+    },
     retry: false,
 });
 

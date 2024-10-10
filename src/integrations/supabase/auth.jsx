@@ -40,7 +40,7 @@ export const SupabaseAuthProviderInner = ({ children }) => {
     };
   }, [queryClient]);
 
-  const logout = async () => {
+  const signOut = async () => {
     await supabase.auth.signOut();
     setSession(null);
     queryClient.invalidateQueries('user');
@@ -48,7 +48,7 @@ export const SupabaseAuthProviderInner = ({ children }) => {
   };
 
   return (
-    <SupabaseAuthContext.Provider value={{ session, loading, logout }}>
+    <SupabaseAuthContext.Provider value={{ session, loading, signOut }}>
       {children}
     </SupabaseAuthContext.Provider>
   );

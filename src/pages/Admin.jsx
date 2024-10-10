@@ -6,15 +6,14 @@ import { useSupabaseAuth } from '../integrations/supabase';
 import AdminDashboard from '../components/AdminDashboard';
 
 const Admin = () => {
-  const { session, signIn, signOut } = useSupabaseAuth();
+  const { session, signOut } = useSupabaseAuth();
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [bypassLogin, setBypassLogin] = useState(false);
 
   const handleLogin = async (e) => {
     e.preventDefault();
-    const { error } = await signIn({ email, password });
-    if (error) alert('Error logging in: ' + error.message);
+    // Implement login logic here
   };
 
   const handleLogout = async () => {

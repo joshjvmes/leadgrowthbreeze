@@ -34,12 +34,12 @@ const AdminDashboard = () => {
       
       <div className="mb-8">
         <h2 className="text-xl font-semibold mb-2">Articles</h2>
-        {renderContent(articles, articlesLoading, articlesError, 'articles')}
+        {renderContent(articles?.data, articlesLoading, articles?.error || articlesError, 'articles')}
       </div>
       
       <div>
         <h2 className="text-xl font-semibold mb-2">Contact Form Submissions</h2>
-        {renderContent(contactForms, contactFormsLoading, contactFormsError, 'contact submissions')}
+        {renderContent(contactForms?.data, contactFormsLoading, contactForms?.error || contactFormsError, 'contact submissions')}
       </div>
     </div>
   );
