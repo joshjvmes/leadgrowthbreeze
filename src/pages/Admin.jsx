@@ -9,6 +9,7 @@ const Admin = () => {
   const { session, signIn, signOut } = useSupabaseAuth();
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+  const [bypassLogin, setBypassLogin] = useState(false);
 
   const handleLogin = async (e) => {
     e.preventDefault();
@@ -19,6 +20,11 @@ const Admin = () => {
   const handleLogout = async () => {
     const { error } = await signOut();
     if (error) alert('Error logging out: ' + error.message);
+    setBypassLogin(false);
+  };
+
+  const handleBypass = () => {
+    setBypassLogin(true);
   };
 
   return (
@@ -29,7 +35,7 @@ const Admin = () => {
           Go Back
         </Link>
         <h1 className="text-4xl sm:text-5xl font-extrabold mb-8 text-center font-poppins">Admin Panel</h1>
-        {!session ? (
+        {!session && !bypassLogin ? (
           <div className="max-w-md mx-auto bg-white rounded-lg shadow-xl p-8">
             <form onSubmit={handleLogin} className="space-y-6">
               <div>
@@ -44,6 +50,9 @@ const Admin = () => {
                 Login
               </Button>
             </form>
+            <Button onClick={handleBypass} className="w-full mt-4 bg-yellow-500 hover:bg-yellow-600 text-white font-bold py-2 px-4 rounded transition-colors">
+              Bypass Login (For Development)
+            </Button>
           </div>
         ) : (
           <div className="bg-white rounded-lg shadow-xl p-8 text-gray-800">
