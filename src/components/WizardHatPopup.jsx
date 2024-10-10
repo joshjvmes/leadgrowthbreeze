@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { Button } from "@/components/ui/button";
 import { Dialog, DialogContent, DialogTrigger } from "@/components/ui/dialog";
+import { Link } from 'react-router-dom';
 
 const WizardHatPopup = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -39,9 +40,11 @@ const WizardHatPopup = () => {
           </div>
           <p className="mt-2 sm:mt-4 text-center text-sm sm:text-base">The stars are within your grasp, if you dare to take the first step.</p>
           <div className="mt-2 sm:mt-4 text-center">
-            <Button className="bg-[#E51010] hover:bg-[#0097FD] text-white text-sm sm:text-base">
-              Launch Your Dreams
-            </Button>
+            <Link to="/contact">
+              <Button className="bg-[#E51010] hover:bg-[#0097FD] text-white text-sm sm:text-base">
+                Launch Your Dreams
+              </Button>
+            </Link>
           </div>
         </div>
       </DialogContent>
