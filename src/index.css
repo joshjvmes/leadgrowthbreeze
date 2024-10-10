@@ -131,3 +131,12 @@
 .star-3 { --tx: -20px; --ty: 20px; }
 .star-4 { --tx: 0px; --ty: -30px; }
 .star-5 { --tx: 0px; --ty: 30px; }
+
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-20px); }
+}
+
+.animate-float {
+  animation: float 6s ease-in-out infinite;
+}

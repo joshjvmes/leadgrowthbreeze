@@ -9,6 +9,7 @@ import ReviewsSection from '../components/ReviewsSection';
 import TimelineSection from '../components/TimelineSection';
 import AnimatedBackground from '../components/AnimatedBackground';
 import WizardHatPopup from '../components/WizardHatPopup';
+import WizardSceneBackground from '../components/WizardSceneBackground';
 import { Link } from 'react-router-dom';
 
 const Index = () => {
@@ -54,7 +55,8 @@ const Index = () => {
   };
 
   return (
-    <div className="min-h-screen bg-white">
+    <div className="min-h-screen bg-white relative">
+      <WizardSceneBackground />
       <header className="bg-gradient-to-b from-[#0FCEFD] to-[#0097FD] text-white py-4 relative">
         <div className="container mx-auto px-4 flex justify-between items-center relative z-10">
           <img src="/rocket-logo.png" alt="ROCKET NOW" className="h-8 w-auto sm:h-12" />
