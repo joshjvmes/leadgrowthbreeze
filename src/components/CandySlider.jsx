@@ -38,9 +38,11 @@ const CandySlider = ({ items }) => {
               <div className="max-w-4xl mx-auto">
                 <h3 className="text-2xl sm:text-4xl font-bold mb-4 sm:mb-6 font-poppins">{item.title}</h3>
                 <p className="text-base sm:text-xl mb-6 sm:mb-8">{item.description}</p>
-                <Button className="bg-[#E51010] hover:bg-white hover:text-[#E51010] text-white shadow-lg transition-colors text-sm sm:text-lg px-4 sm:px-8 py-2 sm:py-3">
-                  {item.buttonText}
-                </Button>
+                <div className="flex justify-center">
+                  <Button className="bg-[#E51010] hover:bg-white hover:text-[#E51010] text-white shadow-lg transition-colors text-sm sm:text-lg px-4 sm:px-8 py-2 sm:py-3">
+                    {item.buttonText}
+                  </Button>
+                </div>
               </div>
             </div>
           ))}
