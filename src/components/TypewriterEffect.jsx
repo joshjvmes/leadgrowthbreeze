@@ -5,6 +5,7 @@ const TypewriterEffect = ({ messages, onComplete }) => {
   const [currentText, setCurrentText] = useState('');
   const [isTyping, setIsTyping] = useState(true);
   const [isFlashing, setIsFlashing] = useState(false);
+  const [displayedMessages, setDisplayedMessages] = useState([]);
 
   useEffect(() => {
     if (currentMessageIndex >= messages.length) {
@@ -26,6 +27,7 @@ const TypewriterEffect = ({ messages, onComplete }) => {
         const timeout = setTimeout(() => {
           setIsFlashing(false);
           if (currentMessageIndex < messages.length - 1) {
+            setDisplayedMessages(prev => [...prev, currentMessage]);
             setCurrentMessageIndex(prevIndex => prevIndex + 1);
             setCurrentText('');
             setIsTyping(true);
@@ -37,9 +39,16 @@ const TypewriterEffect = ({ messages, onComplete }) => {
   }, [currentMessageIndex, currentText, isTyping, messages, onComplete]);
 
   return (
-    <p className={`text-lg sm:text-xl mb-6 sm:mb-10 max-w-2xl mx-auto ${isFlashing ? 'animate-pulse' : ''}`}>
-      {currentText}
-    </p>
+    <div className="space-y-2">
+      {displayedMessages.map((message, index) => (
+        <p key={index} className="text-lg sm:text-xl mb-2 sm:mb-4 max-w-2xl mx-auto">
+          {message}
+        </p>
+      ))}
+      <p className={`text-lg sm:text-xl mb-2 sm:mb-4 max-w-2xl mx-auto ${isFlashing ? 'animate-pulse' : ''}`}>
+        {currentText}
+      </p>
+    </div>
   );
 };
 

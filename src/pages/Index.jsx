@@ -49,10 +49,12 @@ const Index = () => {
           <h2 className="text-3xl sm:text-5xl font-extrabold mb-6 sm:mb-8 font-poppins">
             Revenue Acceleration
           </h2>
-          <TypewriterEffect 
-            messages={messages} 
-            onComplete={() => setTypingComplete(true)} 
-          />
+          <div className="mb-6 sm:mb-8">
+            <TypewriterEffect 
+              messages={messages} 
+              onComplete={() => setTypingComplete(true)} 
+            />
+          </div>
           {typingComplete && (
             <Button size="lg" className="bg-[#E51010] hover:bg-white hover:text-[#E51010] text-white shadow-lg transition-colors mt-4">
               Let's Talk Leads
