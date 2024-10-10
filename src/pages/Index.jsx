@@ -13,7 +13,6 @@ import WizardSceneBackground from '../components/WizardSceneBackground';
 import { Link } from 'react-router-dom';
 import ProspectingPopup from '../components/ProspectingPopup';
 import { motion } from 'framer-motion';
-import BusinessFeatureSlider from '../components/BusinessFeatureSlider';
 
 const Index = () => {
   const nextSectionRef = useRef(null);
@@ -79,7 +78,7 @@ const Index = () => {
   return (
     <div className="min-h-screen relative">
       <WizardSceneBackground />
-      <header className="bg-gradient-to-b from-[#E51010] to-[#B30000] text-white py-4 fixed w-full z-50 transition-all duration-300" style={{ backgroundColor: `rgba(229, 16, 16, ${Math.min(scrollY / 500, 0.9)})` }}>
+      <header className="bg-gradient-to-b from-[#0FCEFD] to-[#0097FD] text-white py-4 fixed w-full z-50 transition-all duration-300" style={{ backgroundColor: `rgba(15, 206, 253, ${Math.min(scrollY / 500, 0.9)})` }}>
         <div className="container mx-auto px-4 flex justify-between items-center">
           <motion.img 
             src="/rocket-logo.png" 
@@ -94,7 +93,7 @@ const Index = () => {
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
             >
-              <Button className="bg-white hover:bg-[#E51010] text-[#E51010] hover:text-white text-sm sm:text-base transition-all duration-300">
+              <Button className="bg-[#E51010] hover:bg-white hover:text-[#E51010] text-white text-sm sm:text-base transition-all duration-300">
                 Get Started
               </Button>
             </motion.div>
@@ -104,7 +103,7 @@ const Index = () => {
       
       <main className="container mx-auto px-4 relative z-10 pt-20">
         <FadeInSection>
-          <section className="text-center py-16 sm:py-32 bg-gradient-to-b from-[#E51010] to-[#B30000] text-white rounded-lg my-10 sm:my-20 shadow-2xl backdrop-blur-md bg-opacity-80 relative overflow-hidden">
+          <section className="text-center py-16 sm:py-32 bg-gradient-to-b from-[#0FCEFD] to-[#0097FD] text-white rounded-lg my-10 sm:my-20 shadow-2xl backdrop-blur-md bg-opacity-80 relative overflow-hidden">
             <AnimatedBackground />
             <div className="relative z-10">
               <motion.h2 
@@ -121,7 +120,7 @@ const Index = () => {
               >
                 <Button 
                   size="lg" 
-                  className="bg-white hover:bg-[#E51010] text-[#E51010] hover:text-white shadow-lg transition-colors mt-4"
+                  className="bg-[#E51010] hover:bg-white hover:text-[#E51010] text-white shadow-lg transition-colors mt-4"
                   onClick={handleScrollToNext}
                 >
                   Got Milk..?
@@ -134,15 +133,6 @@ const Index = () => {
         <FadeInSection>
           <div ref={nextSectionRef} className="my-10 sm:my-20">
             <CandySlider items={sliderItems} setShowProspectingPopup={setShowProspectingPopup} />
-          </div>
-        </FadeInSection>
-
-        <FadeInSection>
-          <div className="my-10 sm:my-20">
-            <h2 className="text-3xl sm:text-4xl font-bold text-center mb-8 text-[#E51010]">
-              Our Powerful Features
-            </h2>
-            <BusinessFeatureSlider />
           </div>
         </FadeInSection>
 
@@ -165,25 +155,25 @@ const Index = () => {
         </FadeInSection>
 
         <FadeInSection>
-          <section className="py-16 sm:py-32 bg-gradient-to-b from-white to-[#FFE6E6] text-[#E51010] rounded-lg shadow-2xl my-10 sm:my-20 backdrop-blur-md bg-opacity-80 px-4 sm:px-[10%]">
+          <section className="py-16 sm:py-32 bg-gradient-to-b from-white to-[#E6F7FF] text-[#0097FD] rounded-lg shadow-2xl my-10 sm:my-20 backdrop-blur-md bg-opacity-80 px-4 sm:px-[10%]">
             <h3 className="text-2xl sm:text-3xl font-bold text-center mb-8 sm:mb-16 font-poppins small-caps gradient-text">
               Why CMOs Choose ROCKET NOW
             </h3>
             <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
               <FeatureCard 
-                icon={<RocketIcon className="h-10 w-10 sm:h-12 sm:w-12 text-white" />}
+                icon={<RocketIcon className="h-10 w-10 sm:h-12 sm:w-12 text-[#E51010]" />}
                 title="AI-Powered Insights"
                 description="Our cutting-edge AI algorithms provide unmatched clarity on your digital campaigns."
                 wizardDescription="Unleash the power of AI to predict market trends and optimize your campaigns in real-time."
               />
               <FeatureCard 
-                icon={<TargetIcon className="h-10 w-10 sm:h-12 sm:w-12 text-white" />}
+                icon={<TargetIcon className="h-10 w-10 sm:h-12 sm:w-12 text-[#E51010]" />}
                 title="Precision Targeting"
                 description="Reach the right decision-makers at the right time with our advanced data analytics."
                 wizardDescription="Cast a spell of precision targeting, ensuring your message reaches the perfect audience every time."
               />
               <FeatureCard 
-                icon={<TrendingUpIcon className="h-10 w-10 sm:h-12 sm:w-12 text-white" />}
+                icon={<TrendingUpIcon className="h-10 w-10 sm:h-12 sm:w-12 text-[#E51010]" />}
                 title="Revenue-Generating Machine"
                 description="Turn your marketing efforts into a powerful engine for business growth."
                 wizardDescription="Transform your marketing into a magical revenue-generating machine, fueled by data-driven sorcery."
@@ -193,7 +183,7 @@ const Index = () => {
         </FadeInSection>
 
         <FadeInSection>
-          <section id="marketing-costs-calculator" className="py-16 sm:py-32 bg-gradient-to-b from-[#E51010] to-[#B30000] text-white rounded-lg shadow-2xl my-10 sm:my-20 backdrop-blur-md bg-opacity-80">
+          <section id="marketing-costs-calculator" className="py-16 sm:py-32 bg-gradient-to-b from-[#0FCEFD] to-[#0097FD] text-white rounded-lg shadow-2xl my-10 sm:my-20 backdrop-blur-md bg-opacity-80">
             <h3 className="text-2xl sm:text-3xl font-bold mb-6 sm:mb-8 text-center font-poppins small-caps gradient-text">
               Marketing Costs Calculator
             </h3>
@@ -222,7 +212,7 @@ const FeatureCard = ({ icon, title, description, wizardDescription }) => {
 
   return (
     <motion.div 
-      className={`bg-[#E51010] bg-opacity-80 text-white shadow-xl rounded-lg p-6 cursor-pointer perspective-1000 ${isFlipped ? 'rotate-y-180' : ''}`}
+      className={`bg-[#0FCEFD] bg-opacity-80 text-white shadow-xl rounded-lg p-6 cursor-pointer perspective-1000 ${isFlipped ? 'rotate-y-180' : ''}`}
       whileHover={{ scale: 1.05 }}
       transition={{ type: "spring", stiffness: 300 }}
       onClick={() => setIsFlipped(!isFlipped)}
@@ -237,10 +227,10 @@ const FeatureCard = ({ icon, title, description, wizardDescription }) => {
           </div>
           <p className="text-center text-sm sm:text-base">{description}</p>
         </div>
-        <div className={`absolute w-full h-full backface-hidden bg-white rounded-lg p-6 rotate-y-180 ${isFlipped ? 'opacity-100' : 'opacity-0'}`}>
+        <div className={`absolute w-full h-full backface-hidden bg-[#E51010] rounded-lg p-6 rotate-y-180 ${isFlipped ? 'opacity-100' : 'opacity-0'}`}>
           <div className="flex flex-col items-center justify-center h-full">
-            <Wand2 className="h-12 w-12 text-[#E51010] mb-4" />
-            <p className="text-center text-sm sm:text-base text-[#E51010]">{wizardDescription}</p>
+            <Wand2 className="h-12 w-12 text-white mb-4" />
+            <p className="text-center text-sm sm:text-base">{wizardDescription}</p>
           </div>
         </div>
       </div>
