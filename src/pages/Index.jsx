@@ -1,4 +1,4 @@
-import React, { useRef, useState } from 'react';
+import React, { useRef } from 'react';
 import { Button } from "@/components/ui/button";
 import { RocketIcon, TargetIcon, TrendingUpIcon } from 'lucide-react';
 import CandySlider from '../components/CandySlider';
@@ -11,18 +11,15 @@ import AnimatedBackground from '../components/AnimatedBackground';
 import WizardHatPopup from '../components/WizardHatPopup';
 import WizardSceneBackground from '../components/WizardSceneBackground';
 import { Link } from 'react-router-dom';
-import ProspectingPopup from '../components/ProspectingPopup';
 
 const Index = () => {
   const nextSectionRef = useRef(null);
-  const [showProspectingPopup, setShowProspectingPopup] = useState(false);
 
   const sliderItems = [
     {
       title: "Your Bridge Between Customization and Scale",
       description: "We're not just another agency – at ROCKET NOW, we offer the highest level of service available in the industry. Our relentless dedication to your growth sets us apart.",
-      buttonText: "Accelerate Your Growth",
-      onButtonClick: () => setShowProspectingPopup(true)
+      buttonText: "Accelerate Your Growth"
     },
     {
       title: "Marketing Strategies Underperforming?",
@@ -159,7 +156,6 @@ const Index = () => {
           </section>
         </FadeInSection>
       </main>
-      <ProspectingPopup open={showProspectingPopup} onOpenChange={setShowProspectingPopup} />
     </div>
   );
 };
