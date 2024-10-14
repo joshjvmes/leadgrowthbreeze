@@ -24,12 +24,6 @@ const GotMilk = () => {
               —not your product features & functions
             </span>
           </h1>
-          <div className="flex justify-center items-center mb-8">
-            <Milk className="w-12 h-12 text-[#0097FD] mr-4" />
-            <p className="text-xl md:text-2xl text-gray-600 italic">
-              "Got conversations?"
-            </p>
-          </div>
           <p className="text-xl md:text-2xl mb-8 text-gray-600">
             Stop sending cold emails that get ignored. Start having conversations that matter.
           </p>
@@ -48,6 +42,12 @@ const GotMilk = () => {
 
         <section className="text-center mb-16 bg-gray-100 p-8 rounded-lg shadow-lg">
           <h2 className="text-3xl font-bold mb-6 text-[#0097FD] font-poppins">Ready for a different approach?</h2>
+          <div className="flex justify-center items-center mb-8">
+            <Milk className="w-12 h-12 text-[#0097FD] mr-4" />
+            <p className="text-xl md:text-2xl text-gray-600 italic">
+              "Got conversations?"
+            </p>
+          </div>
           <p className="text-xl mb-8 text-gray-600">Contact us to learn more about how we can help you do more with less.</p>
           <div className="flex justify-center items-center space-x-4">
             <MessageCircle className="w-12 h-12 text-[#E51010]" />
