@@ -2,6 +2,8 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { Button } from "@/components/ui/button";
 import { ArrowLeft, MessageCircle, Milk } from 'lucide-react';
+import VectorIconMarquee from '../components/VectorIconMarquee';
+import QuotesSection from '../components/QuotesSection';
 
 const GotMilk = () => {
   return (
@@ -33,14 +35,18 @@ const GotMilk = () => {
           </p>
         </header>
 
-        <section className="mb-16 max-w-4xl mx-auto">
-          <h2 className="text-3xl font-bold mb-8 text-[#0097FD] font-poppins">How We Help: Sales Development Rep-As-A-Service</h2>
+        <VectorIconMarquee />
+
+        <section className="mb-16 max-w-4xl mx-auto bg-gradient-to-r from-[#0FCEFD] to-[#0097FD] text-white p-8 rounded-lg shadow-lg">
+          <h2 className="text-3xl font-bold mb-8 font-poppins">How We Help: Sales Development Rep-As-A-Service</h2>
           <p className="text-lg mb-6">
             Go-to-Market Engineers who handle the heavy lifting – prospecting, message crafting, vetting leads, and conversation recapping – so your Account Executives can concentrate on closing deals.
           </p>
         </section>
 
-        <section className="text-center mb-16">
+        <QuotesSection />
+
+        <section className="text-center mb-16 bg-gray-100 p-8 rounded-lg shadow-lg">
           <h2 className="text-3xl font-bold mb-6 text-[#0097FD] font-poppins">Ready for a different approach?</h2>
           <p className="text-xl mb-8 text-gray-600">Contact us to learn more about how we can help you do more with less.</p>
           <div className="flex justify-center items-center space-x-4">
