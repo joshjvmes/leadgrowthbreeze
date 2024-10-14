@@ -8,6 +8,7 @@ import Index from "./pages/Index";
 import Contact from "./pages/Contact";
 import Admin from "./pages/Admin";
 import About from "./pages/About";
+import GotMilk from "./pages/GotMilk";
 import Footer from "./components/Footer";
 
 const queryClient = new QueryClient();
@@ -24,6 +25,7 @@ const App = () => (
               <Route path="/contact" element={<Contact />} />
               <Route path="/admin" element={<Admin />} />
               <Route path="/about" element={<About />} />
+              <Route path="/got-milk" element={<GotMilk />} />
             </Routes>
             <Footer />
           </BrowserRouter>

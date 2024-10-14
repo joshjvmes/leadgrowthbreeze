@@ -81,13 +81,14 @@ const Index = () => {
               <h2 className="text-3xl sm:text-5xl font-extrabold mb-6 sm:mb-8 font-poppins small-caps gradient-text">
                 Revenue Acceleration
               </h2>
-              <Button 
-                size="lg" 
-                className="bg-[#E51010] hover:bg-white hover:text-[#E51010] text-white shadow-lg transition-colors mt-4"
-                onClick={handleScrollToNext}
-              >
-                Got Milk..?
-              </Button>
+              <Link to="/got-milk">
+                <Button 
+                  size="lg" 
+                  className="bg-[#E51010] hover:bg-white hover:text-[#E51010] text-white shadow-lg transition-colors mt-4"
+                >
+                  Got Milk..?
+                </Button>
+              </Link>
             </div>
           </section>
         </FadeInSection>
