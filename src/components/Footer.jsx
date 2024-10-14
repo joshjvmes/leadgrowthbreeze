@@ -8,6 +8,7 @@ const Footer = () => {
         <nav className="mb-4">
           <ul className="flex justify-center space-x-4">
             <li><Link to="/" className="hover:text-[#E51010]">Home</Link></li>
+            <li><Link to="/about" className="hover:text-[#E51010]">About</Link></li>
             <li><Link to="/contact" className="hover:text-[#E51010]">Contact</Link></li>
             <li><Link to="/admin" className="hover:text-[#E51010]">Admin</Link></li>
           </ul>

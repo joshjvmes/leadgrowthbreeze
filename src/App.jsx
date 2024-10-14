@@ -7,6 +7,7 @@ import { SupabaseAuthProvider } from './integrations/supabase';
 import Index from "./pages/Index";
 import Contact from "./pages/Contact";
 import Admin from "./pages/Admin";
+import About from "./pages/About";
 import Footer from "./components/Footer";
 
 const queryClient = new QueryClient();
@@ -22,6 +23,7 @@ const App = () => (
               <Route path="/" element={<Index />} />
               <Route path="/contact" element={<Contact />} />
               <Route path="/admin" element={<Admin />} />
+              <Route path="/about" element={<About />} />
             </Routes>
             <Footer />
           </BrowserRouter>
