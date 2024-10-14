@@ -19,21 +19,21 @@ const Review = ({ name, company, content, rating }) => (
 const ReviewsSection = () => {
   const reviews = [
     {
-      name: "Sarah Johnson",
-      company: "TechInnovate Solutions",
-      content: "ROCKET NOW transformed our digital presence. Their AI-driven strategies doubled our lead generation in just three months!",
+      name: "Jared S.",
+      company: "Satisfied Client",
+      content: "Rocket Now's expertise in AI and marketing automation has significantly improved our lead generation and conversion rates. Their team's dedication to our success is truly impressive.",
       rating: 5
     },
     {
-      name: "Michael Chen",
-      company: "GrowFast Startups",
-      content: "The team at ROCKET NOW is simply outstanding. They delivered results beyond our expectations, truly living up to their promise of being the best marketing agency.",
+      name: "Michael R.",
+      company: "Happy Customer",
+      content: "The results we've seen with Rocket Now have been outstanding. Their innovative approach to digital marketing has helped us reach new audiences and grow our business faster than we thought possible.",
       rating: 5
     },
     {
-      name: "Emily Rodriguez",
-      company: "EcoFriendly Products",
-      content: "Working with ROCKET NOW was a game-changer for our eco-friendly brand. Their targeted campaigns helped us reach the right audience and skyrocket our sales.",
+      name: "Sarah L.",
+      company: "Thrilled Partner",
+      content: "Working with Rocket Now has been a game-changer for our company. Their AI-driven strategies have not only increased our ROI but also provided valuable insights into our customer base.",
       rating: 5
     }
   ];
