@@ -1,11 +1,17 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { Button } from "@/components/ui/button";
+import { ArrowLeft } from 'lucide-react';
 
 const About = () => {
   return (
     <div className="min-h-screen bg-gradient-to-b from-[#0FCEFD] to-[#0097FD] text-white">
       <div className="container mx-auto px-4 py-16">
+        <Link to="/" className="inline-flex items-center text-white hover:text-[#E51010] mb-8 transition-colors">
+          <ArrowLeft className="mr-2 h-4 w-4" />
+          Go Back
+        </Link>
+        
         <header className="text-center mb-16">
           <h1 className="text-4xl md:text-5xl font-bold mb-6 font-poppins">
             Customers crave conversations about their problems—not pitches about your product's features
