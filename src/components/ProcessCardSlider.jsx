@@ -59,7 +59,17 @@ const ProcessCardSlider = () => {
         >
           <ChevronLeft className="h-6 w-6" />
         </Button>
-        <div className="flex space-x-6 overflow-hidden w-[calc(2*24rem+1.5rem)]">
+        <div className="flex space-x-6 overflow-hidden w-[calc(2*24rem+1.5rem)] relative">
+          <div 
+            className="absolute inset-0 bg-[#D8EFF7] rounded-lg" 
+            style={{ 
+              left: '-40px', 
+              right: '-40px', 
+              top: '-40px', 
+              bottom: '-40px', 
+              zIndex: -1 
+            }}
+          ></div>
           {cards.map((card, index) => (
             <div
               key={index}
