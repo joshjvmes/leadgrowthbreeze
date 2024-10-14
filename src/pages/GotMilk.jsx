@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { Button } from "@/components/ui/button";
-import { ArrowLeft, MessageCircle, Milk } from 'lucide-react';
+import { ArrowLeft, MessageCircle, Milk, Users } from 'lucide-react';
 
 const GotMilk = () => {
   return (
@@ -12,7 +12,7 @@ const GotMilk = () => {
           Go Back
         </Link>
         
-        <header className="text-center mb-16">
+        <header className="text-center mb-16 bg-gradient-to-b from-white to-[#E6F7FF] rounded-lg shadow-lg p-8">
           <h1 className="text-4xl md:text-6xl font-bold mb-6 font-poppins text-[#0097FD] leading-tight">
             <span className="block mb-2">Customers crave</span>
             <span className="block mb-2">
@@ -33,14 +33,17 @@ const GotMilk = () => {
           </p>
         </header>
 
-        <section className="mb-16 max-w-4xl mx-auto">
-          <h2 className="text-3xl font-bold mb-8 text-[#0097FD] font-poppins">How We Help: Sales Development Rep-As-A-Service</h2>
-          <p className="text-lg mb-6">
-            Go-to-Market Engineers who handle the heavy lifting – prospecting, message crafting, vetting leads, and conversation recapping – so your Account Executives can concentrate on closing deals.
-          </p>
+        <section className="mb-16 bg-[#0097FD] text-white rounded-lg shadow-lg p-8">
+          <h2 className="text-3xl font-bold mb-8 font-poppins">How We Help: Sales Development Rep-As-A-Service</h2>
+          <div className="flex items-start space-x-4">
+            <Users className="w-12 h-12 flex-shrink-0 mt-1" />
+            <p className="text-lg">
+              Go-to-Market Engineers who handle the heavy lifting – prospecting, message crafting, vetting leads, and conversation recapping – so your Account Executives can concentrate on closing deals.
+            </p>
+          </div>
         </section>
 
-        <section className="text-center mb-16">
+        <section className="text-center mb-16 bg-gradient-to-b from-[#E6F7FF] to-white rounded-lg shadow-lg p-8">
           <h2 className="text-3xl font-bold mb-6 text-[#0097FD] font-poppins">Ready for a different approach?</h2>
           <p className="text-xl mb-8 text-gray-600">Contact us to learn more about how we can help you do more with less.</p>
           <div className="flex justify-center items-center space-x-4">
