@@ -21,7 +21,7 @@ const ProcessCard = ({ title, content, backgroundColor, titleColor }) => (
 const ProcessCardSlider = () => {
   const cards = [
     {
-      title: "Discover",
+      title: "Understand",
       content: "We analyze your current marketing strategies and identify areas for improvement.",
       backgroundColor: "#D8EFF7",
       titleColor: "#019AFD"
