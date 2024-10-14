@@ -1,6 +1,6 @@
 import React, { useRef, useState } from 'react';
 import { Button } from "@/components/ui/button";
-import { RocketIcon, TargetIcon, TrendingUpIcon, MessageCircle } from 'lucide-react';
+import { RocketIcon, TargetIcon, TrendingUpIcon } from 'lucide-react';
 import CandySlider from '../components/CandySlider';
 import { useInView } from 'react-intersection-observer';
 import MarketingCostsCalculator from '../components/MarketingCostsCalculator';
@@ -75,7 +75,7 @@ const Index = () => {
       
       <main className="container mx-auto px-4 relative z-10">
         <FadeInSection>
-          <section className="py-16 sm:py-32 bg-gradient-to-b from-[#0FCEFD] to-[#0097FD] text-white rounded-lg my-10 sm:my-20 shadow-2xl backdrop-blur-md bg-opacity-80">
+          <section className="text-center py-16 sm:py-32 bg-gradient-to-b from-[#0FCEFD] to-[#0097FD] text-white rounded-lg my-10 sm:my-20 shadow-2xl backdrop-blur-md bg-opacity-80 relative overflow-hidden">
             <AnimatedBackground />
             <div className="relative z-10">
               <h2 className="text-3xl sm:text-5xl font-extrabold mb-6 sm:mb-8 font-poppins small-caps gradient-text">
@@ -96,65 +96,6 @@ const Index = () => {
           <div ref={nextSectionRef} className="my-10 sm:my-20">
             <CandySlider items={sliderItems} setShowProspectingPopup={setShowProspectingPopup} />
           </div>
-        </FadeInSection>
-
-        <FadeInSection>
-          <section className="py-16 sm:py-32 bg-gradient-to-b from-[#0FCEFD] to-[#0097FD] text-white rounded-lg my-10 sm:my-20 shadow-2xl backdrop-blur-md bg-opacity-80">
-            <div className="container mx-auto px-4">
-              <h2 className="text-3xl sm:text-4xl font-bold mb-6 font-poppins text-center">
-                Customers crave conversations about their problems—not product feature & function sales pitches
-              </h2>
-              <p className="text-xl sm:text-2xl mb-8 text-center">
-                Stop sending cold emails that get ignored. Start having conversations that matter.
-              </p>
-              <div className="flex justify-center">
-                <img src="/comic-4.svg" alt="Conversation Illustration" className="w-64 h-64 mx-auto object-cover" />
-              </div>
-            </div>
-          </section>
-        </FadeInSection>
-
-        <FadeInSection>
-          <section className="py-16 sm:py-32 bg-white text-[#0097FD] rounded-lg my-10 sm:my-20 shadow-2xl">
-            <div className="container mx-auto px-4">
-              <h2 className="text-3xl sm:text-4xl font-bold mb-12 font-poppins text-center">How We Help</h2>
-              <div className="grid md:grid-cols-2 gap-8">
-                <div className="bg-[#E6F7FF] p-6 rounded-lg shadow-lg">
-                  <h3 className="text-2xl font-bold mb-4">Go-to-Market Engineers</h3>
-                  <p className="text-gray-700">
-                    We automate low-value tasks -- enabling your Account Executives to focus on high-value tasks.
-                  </p>
-                  <RocketIcon className="w-16 h-16 text-[#E51010] mt-4 mx-auto" />
-                </div>
-                <div className="bg-[#E6F7FF] p-6 rounded-lg shadow-lg">
-                  <h3 className="text-2xl font-bold mb-4">SDR-As-A-Service</h3>
-                  <p className="text-gray-700">
-                    We handle the heavy lifting of prospecting, message crafting, vetting leads, and conversation recapping — so your team can concentrate on closing deals.
-                  </p>
-                  <TargetIcon className="w-16 h-16 text-[#E51010] mt-4 mx-auto" />
-                </div>
-              </div>
-            </div>
-          </section>
-        </FadeInSection>
-
-        <FadeInSection>
-          <section className="py-16 sm:py-32 bg-gradient-to-b from-[#0FCEFD] to-[#0097FD] text-white rounded-lg my-10 sm:my-20 shadow-2xl backdrop-blur-md bg-opacity-80">
-            <div className="container mx-auto px-4 text-center">
-              <h2 className="text-3xl sm:text-4xl font-bold mb-6 font-poppins">Ready for a different approach?</h2>
-              <p className="text-xl mb-8">
-                Contact us to learn more about how we can help you do more with less.
-              </p>
-              <Link to="/contact">
-                <Button className="bg-[#E51010] hover:bg-white hover:text-[#E51010] text-white text-lg px-8 py-3 rounded-full shadow-lg transition-colors">
-                  Contact Us
-                </Button>
-              </Link>
-              <div className="mt-8 flex justify-center">
-                <MessageCircle className="w-16 h-16 text-[#E51010]" />
-              </div>
-            </div>
-          </section>
         </FadeInSection>
 
         <FadeInSection>
