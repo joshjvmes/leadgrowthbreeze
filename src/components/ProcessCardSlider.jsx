@@ -1,17 +1,17 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { ChevronLeft, ChevronRight } from 'lucide-react';
 import { Button } from "@/components/ui/button";
 
 const ProcessCard = ({ title, content, backgroundColor, titleColor }) => (
-  <div className="w-full max-w-sm mx-auto">
-    <div 
-      className="rounded-lg p-6 shadow-lg" 
-      style={{
-        background: `linear-gradient(139deg, #F5F9FF 15.36%, #FFF 85.76%)`,
-        border: `4px solid #FFF`,
-        backgroundColor: backgroundColor
-      }}
-    >
+  <div 
+    className="w-full max-w-sm mx-auto h-64 flex flex-col justify-between"
+    style={{
+      background: `linear-gradient(139deg, #F5F9FF 15.36%, #FFF 85.76%)`,
+      border: `4px solid #FFF`,
+      backgroundColor: backgroundColor
+    }}
+  >
+    <div className="p-6">
       <h3 className="text-xl font-bold mb-4" style={{ color: titleColor }}>{title}</h3>
       <p className="text-gray-700">{content}</p>
     </div>
@@ -19,6 +19,7 @@ const ProcessCard = ({ title, content, backgroundColor, titleColor }) => (
 );
 
 const ProcessCardSlider = () => {
+  const [currentIndex, setCurrentIndex] = useState(0);
   const cards = [
     {
       title: "Understand",
@@ -40,19 +41,45 @@ const ProcessCardSlider = () => {
     }
   ];
 
+  const nextSlide = () => {
+    setCurrentIndex((prevIndex) => (prevIndex + 1) % cards.length);
+  };
+
+  const prevSlide = () => {
+    setCurrentIndex((prevIndex) => (prevIndex - 1 + cards.length) % cards.length);
+  };
+
   return (
     <div className="relative py-12">
-      <div className="flex overflow-x-auto space-x-6 py-4 px-4 scrollbar-hide">
-        {cards.map((card, index) => (
-          <ProcessCard key={index} {...card} />
-        ))}
+      <div className="flex justify-center items-center space-x-6">
+        <Button 
+          onClick={prevSlide} 
+          className="bg-white text-gray-800 hover:bg-gray-100"
+          disabled={currentIndex === 0}
+        >
+          <ChevronLeft className="h-6 w-6" />
+        </Button>
+        <div className="flex space-x-6 overflow-hidden w-[calc(2*24rem+1.5rem)]">
+          {cards.map((card, index) => (
+            <div
+              key={index}
+              className="w-96 transition-transform duration-300 ease-in-out"
+              style={{
+                transform: `translateX(${-100 * currentIndex}%)`,
+              }}
+            >
+              <ProcessCard {...card} />
+            </div>
+          ))}
+        </div>
+        <Button 
+          onClick={nextSlide} 
+          className="bg-white text-gray-800 hover:bg-gray-100"
+          disabled={currentIndex === cards.length - 2}
+        >
+          <ChevronRight className="h-6 w-6" />
+        </Button>
       </div>
-      <Button className="absolute left-2 top-1/2 transform -translate-y-1/2 bg-white text-gray-800 hover:bg-gray-100">
-        <ChevronLeft className="h-6 w-6" />
-      </Button>
-      <Button className="absolute right-2 top-1/2 transform -translate-y-1/2 bg-white text-gray-800 hover:bg-gray-100">
-        <ChevronRight className="h-6 w-6" />
-      </Button>
     </div>
   );
 };
