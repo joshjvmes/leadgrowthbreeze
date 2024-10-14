@@ -8,8 +8,8 @@ const VectorIconMarquee = () => {
   return (
     <div className="my-16">
       <Marquee gradient={false} speed={50}>
-        {icons.map((Icon, index) => (
-          <div key={index} className="mx-8">
+        {[...icons, ...icons].map((Icon, index) => (
+          <div key={index} className="mx-20">
             <Icon size={48} className="text-[#0097FD]" />
           </div>
         ))}
