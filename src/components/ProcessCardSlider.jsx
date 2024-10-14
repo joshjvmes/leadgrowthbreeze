@@ -4,7 +4,7 @@ import { Button } from "@/components/ui/button";
 
 const ProcessCard = ({ title, content, backgroundColor, titleColor }) => (
   <div 
-    className="w-full max-w-sm mx-auto h-64 flex flex-col justify-between"
+    className="w-full max-w-sm mx-auto h-64 flex flex-col justify-between rounded-lg overflow-hidden"
     style={{
       background: `linear-gradient(139deg, #F5F9FF 15.36%, #FFF 85.76%)`,
       border: `4px solid #FFF`,
