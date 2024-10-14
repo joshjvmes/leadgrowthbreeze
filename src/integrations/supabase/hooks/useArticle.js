@@ -2,20 +2,26 @@ import { useQuery, useMutation, useQueryClient } from '@tanstack/react-query';
 import { supabase } from '../supabase';
 
 const fromSupabase = async (query) => {
-    const { data, error } = await query;
-    if (error) {
-        console.error('Supabase error:', error);
-        return { error };
+    try {
+        const { data, error } = await query;
+        if (error) {
+            console.error('Supabase error:', error);
+            return { error: error.message };
+        }
+        return { data };
+    } catch (err) {
+        console.error('Unexpected error:', err);
+        return { error: 'An unexpected error occurred' };
     }
-    return { data };
 };
 
 export const useArticle = (id) => useQuery({
     queryKey: ['article', id],
     queryFn: async () => {
         const result = await fromSupabase(supabase.from('Article').select('*').eq('id', id).single());
-        if (result.error && result.error.code === '42P01') {
-            return { error: 'Table does not exist' };
+        if (result.error) {
+            console.log('Error fetching article:', result.error);
+            return { error: result.error };
         }
         return result;
     },
@@ -25,8 +31,9 @@ export const useArticles = () => useQuery({
     queryKey: ['articles'],
     queryFn: async () => {
         const result = await fromSupabase(supabase.from('Article').select('*'));
-        if (result.error && result.error.code === '42P01') {
-            return { error: 'Table does not exist' };
+        if (result.error) {
+            console.log('Error fetching articles:', result.error);
+            return { error: result.error };
         }
         return result;
     },
