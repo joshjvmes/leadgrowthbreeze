@@ -11,9 +11,9 @@ const ProcessCard = ({ title, content, backgroundColor, titleColor }) => (
       backgroundColor: backgroundColor
     }}
   >
-    <div className="p-6">
-      <h3 className="text-xl font-bold mb-4" style={{ color: titleColor }}>{title}</h3>
-      <p className="text-gray-700">{content}</p>
+    <div className="p-4 sm:p-6">
+      <h3 className="text-lg sm:text-xl font-bold mb-2 sm:mb-4" style={{ color: titleColor }}>{title}</h3>
+      <p className="text-sm sm:text-base text-gray-700">{content}</p>
     </div>
   </div>
 );
@@ -50,20 +50,22 @@ const ProcessCardSlider = () => {
   };
 
   return (
-    <div className="relative py-12">
-      <div className="flex justify-center items-center space-x-6">
+    <div className="relative py-8 sm:py-12">
+      <div className="flex flex-col sm:flex-row justify-center items-center space-y-4 sm:space-y-0 sm:space-x-6">
         <Button 
           onClick={prevSlide} 
-          className="bg-white text-gray-800 hover:bg-gray-100"
+          className="bg-white text-gray-800 hover:bg-gray-100 w-full sm:w-auto"
           disabled={currentIndex === 0}
         >
-          <ChevronLeft className="h-6 w-6" />
+          <ChevronLeft className="h-4 w-4 sm:h-6 sm:w-6" />
         </Button>
-        <div className="flex space-x-6 overflow-hidden w-[calc(2*24rem+1.5rem)]">
+        <div className="flex flex-col sm:flex-row space-y-4 sm:space-y-0 sm:space-x-6 overflow-hidden w-full sm:w-[calc(2*24rem+1.5rem)]">
           {cards.map((card, index) => (
             <div
               key={index}
-              className="w-96 transition-transform duration-300 ease-in-out"
+              className={`w-full sm:w-96 transition-transform duration-300 ease-in-out ${
+                index === currentIndex ? 'block' : 'hidden sm:block'
+              }`}
               style={{
                 transform: `translateX(${-100 * currentIndex}%)`,
               }}
@@ -74,10 +76,10 @@ const ProcessCardSlider = () => {
         </div>
         <Button 
           onClick={nextSlide} 
-          className="bg-white text-gray-800 hover:bg-gray-100"
-          disabled={currentIndex === cards.length - 2}
+          className="bg-white text-gray-800 hover:bg-gray-100 w-full sm:w-auto"
+          disabled={currentIndex === cards.length - 1}
         >
-          <ChevronRight className="h-6 w-6" />
+          <ChevronRight className="h-4 w-4 sm:h-6 sm:w-6" />
         </Button>
       </div>
     </div>
