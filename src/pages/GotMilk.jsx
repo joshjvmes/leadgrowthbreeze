@@ -4,7 +4,6 @@ import { Button } from "@/components/ui/button";
 import { ArrowLeft, MessageCircle, Milk } from 'lucide-react';
 import VectorIconMarquee from '../components/VectorIconMarquee';
 import QuotesSection from '../components/QuotesSection';
-import ProcessCardSlider from '../components/ProcessCardSlider';
 
 const GotMilk = () => {
   return (
@@ -29,8 +28,6 @@ const GotMilk = () => {
             Stop sending cold emails that get ignored. Start having conversations that matter.
           </p>
         </header>
-
-        <ProcessCardSlider />
 
         <VectorIconMarquee />
 
