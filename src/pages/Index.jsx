@@ -82,7 +82,7 @@ const Index = () => {
                 Revenue Acceleration
               </h2>
               <p className="text-xl sm:text-2xl mb-6 sm:mb-8 font-poppins">
-                Rocket Now is your Ebb and Flow.. Your Rising Tide
+                Razzo is Your Rising Tide..
               </p>
               <Link to="/got-milk">
                 <Button 
