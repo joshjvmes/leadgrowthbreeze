@@ -1,14 +1,27 @@
-import React, { useMemo } from 'react';
+import React, { useMemo, useEffect, useState } from 'react';
 
 const AnimatedBackground = () => {
+  const [isMobile, setIsMobile] = useState(false);
+
+  useEffect(() => {
+    const checkMobile = () => {
+      setIsMobile(window.innerWidth <= 768); // Adjust this breakpoint as needed
+    };
+
+    checkMobile();
+    window.addEventListener('resize', checkMobile);
+
+    return () => window.removeEventListener('resize', checkMobile);
+  }, []);
+
   const bubbles = useMemo(() => {
-    const bubbleCount = 20;
+    const bubbleCount = isMobile ? 10 : 20; // Reduce bubbles on mobile
     const minSize = 50;
     const maxSize = 150;
     const minDuration = 5;
     const maxDuration = 15;
-    const gridSize = 4; // 4x4 grid
-    const colors = ['#0FCEFD', '#0097FD', '#E51010', '#FFFFFF']; // Added multiple colors
+    const gridSize = isMobile ? 3 : 4; // Smaller grid on mobile
+    const colors = ['#0FCEFD', '#0097FD', '#E51010', '#FFFFFF'];
 
     const positions = [];
     for (let i = 0; i < gridSize; i++) {
@@ -25,9 +38,9 @@ const AnimatedBackground = () => {
       size: Math.random() * (maxSize - minSize) + minSize,
       duration: Math.random() * (maxDuration - minDuration) + minDuration,
       delay: Math.random() * 5,
-      color: colors[Math.floor(Math.random() * colors.length)], // Randomly select a color
+      color: colors[Math.floor(Math.random() * colors.length)],
     }));
-  }, []);
+  }, [isMobile]);
 
   return (
     <div className="absolute inset-0 overflow-hidden">
