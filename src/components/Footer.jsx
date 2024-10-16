@@ -10,6 +10,7 @@ const Footer = () => {
             <li><Link to="/" className="hover:text-[#E51010]">Home</Link></li>
             <li><Link to="/about" className="hover:text-[#E51010]">About</Link></li>
             <li><Link to="/contact" className="hover:text-[#E51010]">Contact</Link></li>
+            <li><Link to="/process" className="hover:text-[#E51010]">Process</Link></li>
             <li><Link to="/admin" className="hover:text-[#E51010]">Admin</Link></li>
           </ul>
         </nav>
