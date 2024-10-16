@@ -2,7 +2,6 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { useArticles } from '../integrations/supabase';
 import { Button } from "@/components/ui/button";
-import { ArrowRight } from 'lucide-react';
 
 const Blog = () => {
   const { data: articles, isLoading, error } = useArticles();
@@ -21,7 +20,7 @@ const Blog = () => {
               <p className="mb-4">{article.content && article.content.substring(0, 150)}...</p>
               <Link to={`/blog/${article.id}`}>
                 <Button className="bg-[#E51010] hover:bg-[#0097FD] text-white">
-                  Read More <ArrowRight className="ml-2 h-4 w-4" />
+                  Read More
                 </Button>
               </Link>
             </div>

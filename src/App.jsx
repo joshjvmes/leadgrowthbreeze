@@ -11,6 +11,7 @@ import About from "./pages/About";
 import GotMilk from "./pages/GotMilk";
 import ProcessPage from "./pages/ProcessPage";
 import Blog from "./pages/Blog";
+import ArticlePage from "./pages/ArticlePage";
 import Footer from "./components/Footer";
 
 const queryClient = new QueryClient();
@@ -30,6 +31,7 @@ const App = () => (
               <Route path="/got-milk" element={<GotMilk />} />
               <Route path="/process" element={<ProcessPage />} />
               <Route path="/blog" element={<Blog />} />
+              <Route path="/blog/:id" element={<ArticlePage />} />
             </Routes>
             <Footer />
           </BrowserRouter>

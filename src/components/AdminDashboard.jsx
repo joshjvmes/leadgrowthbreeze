@@ -4,6 +4,7 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { toast } from 'sonner';
+import { Link } from 'react-router-dom';
 
 const AdminDashboard = () => {
   const { data: articles, isLoading: articlesLoading, error: articlesError } = useArticles();
@@ -14,6 +15,7 @@ const AdminDashboard = () => {
 
   const [editingArticle, setEditingArticle] = useState(null);
   const [newArticle, setNewArticle] = useState({ title: '', content: '' });
+  const [showCreateForm, setShowCreateForm] = useState(false);
 
   const handleEditArticle = (article) => {
     setEditingArticle({ ...article });
@@ -44,6 +46,7 @@ const AdminDashboard = () => {
     try {
       await addArticle.mutateAsync(newArticle);
       setNewArticle({ title: '', content: '' });
+      setShowCreateForm(false);
       toast.success('Article added successfully');
     } catch (error) {
       toast.error('Error adding article: ' + error.message);
@@ -69,6 +72,7 @@ const AdminDashboard = () => {
                 <div className="mt-2 space-x-2">
                   <Button onClick={() => handleEditArticle(item)} className="bg-blue-500 hover:bg-blue-600">Edit</Button>
                   <Button onClick={() => handleDeleteArticle(item.id)} className="bg-red-500 hover:bg-red-600">Delete</Button>
+                  <Link to={`/blog/${item.id}`} className="inline-block bg-green-500 hover:bg-green-600 text-white font-bold py-2 px-4 rounded">View</Link>
                 </div>
               </>
             ) : (
@@ -89,25 +93,28 @@ const AdminDashboard = () => {
       <h1 className="text-2xl font-bold mb-4">Admin Dashboard</h1>
       
       <div className="mb-8">
-        <h2 className="text-xl font-semibold mb-2">Add New Article</h2>
-        <Input
-          type="text"
-          placeholder="Title"
-          value={newArticle.title}
-          onChange={(e) => setNewArticle({ ...newArticle, title: e.target.value })}
-          className="mb-2"
-        />
-        <Textarea
-          placeholder="Content"
-          value={newArticle.content}
-          onChange={(e) => setNewArticle({ ...newArticle, content: e.target.value })}
-          className="mb-2"
-        />
-        <Button onClick={handleAddArticle} className="bg-green-500 hover:bg-green-600">Add Article</Button>
-      </div>
-
-      <div className="mb-8">
         <h2 className="text-xl font-semibold mb-2">Articles</h2>
+        <Button onClick={() => setShowCreateForm(!showCreateForm)} className="bg-green-500 hover:bg-green-600 mb-4">
+          {showCreateForm ? 'Cancel' : 'Create New Article'}
+        </Button>
+        {showCreateForm && (
+          <div className="mb-4">
+            <Input
+              type="text"
+              placeholder="Title"
+              value={newArticle.title}
+              onChange={(e) => setNewArticle({ ...newArticle, title: e.target.value })}
+              className="mb-2"
+            />
+            <Textarea
+              placeholder="Content"
+              value={newArticle.content}
+              onChange={(e) => setNewArticle({ ...newArticle, content: e.target.value })}
+              className="mb-2"
+            />
+            <Button onClick={handleAddArticle} className="bg-blue-500 hover:bg-blue-600">Add Article</Button>
+          </div>
+        )}
         {renderContent(articles?.data, articlesLoading, articles?.error || articlesError, 'articles')}
       </div>
       
