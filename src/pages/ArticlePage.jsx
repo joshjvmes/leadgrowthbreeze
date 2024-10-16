@@ -15,7 +15,7 @@ const ArticlePage = () => {
     <div className="min-h-screen bg-gradient-to-b from-[#0FCEFD] to-[#0097FD] text-white py-16">
       <div className="container mx-auto px-4">
         <Link to="/blog" className="text-white hover:text-[#E51010] mb-4 inline-block">
-          <Button variant="outline">&larr; Back to Blog</Button>
+          <Button variant="outline" className="bg-[#0097FD] text-white hover:bg-[#0FCEFD]">&larr; Back to Blog</Button>
         </Link>
         <article className="bg-white text-gray-800 rounded-lg shadow-xl p-8">
           <h1 className="text-4xl font-bold mb-2">{article.data.title}</h1>
