@@ -65,7 +65,7 @@ const AdminDashboard = () => {
             {entityName === 'articles' ? (
               <>
                 <h3 className="font-bold">{item.title}</h3>
-                <p className="mt-2">{item.content.substring(0, 100)}...</p>
+                <p className="mt-2">{item.content && item.content.substring(0, 100)}...</p>
                 <div className="mt-2 space-x-2">
                   <Button onClick={() => handleEditArticle(item)} className="bg-blue-500 hover:bg-blue-600">Edit</Button>
                   <Button onClick={() => handleDeleteArticle(item.id)} className="bg-red-500 hover:bg-red-600">Delete</Button>
