@@ -30,7 +30,7 @@ export const useContact = (id) => useQuery({
     queryFn: () => fromSupabase(supabase.from('Contact').select('*').eq('id', id).single()),
 });
 
-export const useContacts = () => useQuery({
+export const useContactForms = () => useQuery({
     queryKey: ['contacts'],
     queryFn: () => fromSupabase(supabase.from('Contact').select('*')),
 });
