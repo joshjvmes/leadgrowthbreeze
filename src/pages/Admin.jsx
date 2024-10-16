@@ -38,9 +38,21 @@ const Admin = () => {
   const handleLogin = async (e) => {
     e.preventDefault();
     try {
-      const { error } = await signIn({ username, password });
+      const { data, error } = await supabase
+        .from('Users')
+        .select('email')
+        .eq('username', username)
+        .single();
+
       if (error) throw error;
-      toast.success('Logged in successfully');
+
+      if (data?.email) {
+        const { error: signInError } = await signIn({ email: data.email, password });
+        if (signInError) throw signInError;
+        toast.success('Logged in successfully');
+      } else {
+        throw new Error('User not found');
+      }
     } catch (error) {
       toast.error('Error logging in: ' + error.message);
     }

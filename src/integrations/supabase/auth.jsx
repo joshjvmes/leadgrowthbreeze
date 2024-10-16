@@ -40,11 +40,8 @@ export const SupabaseAuthProviderInner = ({ children }) => {
     };
   }, [queryClient]);
 
-  const signIn = async ({ username, password }) => {
-    const { data, error } = await supabase.auth.signInWithPassword({
-      email: `${username}@example.com`, // Using a placeholder email
-      password,
-    });
+  const signIn = async ({ email, password }) => {
+    const { data, error } = await supabase.auth.signInWithPassword({ email, password });
     if (error) throw error;
     return data;
   };
