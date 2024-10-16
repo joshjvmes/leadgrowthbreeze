@@ -19,7 +19,7 @@ const fromSupabase = async (query) => {
 export const useArticle = (id) => useQuery({
     queryKey: ['article', id],
     queryFn: async () => {
-        const result = await fromSupabase(supabase.from('Article').select('*').eq('id', id).single());
+        const result = await fromSupabase(supabase.from('Articles').select('*').eq('id', id).single());
         if (result.error) {
             console.log('Error fetching article:', result.error);
             return { error: result.error };
@@ -31,10 +31,10 @@ export const useArticle = (id) => useQuery({
 export const useArticles = () => useQuery({
     queryKey: ['articles'],
     queryFn: async () => {
-        const result = await fromSupabase(supabase.from('Article').select('*'));
+        const result = await fromSupabase(supabase.from('Articles').select('*'));
         if (result.error) {
-            if (result.error.includes("relation \"public.Article\" does not exist")) {
-                toast.error('The Article table does not exist in the database. Please create it first.');
+            if (result.error.includes("relation \"public.Articles\" does not exist")) {
+                toast.error('The Articles table does not exist in the database. Please create it first.');
                 return { data: [], error: 'Table does not exist' };
             }
             console.log('Error fetching articles:', result.error);
@@ -48,7 +48,7 @@ export const useArticles = () => useQuery({
 export const useAddArticle = () => {
     const queryClient = useQueryClient();
     return useMutation({
-        mutationFn: (newArticle) => fromSupabase(supabase.from('Article').insert([newArticle])),
+        mutationFn: (newArticle) => fromSupabase(supabase.from('Articles').insert([newArticle])),
         onSuccess: () => {
             queryClient.invalidateQueries({ queryKey: ['articles'] });
         },
@@ -58,7 +58,7 @@ export const useAddArticle = () => {
 export const useUpdateArticle = () => {
     const queryClient = useQueryClient();
     return useMutation({
-        mutationFn: ({ id, ...updateData }) => fromSupabase(supabase.from('Article').update(updateData).eq('id', id)),
+        mutationFn: ({ id, ...updateData }) => fromSupabase(supabase.from('Articles').update(updateData).eq('id', id)),
         onSuccess: (_, variables) => {
             queryClient.invalidateQueries({ queryKey: ['articles'] });
             queryClient.invalidateQueries({ queryKey: ['article', variables.id] });
@@ -69,7 +69,7 @@ export const useUpdateArticle = () => {
 export const useDeleteArticle = () => {
     const queryClient = useQueryClient();
     return useMutation({
-        mutationFn: (id) => fromSupabase(supabase.from('Article').delete().eq('id', id)),
+        mutationFn: (id) => fromSupabase(supabase.from('Articles').delete().eq('id', id)),
         onSuccess: () => {
             queryClient.invalidateQueries({ queryKey: ['articles'] });
         },

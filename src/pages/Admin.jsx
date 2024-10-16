@@ -17,7 +17,7 @@ const Admin = () => {
     const checkAdminStatus = async () => {
       if (session?.user) {
         const { data, error } = await supabase
-          .from('profiles')
+          .from('Users')
           .select('user_type')
           .eq('id', session.user.id)
           .single();

@@ -19,9 +19,9 @@ const fromSupabase = async (query) => {
 export const useContactForm = (id) => useQuery({
     queryKey: ['contactForm', id],
     queryFn: async () => {
-        const result = await fromSupabase(supabase.from('contact_submissions').select('*').eq('id', id).single());
-        if (result.error && result.error.includes("relation \"public.contact_submissions\" does not exist")) {
-            toast.error('The contact_submissions table does not exist in the database. Please create it first.');
+        const result = await fromSupabase(supabase.from('Contact').select('*').eq('id', id).single());
+        if (result.error && result.error.includes("relation \"public.Contact\" does not exist")) {
+            toast.error('The Contact table does not exist in the database. Please create it first.');
             return { error: 'Table does not exist' };
         }
         return result;
@@ -31,9 +31,9 @@ export const useContactForm = (id) => useQuery({
 export const useContactForms = () => useQuery({
     queryKey: ['contactForms'],
     queryFn: async () => {
-        const result = await fromSupabase(supabase.from('contact_submissions').select('*'));
-        if (result.error && result.error.includes("relation \"public.contact_submissions\" does not exist")) {
-            toast.error('The contact_submissions table does not exist in the database. Please create it first.');
+        const result = await fromSupabase(supabase.from('Contact').select('*'));
+        if (result.error && result.error.includes("relation \"public.Contact\" does not exist")) {
+            toast.error('The Contact table does not exist in the database. Please create it first.');
             return { data: [], error: 'Table does not exist' };
         }
         return result;
@@ -45,9 +45,9 @@ export const useAddContactForm = () => {
     const queryClient = useQueryClient();
     return useMutation({
         mutationFn: async (newContactForm) => {
-            const result = await fromSupabase(supabase.from('contact_submissions').insert([newContactForm]));
-            if (result.error && result.error.includes("relation \"public.contact_submissions\" does not exist")) {
-                toast.error('The contact_submissions table does not exist in the database. Please create it first.');
+            const result = await fromSupabase(supabase.from('Contact').insert([newContactForm]));
+            if (result.error && result.error.includes("relation \"public.Contact\" does not exist")) {
+                toast.error('The Contact table does not exist in the database. Please create it first.');
                 return { error: 'Table does not exist' };
             }
             return result;
