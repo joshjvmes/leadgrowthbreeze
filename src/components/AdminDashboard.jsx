@@ -14,13 +14,17 @@ const AdminDashboard = () => {
     if (!data || data.length === 0) return <p>No {entityName} found.</p>;
 
     return (
-      <ul>
+      <ul className="space-y-4">
         {data.map((item) => (
-          <li key={item.id} className="mb-2">
+          <li key={item.id} className="bg-white p-4 rounded-lg shadow">
             {entityName === 'articles' ? (
               <>{item.title}</>
             ) : (
-              <>{item.name} - {item.email}: {item.message}</>
+              <>
+                <h3 className="font-bold">{item.name}</h3>
+                <p className="text-sm text-gray-600">{item.email}</p>
+                <p className="mt-2">{item.message}</p>
+              </>
             )}
           </li>
         ))}

@@ -3,6 +3,7 @@ import { Button } from "@/components/ui/button";
 import { Link } from 'react-router-dom';
 import { ArrowLeft } from 'lucide-react';
 import { useAddContactForm } from '../integrations/supabase';
+import { toast } from 'sonner';
 
 const Contact = () => {
   const [name, setName] = useState('');
@@ -14,12 +15,12 @@ const Contact = () => {
     e.preventDefault();
     try {
       await addContactForm.mutateAsync({ name, email, message });
-      alert('Message sent successfully!');
+      toast.success('Message sent successfully!');
       setName('');
       setEmail('');
       setMessage('');
     } catch (error) {
-      alert('Error sending message: ' + error.message);
+      toast.error('Error sending message: ' + error.message);
     }
   };
 
