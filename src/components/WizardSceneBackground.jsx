@@ -9,9 +9,19 @@ const scenes = [
 
 const WizardSceneBackground = () => {
   const [currentScene, setCurrentScene] = useState(0);
+  const [isMobile, setIsMobile] = useState(false);
 
   useEffect(() => {
+    const checkMobile = () => {
+      setIsMobile(window.innerWidth <= 768);
+    };
+
+    checkMobile();
+    window.addEventListener('resize', checkMobile);
+
     const handleScroll = () => {
+      if (isMobile) return; // Don't change scene on mobile
+
       const scrollPosition = window.scrollY;
       const pageHeight = document.documentElement.scrollHeight - window.innerHeight;
       const scrollPercentage = scrollPosition / pageHeight;
@@ -23,11 +33,14 @@ const WizardSceneBackground = () => {
     };
 
     window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
-  }, []);
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+      window.removeEventListener('resize', checkMobile);
+    };
+  }, [isMobile]);
 
   return (
-    <div className="fixed inset-0 z-[-1] transition-all duration-1000 ease-in-out">
+    <div className={`fixed inset-0 z-[-1] transition-all duration-1000 ease-in-out ${isMobile ? 'h-screen' : ''}`}>
       <div className={`absolute inset-0 ${scenes[currentScene].bg}`}></div>
       <div className="absolute inset-0 flex items-center justify-center text-8xl animate-float">
         {scenes[currentScene].elements}
