@@ -57,3 +57,20 @@ export const useAddContactForm = () => {
         },
     });
 };
+
+export const useDeleteContact = () => {
+    const queryClient = useQueryClient();
+    return useMutation({
+        mutationFn: async (id) => {
+            const result = await fromSupabase(supabase.from('Contact').delete().eq('id', id));
+            if (result.error && result.error.includes("relation \"public.Contact\" does not exist")) {
+                toast.error('The Contact table does not exist in the database. Please create it first.');
+                return { error: 'Table does not exist' };
+            }
+            return result;
+        },
+        onSuccess: () => {
+            queryClient.invalidateQueries({ queryKey: ['contactForms'] });
+        },
+    });
+};

@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { useArticles, useAddArticle, useUpdateArticle, useDeleteArticle } from '../integrations/supabase';
-import { useContactForms } from '../integrations/supabase/hooks/useContactForm';
+import { useContactForms, useDeleteContact } from '../integrations/supabase/hooks/useContactForm';
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
@@ -13,6 +13,7 @@ const AdminDashboard = () => {
   const addArticle = useAddArticle();
   const updateArticle = useUpdateArticle();
   const deleteArticle = useDeleteArticle();
+  const deleteContact = useDeleteContact();
 
   const [editingArticle, setEditingArticle] = useState(null);
   const [newArticle, setNewArticle] = useState({ title: '', subtitle: '', author: '', content: '', url: '' });
@@ -54,6 +55,17 @@ const AdminDashboard = () => {
     }
   };
 
+  const handleDeleteContact = async (id) => {
+    if (window.confirm('Are you sure you want to delete this contact form submission?')) {
+      try {
+        await deleteContact.mutateAsync(id);
+        toast.success('Contact form submission deleted successfully');
+      } catch (error) {
+        toast.error('Error deleting contact form submission: ' + error.message);
+      }
+    }
+  };
+
   const renderContent = (data, isLoading, error, entityName) => {
     if (isLoading) return <p>Loading {entityName}...</p>;
     if (error) {
@@ -67,7 +79,6 @@ const AdminDashboard = () => {
         {data.map((item) => (
           <li key={item.id} className="bg-white p-4 rounded-lg shadow">
             {entityName === 'articles' ? (
-              <>
                 <h3 className="font-bold">{item.title}</h3>
                 <p className="text-sm text-gray-600">{item.subtitle}</p>
                 <p className="text-sm text-gray-500">By {item.author}</p>
@@ -78,12 +89,12 @@ const AdminDashboard = () => {
                   <Button onClick={() => handleDeleteArticle(item.id)} className="bg-red-500 hover:bg-red-600">Delete</Button>
                   <Link to={`/blog/${item.url}`} className="inline-block bg-green-500 hover:bg-green-600 text-white font-bold py-2 px-4 rounded">View</Link>
                 </div>
-              </>
             ) : (
               <>
                 <h3 className="font-bold">{item.name}</h3>
                 <p className="text-sm text-gray-600">{item.email}</p>
                 <p className="mt-2">{item.message}</p>
+                <Button onClick={() => handleDeleteContact(item.id)} className="mt-2 bg-red-500 hover:bg-red-600">Delete</Button>
               </>
             )}
           </li>
