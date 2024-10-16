@@ -2,6 +2,7 @@ import React from 'react';
 import { useParams, Link } from 'react-router-dom';
 import { useArticle } from '../integrations/supabase';
 import { Button } from "@/components/ui/button";
+import { ArrowLeft } from 'lucide-react';
 
 const ArticlePage = () => {
   const { slug } = useParams();
@@ -16,8 +17,11 @@ const ArticlePage = () => {
   return (
     <div className="min-h-screen bg-gradient-to-b from-[#0FCEFD] to-[#0097FD] text-white py-16">
       <div className="container mx-auto px-4">
-        <Link to="/blog" className="text-white hover:text-[#E51010] mb-4 inline-block">
-          <Button variant="outline" className="bg-[#0097FD] text-white hover:bg-[#0FCEFD]">&larr; Back to Blog</Button>
+        <Link to="/blog" className="inline-block mb-8">
+          <Button variant="outline" className="bg-white text-[#0097FD] hover:bg-[#E51010] hover:text-white">
+            <ArrowLeft className="mr-2 h-4 w-4" />
+            Go Back
+          </Button>
         </Link>
         <article className="bg-white text-gray-800 rounded-lg shadow-xl p-8 mb-8">
           <h1 className="text-4xl font-bold mb-2">{article.title}</h1>
