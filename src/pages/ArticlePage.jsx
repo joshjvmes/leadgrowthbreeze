@@ -1,7 +1,6 @@
 import React from 'react';
-import { useParams } from 'react-router-dom';
+import { useParams, Link } from 'react-router-dom';
 import { useArticle } from '../integrations/supabase';
-import { Link } from 'react-router-dom';
 import { Button } from "@/components/ui/button";
 
 const ArticlePage = () => {
@@ -10,6 +9,7 @@ const ArticlePage = () => {
 
   if (isLoading) return <div className="text-center py-8">Loading article...</div>;
   if (error) return <div className="text-center py-8 text-red-500">Error loading article: {error.message}</div>;
+  if (!article) return <div className="text-center py-8">Article not found</div>;
 
   return (
     <div className="min-h-screen bg-gradient-to-b from-[#0FCEFD] to-[#0097FD] text-white py-16">
@@ -20,7 +20,7 @@ const ArticlePage = () => {
         <article className="bg-white text-gray-800 rounded-lg shadow-xl p-8">
           <h1 className="text-3xl font-bold mb-4">{article.title}</h1>
           <div className="prose max-w-none">
-            {article.content.split('\n').map((paragraph, index) => (
+            {article.content && article.content.split('\n').map((paragraph, index) => (
               <p key={index} className="mb-4">{paragraph}</p>
             ))}
           </div>
