@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { Button } from "@/components/ui/button";
 import { Link } from 'react-router-dom';
 import { ArrowLeft } from 'lucide-react';
-import { useAddContactForm } from '../integrations/supabase';
+import { useAddContactForm } from '../integrations/supabase/hooks/useContactForm';
 import { toast } from 'sonner';
 
 const Contact = () => {

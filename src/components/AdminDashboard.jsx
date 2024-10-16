@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
-import { useArticles, useAddArticle, useUpdateArticle, useDeleteArticle, useContactForms } from '../integrations/supabase';
+import { useArticles, useAddArticle, useUpdateArticle, useDeleteArticle } from '../integrations/supabase';
+import { useContactForms } from '../integrations/supabase/hooks/useContactForm';
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
