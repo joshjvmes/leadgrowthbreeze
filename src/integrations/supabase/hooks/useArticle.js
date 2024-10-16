@@ -22,7 +22,7 @@ export const useArticle = (slug) => useQuery({
         try {
             const result = await fromSupabase(supabase.from('Articles').select('*').eq('url', slug).single());
             if (result.error) {
-                console.log('Error fetching article:', result.error);
+                console.error('Error fetching article:', result.error);
                 toast.error('Error fetching article. Please try again.');
                 return { error: result.error };
             }

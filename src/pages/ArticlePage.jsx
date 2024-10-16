@@ -8,8 +8,8 @@ const ArticlePage = () => {
   const { data: article, isLoading, error } = useArticle(slug);
 
   if (isLoading) return <div className="text-center py-8">Loading article...</div>;
-  if (error) return <div className="text-center py-8 text-red-500">Error loading article: {error.message}</div>;
-  if (!article) return <div className="text-center py-8">Article not found</div>;
+  if (error) return <div className="text-center py-8 text-red-500">Error loading article: {error.message || error}</div>;
+  if (!article?.data) return <div className="text-center py-8">Article not found</div>;
 
   return (
     <div className="min-h-screen bg-gradient-to-b from-[#0FCEFD] to-[#0097FD] text-white py-16">
@@ -18,11 +18,11 @@ const ArticlePage = () => {
           <Button variant="outline">&larr; Back to Blog</Button>
         </Link>
         <article className="bg-white text-gray-800 rounded-lg shadow-xl p-8">
-          <h1 className="text-4xl font-bold mb-2">{article.title}</h1>
-          <h2 className="text-2xl font-semibold mb-4 text-gray-600">{article.subtitle}</h2>
-          <p className="text-sm text-gray-500 mb-6">By {article.author}</p>
+          <h1 className="text-4xl font-bold mb-2">{article.data.title}</h1>
+          <h2 className="text-2xl font-semibold mb-4 text-gray-600">{article.data.subtitle}</h2>
+          <p className="text-sm text-gray-500 mb-6">By {article.data.author}</p>
           <div className="prose max-w-none">
-            {article.content && article.content.split('\n').map((paragraph, index) => (
+            {article.data.content && article.data.content.split('\n').map((paragraph, index) => (
               <p key={index} className="mb-4">{paragraph}</p>
             ))}
           </div>
