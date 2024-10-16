@@ -4,6 +4,8 @@ import { TooltipProvider } from "@/components/ui/tooltip";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { SupabaseAuthProvider } from './integrations/supabase';
+import Header from "./components/Header";
+import Footer from "./components/Footer";
 import Index from "./pages/Index";
 import Contact from "./pages/Contact";
 import Admin from "./pages/Admin";
@@ -12,7 +14,6 @@ import GotMilk from "./pages/GotMilk";
 import ProcessPage from "./pages/ProcessPage";
 import Blog from "./pages/Blog";
 import ArticlePage from "./pages/ArticlePage";
-import Footer from "./components/Footer";
 import SignIn from "./components/SignIn";
 
 const queryClient = new QueryClient();
@@ -24,6 +25,7 @@ const App = () => (
         <TooltipProvider>
           <Toaster />
           <BrowserRouter>
+            <Header />
             <Routes>
               <Route path="/" element={<Index />} />
               <Route path="/contact" element={<Contact />} />
