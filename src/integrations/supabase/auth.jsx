@@ -43,7 +43,7 @@ export const SupabaseAuthProviderInner = ({ children }) => {
   const signIn = async ({ email, password }) => {
     const { data, error } = await supabase.auth.signInWithPassword({ email, password });
     if (error) throw error;
-    return data;
+    return { data, error };
   };
 
   const signOut = async () => {
