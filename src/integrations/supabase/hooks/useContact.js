@@ -35,7 +35,7 @@ export const useContacts = () => useQuery({
     queryFn: () => fromSupabase(supabase.from('Contact').select('*')),
 });
 
-export const useAddContact = () => {
+export const useAddContactForm = () => {
     const queryClient = useQueryClient();
     return useMutation({
         mutationFn: (newContact) => fromSupabase(supabase.from('Contact').insert([newContact])),

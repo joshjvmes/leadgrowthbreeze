@@ -1,7 +1,7 @@
 // Import all the relevant exports from other files in the supabase directory
 import { supabase } from './supabase.js';
 import { SupabaseAuthProvider, useSupabaseAuth, SupabaseAuthUI } from './auth.jsx';
-import { useContact, useContacts, useAddContact, useUpdateContact, useDeleteContact } from './hooks/useContact';
+import { useContact, useContacts, useAddContactForm, useUpdateContact, useDeleteContact } from './hooks/useContact';
 import { useArticle, useArticles, useAddArticle, useUpdateArticle, useDeleteArticle } from './hooks/useArticles';
 import { useUser, useUsers, useAddUser, useUpdateUser, useDeleteUser } from './hooks/useUsers';
 
@@ -13,7 +13,7 @@ export {
   SupabaseAuthUI,
   useContact,
   useContacts,
-  useAddContact,
+  useAddContactForm,
   useUpdateContact,
   useDeleteContact,
   useArticle,
