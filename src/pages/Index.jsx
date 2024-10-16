@@ -62,16 +62,6 @@ const Index = () => {
   return (
     <div className="min-h-screen relative">
       <WizardSceneBackground />
-      <header className="bg-gradient-to-b from-[#0FCEFD] to-[#0097FD] text-white py-4 relative z-10">
-        <div className="container mx-auto px-4 flex justify-between items-center">
-          <img src="/rocket-logo.png" alt="ROCKET NOW" className="h-8 w-auto sm:h-12" />
-          <Link to="/contact">
-            <Button className="bg-[#E51010] hover:bg-white hover:text-[#E51010] text-white text-sm sm:text-base">
-              Get Started
-            </Button>
-          </Link>
-        </div>
-      </header>
       
       <main className="container mx-auto px-4 relative z-10">
         <FadeInSection>
@@ -164,6 +154,7 @@ const Index = () => {
             <WizardHatPopup />
           </section>
         </FadeInSection>
+
       </main>
       <ProspectingPopup open={showProspectingPopup} onOpenChange={setShowProspectingPopup} />
     </div>
