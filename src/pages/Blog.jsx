@@ -2,6 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { useArticles } from '../integrations/supabase';
 import { Button } from "@/components/ui/button";
+import { ArrowLeft } from 'lucide-react';
 
 const Blog = () => {
   const { data: articles, isLoading, error } = useArticles();
@@ -12,6 +13,12 @@ const Blog = () => {
   return (
     <div className="min-h-screen bg-gradient-to-b from-[#0FCEFD] to-[#0097FD] text-white py-16">
       <div className="container mx-auto px-4">
+        <Link to="/" className="inline-block mb-8">
+          <Button variant="outline" className="bg-white text-[#0097FD] hover:bg-[#E51010] hover:text-white">
+            <ArrowLeft className="mr-2 h-4 w-4" />
+            Go Back
+          </Button>
+        </Link>
         <h1 className="text-4xl sm:text-5xl font-extrabold mb-8 text-center font-poppins">Our Blog</h1>
         <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
           {articles?.data?.map((article) => (
