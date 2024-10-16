@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import { Button } from "@/components/ui/button";
 
 const Footer = () => {
   return (
@@ -14,6 +15,17 @@ const Footer = () => {
             <li><Link to="/admin" className="hover:text-[#E51010]">Admin</Link></li>
           </ul>
         </nav>
+        
+        {/* Call to Action Section */}
+        <div className="text-center mb-8">
+          <h3 className="text-2xl font-bold mb-4">Ready to Accelerate Your Growth?</h3>
+          <Link to="/contact">
+            <Button className="bg-[#E51010] hover:bg-[#B30000] text-white font-bold py-2 px-6 rounded-full text-lg">
+              Get Started Now
+            </Button>
+          </Link>
+        </div>
+        
         <div className="text-center">
           <p>&copy; 2014-2024 ROCKET NOW. All rights reserved.</p>
           <p className="mt-2">The best marketing agency near you, period.</p>
