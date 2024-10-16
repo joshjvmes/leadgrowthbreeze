@@ -1,29 +1,60 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { ArrowLeft } from 'lucide-react';
 import { Button } from "@/components/ui/button";
 import { useSupabaseAuth } from '../integrations/supabase';
 import AdminDashboard from '../components/AdminDashboard';
+import { toast } from 'sonner';
+import { supabase } from '../integrations/supabase/supabase';
 
 const Admin = () => {
-  const { session, signOut } = useSupabaseAuth();
+  const { session, signIn, signOut } = useSupabaseAuth();
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
-  const [bypassLogin, setBypassLogin] = useState(false);
+  const [isAdmin, setIsAdmin] = useState(false);
+
+  useEffect(() => {
+    const checkAdminStatus = async () => {
+      if (session?.user) {
+        const { data, error } = await supabase
+          .from('profiles')
+          .select('user_type')
+          .eq('id', session.user.id)
+          .single();
+
+        if (error) {
+          console.error('Error fetching user profile:', error);
+          toast.error('Error verifying admin status');
+          return;
+        }
+
+        setIsAdmin(data?.user_type === 'admin');
+      }
+    };
+
+    checkAdminStatus();
+  }, [session]);
 
   const handleLogin = async (e) => {
     e.preventDefault();
-    // Implement login logic here
+    try {
+      const { error } = await signIn({ email, password });
+      if (error) throw error;
+      toast.success('Logged in successfully');
+    } catch (error) {
+      toast.error('Error logging in: ' + error.message);
+    }
   };
 
   const handleLogout = async () => {
-    const { error } = await signOut();
-    if (error) alert('Error logging out: ' + error.message);
-    setBypassLogin(false);
-  };
-
-  const handleBypass = () => {
-    setBypassLogin(true);
+    try {
+      const { error } = await signOut();
+      if (error) throw error;
+      toast.success('Logged out successfully');
+      setIsAdmin(false);
+    } catch (error) {
+      toast.error('Error logging out: ' + error.message);
+    }
   };
 
   return (
@@ -34,31 +65,32 @@ const Admin = () => {
           Go Back
         </Link>
         <h1 className="text-4xl sm:text-5xl font-extrabold mb-8 text-center font-poppins">Admin Panel</h1>
-        {!session && !bypassLogin ? (
+        {!session ? (
           <div className="max-w-md mx-auto bg-white rounded-lg shadow-xl p-8">
             <form onSubmit={handleLogin} className="space-y-6">
               <div>
                 <label htmlFor="email" className="block text-sm font-medium text-gray-700">Email</label>
-                <input type="email" id="email" value={email} onChange={(e) => setEmail(e.target.value)} className="mt-1 block w-full border-gray-300 rounded-md shadow-sm focus:ring-[#E51010] focus:border-[#E51010]" required />
+                <input type="email" id="email" value={email} onChange={(e) => setEmail(e.target.value)} className="mt-1 block w-full border-gray-300 rounded-md shadow-sm focus:ring-[#E51010] focus:border-[#E51010] text-gray-900" required />
               </div>
               <div>
                 <label htmlFor="password" className="block text-sm font-medium text-gray-700">Password</label>
-                <input type="password" id="password" value={password} onChange={(e) => setPassword(e.target.value)} className="mt-1 block w-full border-gray-300 rounded-md shadow-sm focus:ring-[#E51010] focus:border-[#E51010]" required />
+                <input type="password" id="password" value={password} onChange={(e) => setPassword(e.target.value)} className="mt-1 block w-full border-gray-300 rounded-md shadow-sm focus:ring-[#E51010] focus:border-[#E51010] text-gray-900" required />
               </div>
               <Button type="submit" className="w-full bg-[#E51010] hover:bg-[#0097FD] text-white font-bold py-2 px-4 rounded transition-colors">
                 Login
               </Button>
             </form>
-            <Button onClick={handleBypass} className="w-full mt-4 bg-yellow-500 hover:bg-yellow-600 text-white font-bold py-2 px-4 rounded transition-colors">
-              Bypass Login (For Development)
-            </Button>
           </div>
         ) : (
           <div className="bg-white rounded-lg shadow-xl p-8 text-gray-800">
             <Button onClick={handleLogout} className="mb-4 bg-[#E51010] hover:bg-[#0097FD] text-white font-bold py-2 px-4 rounded transition-colors">
               Logout
             </Button>
-            <AdminDashboard />
+            {isAdmin ? (
+              <AdminDashboard />
+            ) : (
+              <p className="text-center text-xl font-bold text-[#E51010]">You do not have admin privileges.</p>
+            )}
           </div>
         )}
       </div>
