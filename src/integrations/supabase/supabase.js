@@ -18,3 +18,6 @@ const options = {
 };
 
 export const supabase = createClient(supabaseUrl, supabaseKey, options);
+
+// Storage is already configured as part of the Supabase client
+// No need to call setAuth separately
