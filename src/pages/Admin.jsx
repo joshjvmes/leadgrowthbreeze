@@ -9,7 +9,7 @@ import { supabase } from '../integrations/supabase/supabase';
 
 const Admin = () => {
   const { session, signIn, signOut } = useSupabaseAuth();
-  const [email, setEmail] = useState('');
+  const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
   const [isAdmin, setIsAdmin] = useState(false);
 
@@ -38,7 +38,7 @@ const Admin = () => {
   const handleLogin = async (e) => {
     e.preventDefault();
     try {
-      const { error } = await signIn({ email, password });
+      const { error } = await signIn({ username, password });
       if (error) throw error;
       toast.success('Logged in successfully');
     } catch (error) {
@@ -69,8 +69,8 @@ const Admin = () => {
           <div className="max-w-md mx-auto bg-white rounded-lg shadow-xl p-8">
             <form onSubmit={handleLogin} className="space-y-6">
               <div>
-                <label htmlFor="email" className="block text-sm font-medium text-gray-700">Email</label>
-                <input type="email" id="email" value={email} onChange={(e) => setEmail(e.target.value)} className="mt-1 block w-full border-gray-300 rounded-md shadow-sm focus:ring-[#E51010] focus:border-[#E51010] text-gray-900" required />
+                <label htmlFor="username" className="block text-sm font-medium text-gray-700">Username</label>
+                <input type="text" id="username" value={username} onChange={(e) => setUsername(e.target.value)} className="mt-1 block w-full border-gray-300 rounded-md shadow-sm focus:ring-[#E51010] focus:border-[#E51010] text-gray-900" required />
               </div>
               <div>
                 <label htmlFor="password" className="block text-sm font-medium text-gray-700">Password</label>
