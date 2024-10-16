@@ -7,8 +7,8 @@ import { ArrowRight } from 'lucide-react';
 const Blog = () => {
   const { data: articles, isLoading, error } = useArticles();
 
-  if (isLoading) return <div>Loading articles...</div>;
-  if (error) return <div>Error loading articles: {error.message}</div>;
+  if (isLoading) return <div className="text-center py-8">Loading articles...</div>;
+  if (error) return <div className="text-center py-8 text-red-500">Error loading articles: {error.message}</div>;
 
   return (
     <div className="min-h-screen bg-gradient-to-b from-[#0FCEFD] to-[#0097FD] text-white py-16">
@@ -18,7 +18,7 @@ const Blog = () => {
           {articles?.data?.map((article) => (
             <div key={article.id} className="bg-white rounded-lg shadow-xl p-6 text-gray-800">
               <h2 className="text-2xl font-bold mb-4 text-[#0097FD]">{article.title}</h2>
-              <p className="mb-4">{article.content.substring(0, 150)}...</p>
+              <p className="mb-4">{article.content && article.content.substring(0, 150)}...</p>
               <Link to={`/blog/${article.id}`}>
                 <Button className="bg-[#E51010] hover:bg-[#0097FD] text-white">
                   Read More <ArrowRight className="ml-2 h-4 w-4" />
