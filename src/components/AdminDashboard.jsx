@@ -79,6 +79,7 @@ const AdminDashboard = () => {
         {data.map((item) => (
           <li key={item.id} className="bg-white p-4 rounded-lg shadow">
             {entityName === 'articles' ? (
+              <>
                 <h3 className="font-bold">{item.title}</h3>
                 <p className="text-sm text-gray-600">{item.subtitle}</p>
                 <p className="text-sm text-gray-500">By {item.author}</p>
@@ -89,6 +90,7 @@ const AdminDashboard = () => {
                   <Button onClick={() => handleDeleteArticle(item.id)} className="bg-red-500 hover:bg-red-600">Delete</Button>
                   <Link to={`/blog/${item.url}`} className="inline-block bg-green-500 hover:bg-green-600 text-white font-bold py-2 px-4 rounded">View</Link>
                 </div>
+              </>
             ) : (
               <>
                 <h3 className="font-bold">{item.name}</h3>
