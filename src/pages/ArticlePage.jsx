@@ -4,8 +4,8 @@ import { useArticle } from '../integrations/supabase';
 import { Button } from "@/components/ui/button";
 
 const ArticlePage = () => {
-  const { id } = useParams();
-  const { data: article, isLoading, error } = useArticle(id);
+  const { slug } = useParams();
+  const { data: article, isLoading, error } = useArticle(slug);
 
   if (isLoading) return <div className="text-center py-8">Loading article...</div>;
   if (error) return <div className="text-center py-8 text-red-500">Error loading article: {error.message}</div>;
@@ -22,7 +22,7 @@ const ArticlePage = () => {
           <h2 className="text-2xl font-semibold mb-4 text-gray-600">{article.subtitle}</h2>
           <p className="text-sm text-gray-500 mb-6">By {article.author}</p>
           <div className="prose max-w-none">
-            {article.paragraph && article.paragraph.split('\n').map((paragraph, index) => (
+            {article.content && article.content.split('\n').map((paragraph, index) => (
               <p key={index} className="mb-4">{paragraph}</p>
             ))}
           </div>

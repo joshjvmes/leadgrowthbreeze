@@ -31,7 +31,7 @@ const App = () => (
               <Route path="/got-milk" element={<GotMilk />} />
               <Route path="/process" element={<ProcessPage />} />
               <Route path="/blog" element={<Blog />} />
-              <Route path="/blog/:id" element={<ArticlePage />} />
+              <Route path="/blog/:slug" element={<ArticlePage />} />
             </Routes>
             <Footer />
           </BrowserRouter>

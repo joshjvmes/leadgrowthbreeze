@@ -19,8 +19,8 @@ const Blog = () => {
               <h2 className="text-2xl font-bold mb-2 text-[#0097FD]">{article.title}</h2>
               <h3 className="text-xl font-semibold mb-2 text-gray-600">{article.subtitle}</h3>
               <p className="text-sm text-gray-500 mb-4">By {article.author}</p>
-              <p className="mb-4">{article.paragraph && article.paragraph.substring(0, 150)}...</p>
-              <Link to={`/blog/${article.id}`}>
+              <p className="mb-4">{article.content && article.content.substring(0, 150)}...</p>
+              <Link to={`/blog/${article.url}`}>
                 <Button className="bg-[#E51010] hover:bg-[#0097FD] text-white">
                   Read More
                 </Button>

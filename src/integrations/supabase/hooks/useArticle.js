@@ -16,10 +16,10 @@ const fromSupabase = async (query) => {
     }
 };
 
-export const useArticle = (id) => useQuery({
-    queryKey: ['article', id],
+export const useArticle = (slug) => useQuery({
+    queryKey: ['article', slug],
     queryFn: async () => {
-        const result = await fromSupabase(supabase.from('Articles').select('*').eq('id', id).single());
+        const result = await fromSupabase(supabase.from('Articles').select('*').eq('url', slug).single());
         if (result.error) {
             console.log('Error fetching article:', result.error);
             return { error: result.error };

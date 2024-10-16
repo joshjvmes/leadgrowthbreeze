@@ -14,7 +14,7 @@ const AdminDashboard = () => {
   const deleteArticle = useDeleteArticle();
 
   const [editingArticle, setEditingArticle] = useState(null);
-  const [newArticle, setNewArticle] = useState({ title: '', content: '' });
+  const [newArticle, setNewArticle] = useState({ title: '', subtitle: '', author: '', content: '', url: '' });
   const [showCreateForm, setShowCreateForm] = useState(false);
 
   const handleEditArticle = (article) => {
@@ -45,7 +45,7 @@ const AdminDashboard = () => {
   const handleAddArticle = async () => {
     try {
       await addArticle.mutateAsync(newArticle);
-      setNewArticle({ title: '', content: '' });
+      setNewArticle({ title: '', subtitle: '', author: '', content: '', url: '' });
       setShowCreateForm(false);
       toast.success('Article added successfully');
     } catch (error) {
@@ -68,11 +68,14 @@ const AdminDashboard = () => {
             {entityName === 'articles' ? (
               <>
                 <h3 className="font-bold">{item.title}</h3>
+                <p className="text-sm text-gray-600">{item.subtitle}</p>
+                <p className="text-sm text-gray-500">By {item.author}</p>
                 <p className="mt-2">{item.content && item.content.substring(0, 100)}...</p>
+                <p className="text-sm text-blue-500">URL: {item.url}</p>
                 <div className="mt-2 space-x-2">
                   <Button onClick={() => handleEditArticle(item)} className="bg-blue-500 hover:bg-blue-600">Edit</Button>
                   <Button onClick={() => handleDeleteArticle(item.id)} className="bg-red-500 hover:bg-red-600">Delete</Button>
-                  <Link to={`/blog/${item.id}`} className="inline-block bg-green-500 hover:bg-green-600 text-white font-bold py-2 px-4 rounded">View</Link>
+                  <Link to={`/blog/${item.url}`} className="inline-block bg-green-500 hover:bg-green-600 text-white font-bold py-2 px-4 rounded">View</Link>
                 </div>
               </>
             ) : (
@@ -98,19 +101,35 @@ const AdminDashboard = () => {
           {showCreateForm ? 'Cancel' : 'Create New Article'}
         </Button>
         {showCreateForm && (
-          <div className="mb-4">
+          <div className="mb-4 space-y-2">
             <Input
               type="text"
               placeholder="Title"
               value={newArticle.title}
               onChange={(e) => setNewArticle({ ...newArticle, title: e.target.value })}
-              className="mb-2"
+            />
+            <Input
+              type="text"
+              placeholder="Subtitle"
+              value={newArticle.subtitle}
+              onChange={(e) => setNewArticle({ ...newArticle, subtitle: e.target.value })}
+            />
+            <Input
+              type="text"
+              placeholder="Author"
+              value={newArticle.author}
+              onChange={(e) => setNewArticle({ ...newArticle, author: e.target.value })}
+            />
+            <Input
+              type="text"
+              placeholder="URL"
+              value={newArticle.url}
+              onChange={(e) => setNewArticle({ ...newArticle, url: e.target.value })}
             />
             <Textarea
               placeholder="Content"
               value={newArticle.content}
               onChange={(e) => setNewArticle({ ...newArticle, content: e.target.value })}
-              className="mb-2"
             />
             <Button onClick={handleAddArticle} className="bg-blue-500 hover:bg-blue-600">Add Article</Button>
           </div>
@@ -132,11 +151,34 @@ const AdminDashboard = () => {
               value={editingArticle.title}
               onChange={(e) => setEditingArticle({ ...editingArticle, title: e.target.value })}
               className="mb-2"
+              placeholder="Title"
+            />
+            <Input
+              type="text"
+              value={editingArticle.subtitle}
+              onChange={(e) => setEditingArticle({ ...editingArticle, subtitle: e.target.value })}
+              className="mb-2"
+              placeholder="Subtitle"
+            />
+            <Input
+              type="text"
+              value={editingArticle.author}
+              onChange={(e) => setEditingArticle({ ...editingArticle, author: e.target.value })}
+              className="mb-2"
+              placeholder="Author"
+            />
+            <Input
+              type="text"
+              value={editingArticle.url}
+              onChange={(e) => setEditingArticle({ ...editingArticle, url: e.target.value })}
+              className="mb-2"
+              placeholder="URL"
             />
             <Textarea
               value={editingArticle.content}
               onChange={(e) => setEditingArticle({ ...editingArticle, content: e.target.value })}
               className="mb-2"
+              placeholder="Content"
             />
             <div className="flex justify-end space-x-2">
               <Button onClick={() => setEditingArticle(null)} className="bg-gray-500 hover:bg-gray-600">Cancel</Button>
