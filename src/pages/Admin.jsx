@@ -57,10 +57,6 @@ const Admin = () => {
     }
   };
 
-  const handleBypassLogin = () => {
-    toast.success('Bypassed login successfully');
-  };
-
   return (
     <div className="min-h-screen bg-gradient-to-b from-[#0FCEFD] to-[#0097FD] text-white py-16">
       <div className="container mx-auto px-4">
@@ -84,9 +80,6 @@ const Admin = () => {
                 Login
               </Button>
             </form>
-            <Button onClick={handleBypassLogin} className="w-full mt-4 bg-yellow-500 hover:bg-yellow-600 text-white font-bold py-2 px-4 rounded transition-colors">
-              Bypass Login (Dev Only)
-            </Button>
           </div>
         ) : (
           <div className="bg-white rounded-lg shadow-xl p-8 text-gray-800">
