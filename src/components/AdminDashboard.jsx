@@ -5,7 +5,6 @@ import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { toast } from 'sonner';
 import { Link } from 'react-router-dom';
-import { uploadImage } from '../utils/imageUpload';
 
 const AdminDashboard = () => {
   const { data: articles, isLoading: articlesLoading, error: articlesError } = useArticles();
@@ -15,9 +14,8 @@ const AdminDashboard = () => {
   const deleteArticle = useDeleteArticle();
 
   const [editingArticle, setEditingArticle] = useState(null);
-  const [newArticle, setNewArticle] = useState({ title: '', subtitle: '', author: '', content: '', url: '', imageUrl: '' });
+  const [newArticle, setNewArticle] = useState({ title: '', subtitle: '', author: '', content: '', url: '' });
   const [showCreateForm, setShowCreateForm] = useState(false);
-  const [imageFile, setImageFile] = useState(null);
 
   const handleEditArticle = (article) => {
     setEditingArticle({ ...article });
@@ -25,13 +23,8 @@ const AdminDashboard = () => {
 
   const handleUpdateArticle = async () => {
     try {
-      if (imageFile) {
-        const imageUrl = await uploadImage(imageFile);
-        editingArticle.imageUrl = imageUrl;
-      }
       await updateArticle.mutateAsync(editingArticle);
       setEditingArticle(null);
-      setImageFile(null);
       toast.success('Article updated successfully');
     } catch (error) {
       toast.error('Error updating article: ' + error.message);
@@ -51,22 +44,13 @@ const AdminDashboard = () => {
 
   const handleAddArticle = async () => {
     try {
-      if (imageFile) {
-        const imageUrl = await uploadImage(imageFile);
-        newArticle.imageUrl = imageUrl;
-      }
       await addArticle.mutateAsync(newArticle);
-      setNewArticle({ title: '', subtitle: '', author: '', content: '', url: '', imageUrl: '' });
+      setNewArticle({ title: '', subtitle: '', author: '', content: '', url: '' });
       setShowCreateForm(false);
-      setImageFile(null);
       toast.success('Article added successfully');
     } catch (error) {
       toast.error('Error adding article: ' + error.message);
     }
-  };
-
-  const handleImageChange = (e) => {
-    setImageFile(e.target.files[0]);
   };
 
   const renderContent = (data, isLoading, error, entityName) => {
@@ -147,11 +131,6 @@ const AdminDashboard = () => {
               value={newArticle.content}
               onChange={(e) => setNewArticle({ ...newArticle, content: e.target.value })}
             />
-            <Input
-              type="file"
-              accept="image/*"
-              onChange={handleImageChange}
-            />
             <Button onClick={handleAddArticle} className="bg-blue-500 hover:bg-blue-600">Add Article</Button>
           </div>
         )}
@@ -200,12 +179,6 @@ const AdminDashboard = () => {
               onChange={(e) => setEditingArticle({ ...editingArticle, content: e.target.value })}
               className="mb-2"
               placeholder="Content"
-            />
-            <Input
-              type="file"
-              accept="image/*"
-              onChange={handleImageChange}
-              className="mb-2"
             />
             <div className="flex justify-end space-x-2">
               <Button onClick={() => setEditingArticle(null)} className="bg-gray-500 hover:bg-gray-600">Cancel</Button>
