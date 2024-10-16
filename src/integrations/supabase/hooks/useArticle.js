@@ -1,5 +1,6 @@
 import { useQuery, useMutation, useQueryClient } from '@tanstack/react-query';
 import { supabase } from '../supabase';
+import { toast } from 'sonner';
 
 const fromSupabase = async (query) => {
     try {
@@ -32,6 +33,10 @@ export const useArticles = () => useQuery({
     queryFn: async () => {
         const result = await fromSupabase(supabase.from('Article').select('*'));
         if (result.error) {
+            if (result.error.includes("relation \"public.Article\" does not exist")) {
+                toast.error('The Article table does not exist in the database. Please create it first.');
+                return { data: [], error: 'Table does not exist' };
+            }
             console.log('Error fetching articles:', result.error);
             return { error: result.error };
         }
