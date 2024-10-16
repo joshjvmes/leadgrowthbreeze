@@ -24,6 +24,11 @@ const ArticlePage = () => {
           </Button>
         </Link>
         <article className="bg-white text-gray-800 rounded-lg shadow-xl p-8 mb-8">
+          <img 
+            src={article.imageUrl || '/placeholder.svg'} 
+            alt={article.title} 
+            className="w-full h-64 object-cover rounded-lg mb-6 mx-auto"
+          />
           <h1 className="text-4xl font-bold mb-2">{article.title}</h1>
           <h2 className="text-2xl font-semibold mb-4 text-gray-600">{article.subtitle}</h2>
           <p className="text-sm text-gray-500 mb-6">By {article.author}</p>
