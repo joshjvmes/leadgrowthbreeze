@@ -16,24 +16,40 @@ const fromSupabase = async (query) => {
     }
 };
 
-export const useArticle = (slug) => useQuery({
-    queryKey: ['article', slug],
-    queryFn: async () => {
-        try {
-            const result = await fromSupabase(supabase.from('Articles').select('*').eq('url', slug).single());
-            if (result.error) {
-                console.error('Error fetching article:', result.error);
-                toast.error('Error fetching article. Please try again.');
-                return { error: result.error };
+export const useArticle = (slug) => {
+    const queryClient = useQueryClient();
+
+    return useQuery({
+        queryKey: ['article', slug],
+        queryFn: async () => {
+            try {
+                const result = await fromSupabase(supabase.from('Articles').select('*').eq('url', slug).single());
+                if (result.error) {
+                    console.error('Error fetching article:', result.error);
+                    toast.error('Error fetching article. Please try again.');
+                    return { error: result.error };
+                }
+
+                // Fetch similar articles
+                const similarArticles = await fromSupabase(
+                    supabase.from('Articles')
+                        .select('id, title, url')
+                        .neq('url', slug)
+                        .limit(3)
+                );
+
+                return { 
+                    article: result.data,
+                    similarArticles: similarArticles.data || []
+                };
+            } catch (error) {
+                console.error('CORS or network error:', error);
+                toast.error('Network error. Please check your connection and try again.');
+                return { error: 'Network error' };
             }
-            return result;
-        } catch (error) {
-            console.error('CORS or network error:', error);
-            toast.error('Network error. Please check your connection and try again.');
-            return { error: 'Network error' };
-        }
-    },
-});
+        },
+    });
+};
 
 export const useArticles = () => useQuery({
     queryKey: ['articles'],
