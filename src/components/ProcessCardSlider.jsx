@@ -1,85 +1,93 @@
 import React, { useState } from 'react';
+import { motion } from 'framer-motion';
 import { ChevronLeft, ChevronRight } from 'lucide-react';
 import { Button } from "@/components/ui/button";
 
-const ProcessCard = ({ title, content, backgroundColor, titleColor }) => (
-  <div 
-    className="w-full max-w-sm mx-auto h-64 flex flex-col justify-between rounded-lg overflow-hidden"
-    style={{
-      background: `linear-gradient(139deg, #F5F9FF 15.36%, #FFF 85.76%)`,
-      border: `4px solid #FFF`,
-      backgroundColor: backgroundColor
-    }}
-  >
-    <div className="p-4 sm:p-6">
-      <h3 className="text-lg sm:text-xl font-bold mb-2 sm:mb-4" style={{ color: titleColor }}>{title}</h3>
-      <p className="text-sm sm:text-base text-gray-700">{content}</p>
-    </div>
-  </div>
-);
+const processSteps = [
+  {
+    title: "On-boarding + GTM Strategy",
+    content: "We align our strategy with your business goals and integrate with your tech stack.",
+    backgroundColor: "#D8EFF7",
+    titleColor: "#019AFD"
+  },
+  {
+    title: "Social Conversation Monitoring",
+    content: "We monitor industry shifts and conversations to identify potential leads.",
+    backgroundColor: "#FFE6EC",
+    titleColor: "#FF5F7A"
+  },
+  {
+    title: "Lead Discovery & Enrichment",
+    content: "We use AI and multiple tools to find and enrich high-quality leads.",
+    backgroundColor: "#FEEECC",
+    titleColor: "#FFBB46"
+  },
+  {
+    title: "Message Crafting + Outreach",
+    content: "We create personalized messages addressing specific customer problems.",
+    backgroundColor: "#E6F7FF",
+    titleColor: "#0097FD"
+  },
+  {
+    title: "Guiding Customer Decisions",
+    content: "We nurture leads with targeted information to support their decision-making.",
+    backgroundColor: "#FFE6EC",
+    titleColor: "#E51010"
+  },
+  {
+    title: "Arming Sales Reps",
+    content: "We provide key insights to your sales team for successful conversations.",
+    backgroundColor: "#D8EFF7",
+    titleColor: "#019AFD"
+  }
+];
 
 const ProcessCardSlider = () => {
   const [currentIndex, setCurrentIndex] = useState(0);
-  const cards = [
-    {
-      title: "Understand",
-      content: "We analyze your current marketing strategies and identify areas for improvement.",
-      backgroundColor: "#D8EFF7",
-      titleColor: "#019AFD"
-    },
-    {
-      title: "Strategize",
-      content: "Our team develops a customized AI-driven marketing plan tailored to your business goals.",
-      backgroundColor: "#FFE6EC",
-      titleColor: "#FF5F7A"
-    },
-    {
-      title: "Implement",
-      content: "We execute the strategy using cutting-edge AI tools and monitor performance in real-time.",
-      backgroundColor: "#FEEECC",
-      titleColor: "#FFBB46"
-    }
-  ];
 
   const nextSlide = () => {
-    setCurrentIndex((prevIndex) => (prevIndex + 1) % cards.length);
+    setCurrentIndex((prevIndex) => (prevIndex + 1) % processSteps.length);
   };
 
   const prevSlide = () => {
-    setCurrentIndex((prevIndex) => (prevIndex - 1 + cards.length) % cards.length);
+    setCurrentIndex((prevIndex) => (prevIndex - 1 + processSteps.length) % processSteps.length);
   };
 
   return (
-    <div className="relative py-8 sm:py-12">
-      <div className="flex flex-col sm:flex-row justify-center items-center space-y-4 sm:space-y-0 sm:space-x-6">
-        <Button 
-          onClick={prevSlide} 
-          className="bg-white text-gray-800 hover:bg-gray-100 w-full sm:w-auto"
-          disabled={currentIndex === 0}
-        >
-          <ChevronLeft className="h-4 w-4 sm:h-6 sm:w-6" />
+    <div className="relative w-full overflow-hidden py-16">
+      <div className="flex items-center justify-center">
+        <Button onClick={prevSlide} className="mr-4 bg-[#E51010] text-white hover:bg-[#B30000]">
+          <ChevronLeft size={24} />
         </Button>
-        <div className="flex flex-col sm:flex-row space-y-4 sm:space-y-0 sm:space-x-6 overflow-hidden w-full sm:w-[calc(2*24rem+1.5rem)]">
-          {cards.map((card, index) => (
-            <div
-              key={index}
-              className={`w-full sm:w-96 transition-transform duration-300 ease-in-out ${
-                index === currentIndex ? 'block' : 'hidden sm:block'
-              }`}
-              style={{
-                transform: `translateX(${-100 * currentIndex}%)`,
-              }}
-            >
-              <ProcessCard {...card} />
-            </div>
-          ))}
+        <div className="flex items-center space-x-4 overflow-x-hidden">
+          {[-1, 0, 1].map((offset) => {
+            const index = (currentIndex + offset + processSteps.length) % processSteps.length;
+            const step = processSteps[index];
+            const isCenter = offset === 0;
+
+            return (
+              <motion.div
+                key={index}
+                className={`flex flex-col items-center ${isCenter ? 'w-80' : 'w-64'} transition-all duration-300`}
+                initial={{ opacity: 0, scale: 0.8 }}
+                animate={{ opacity: 1, scale: isCenter ? 1 : 0.8 }}
+                transition={{ duration: 0.5 }}
+              >
+                <div
+                  className={`rounded-lg p-6 ${isCenter ? 'h-64 w-80' : 'h-48 w-64'}`}
+                  style={{ backgroundColor: step.backgroundColor }}
+                >
+                  <h3 className={`font-bold mb-2 text-center ${isCenter ? 'text-xl' : 'text-lg'}`} style={{ color: step.titleColor }}>{step.title}</h3>
+                  {isCenter && (
+                    <p className="text-sm text-center text-gray-600">{step.content}</p>
+                  )}
+                </div>
+              </motion.div>
+            );
+          })}
         </div>
-        <Button 
-          onClick={nextSlide} 
-          className="bg-white text-gray-800 hover:bg-gray-100 w-full sm:w-auto"
-          disabled={currentIndex === cards.length - 1}
-        >
-          <ChevronRight className="h-4 w-4 sm:h-6 sm:w-6" />
+        <Button onClick={nextSlide} className="ml-4 bg-[#E51010] text-white hover:bg-[#B30000]">
+          <ChevronRight size={24} />
         </Button>
       </div>
     </div>
