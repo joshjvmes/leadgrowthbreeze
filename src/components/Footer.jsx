@@ -13,7 +13,6 @@ const Footer = () => {
             <li><Link to="/process" className="hover:text-[#E51010] uppercase">PROCESS</Link></li>
             <li><Link to="/blog" className="hover:text-[#E51010] uppercase">BLOG</Link></li>
             <li><Link to="/admin" className="hover:text-[#E51010] uppercase">ADMIN</Link></li>
-            <li><Link to="/contact" className="hover:text-[#E51010] uppercase">CONTACT</Link></li>
           </ul>
         </nav>
         
