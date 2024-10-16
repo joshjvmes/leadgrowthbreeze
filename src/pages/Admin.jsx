@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { ArrowLeft } from 'lucide-react';
 import { Button } from "@/components/ui/button";
@@ -11,29 +11,6 @@ const Admin = () => {
   const { session, signIn, signOut } = useSupabaseAuth();
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
-  const [isAdmin, setIsAdmin] = useState(false);
-
-  useEffect(() => {
-    const checkAdminStatus = async () => {
-      if (session?.user) {
-        const { data, error } = await supabase
-          .from('Users')
-          .select('user_type')
-          .eq('id', session.user.id)
-          .single();
-
-        if (error) {
-          console.error('Error fetching user profile:', error);
-          toast.error('Error verifying admin status');
-          return;
-        }
-
-        setIsAdmin(data?.user_type === 'admin');
-      }
-    };
-
-    checkAdminStatus();
-  }, [session]);
 
   const handleLogin = async (e) => {
     e.preventDefault();
@@ -75,14 +52,12 @@ const Admin = () => {
       const { error } = await signOut();
       if (error) throw error;
       toast.success('Logged out successfully');
-      setIsAdmin(false);
     } catch (error) {
       toast.error('Error logging out: ' + error.message);
     }
   };
 
   const handleBypassLogin = () => {
-    setIsAdmin(true);
     toast.success('Bypassed login successfully');
   };
 
@@ -94,7 +69,7 @@ const Admin = () => {
           Go Back
         </Link>
         <h1 className="text-4xl sm:text-5xl font-extrabold mb-8 text-center font-poppins">Admin Panel</h1>
-        {!session && !isAdmin ? (
+        {!session ? (
           <div className="max-w-md mx-auto bg-white rounded-lg shadow-xl p-8">
             <form onSubmit={handleLogin} className="space-y-6">
               <div>
@@ -118,11 +93,7 @@ const Admin = () => {
             <Button onClick={handleLogout} className="mb-4 bg-[#E51010] hover:bg-[#0097FD] text-white font-bold py-2 px-4 rounded transition-colors">
               Logout
             </Button>
-            {isAdmin ? (
-              <AdminDashboard />
-            ) : (
-              <p className="text-center text-xl font-bold text-[#E51010]">You do not have admin privileges.</p>
-            )}
+            <AdminDashboard />
           </div>
         )}
       </div>
