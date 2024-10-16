@@ -19,12 +19,19 @@ const fromSupabase = async (query) => {
 export const useArticle = (slug) => useQuery({
     queryKey: ['article', slug],
     queryFn: async () => {
-        const result = await fromSupabase(supabase.from('Articles').select('*').eq('url', slug).single());
-        if (result.error) {
-            console.log('Error fetching article:', result.error);
-            return { error: result.error };
+        try {
+            const result = await fromSupabase(supabase.from('Articles').select('*').eq('url', slug).single());
+            if (result.error) {
+                console.log('Error fetching article:', result.error);
+                toast.error('Error fetching article. Please try again.');
+                return { error: result.error };
+            }
+            return result;
+        } catch (error) {
+            console.error('CORS or network error:', error);
+            toast.error('Network error. Please check your connection and try again.');
+            return { error: 'Network error' };
         }
-        return result;
     },
 });
 
