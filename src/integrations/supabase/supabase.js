@@ -18,3 +18,6 @@ const options = {
 };
 
 export const supabase = createClient(supabaseUrl, supabaseKey, options);
+
+// Initialize Supabase Storage
+supabase.storage.setAuth(supabaseKey);
