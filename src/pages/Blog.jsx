@@ -22,16 +22,23 @@ const Blog = () => {
         <h1 className="text-4xl sm:text-5xl font-extrabold mb-8 text-center font-poppins">Our Blog</h1>
         <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
           {articles?.data?.map((article) => (
-            <div key={article.id} className="bg-white rounded-lg shadow-xl p-6 text-gray-800">
-              <h2 className="text-2xl font-bold mb-2 text-[#0097FD]">{article.title}</h2>
-              <h3 className="text-xl font-semibold mb-2 text-gray-600">{article.subtitle}</h3>
-              <p className="text-sm text-gray-500 mb-4">By {article.author}</p>
-              <p className="mb-4">{article.content && article.content.substring(0, 150)}...</p>
-              <Link to={`/blog/${article.url}`}>
-                <Button className="bg-[#E51010] hover:bg-[#0097FD] text-white">
-                  Read More
-                </Button>
-              </Link>
+            <div key={article.id} className="bg-white rounded-lg shadow-xl overflow-hidden text-gray-800">
+              <img 
+                src={article.imageUrl || '/placeholder.svg'} 
+                alt={article.title} 
+                className="w-full h-48 object-cover"
+              />
+              <div className="p-6">
+                <h2 className="text-2xl font-bold mb-2 text-[#0097FD]">{article.title}</h2>
+                <h3 className="text-xl font-semibold mb-2 text-gray-600">{article.subtitle}</h3>
+                <p className="text-sm text-gray-500 mb-4">By {article.author}</p>
+                <p className="mb-4">{article.content && article.content.substring(0, 100)}...</p>
+                <Link to={`/blog/${article.url}`}>
+                  <Button className="bg-[#E51010] hover:bg-[#0097FD] text-white">
+                    Read More
+                  </Button>
+                </Link>
+              </div>
             </div>
           ))}
         </div>
