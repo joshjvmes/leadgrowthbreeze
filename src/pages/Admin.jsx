@@ -5,42 +5,17 @@ import { Button } from "@/components/ui/button";
 import { useSupabaseAuth } from '../integrations/supabase';
 import AdminDashboard from '../components/AdminDashboard';
 import { toast } from 'sonner';
-import { supabase } from '../integrations/supabase/supabase';
 
 const Admin = () => {
   const { session, signIn, signOut } = useSupabaseAuth();
-  const [username, setUsername] = useState('');
+  const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
 
   const handleLogin = async (e) => {
     e.preventDefault();
     try {
-      // First, try to sign in directly with the username as email
-      let signInResult = await signIn({ email: username, password });
-      
-      // If direct sign-in fails, try to fetch the email from the Users table
-      if (signInResult.error) {
-        const { data, error } = await supabase
-          .from('Users')
-          .select('email')
-          .eq('username', username)
-          .single();
-
-        if (error) {
-          if (error.code === 'PGRST116') {
-            throw new Error('User not found. Please check your username.');
-          }
-          throw error;
-        }
-
-        if (data?.email) {
-          signInResult = await signIn({ email: data.email, password });
-          if (signInResult.error) throw signInResult.error;
-        } else {
-          throw new Error('Email not found for this username.');
-        }
-      }
-
+      const { error } = await signIn({ email, password });
+      if (error) throw error;
       toast.success('Logged in successfully');
     } catch (error) {
       toast.error('Error logging in: ' + error.message);
@@ -69,8 +44,8 @@ const Admin = () => {
           <div className="max-w-md mx-auto bg-white rounded-lg shadow-xl p-8">
             <form onSubmit={handleLogin} className="space-y-6">
               <div>
-                <label htmlFor="username" className="block text-sm font-medium text-gray-700">Username or Email</label>
-                <input type="text" id="username" value={username} onChange={(e) => setUsername(e.target.value)} className="mt-1 block w-full border-gray-300 rounded-md shadow-sm focus:ring-[#E51010] focus:border-[#E51010] text-gray-900" required />
+                <label htmlFor="email" className="block text-sm font-medium text-gray-700">Email</label>
+                <input type="email" id="email" value={email} onChange={(e) => setEmail(e.target.value)} className="mt-1 block w-full border-gray-300 rounded-md shadow-sm focus:ring-[#E51010] focus:border-[#E51010] text-gray-900" required />
               </div>
               <div>
                 <label htmlFor="password" className="block text-sm font-medium text-gray-700">Password</label>
