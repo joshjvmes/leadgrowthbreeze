@@ -1,7 +1,6 @@
 import React from 'react';
 import { Button } from "@/components/ui/button";
 import { Link } from 'react-router-dom';
-import { Rocket, UserCheck, MessageSquare } from 'lucide-react';
 
 const MagicalBeginnings = () => {
   return (
@@ -39,12 +38,10 @@ const MagicalBeginnings = () => {
         </section>
 
         <section className="text-center">
-          <h3 className="text-2xl font-bold mb-4">By partnering with us, you're not just automating tasks; you're supercharging your sales team.</h3>
-          <p className="mb-6">Ready to transform complex buying journeys into business case studies?</p>
-          <Link to="/contact">
+          <h3 className="text-2xl font-bold mb-4">Ready to explore the Enchanted Forest?</h3>
+          <Link to="/enchanted-forest">
             <Button className="bg-[#E51010] hover:bg-[#B30000] text-white">
-              <MessageSquare className="mr-2" />
-              Let's Chat
+              Continue Your Journey
             </Button>
           </Link>
         </section>

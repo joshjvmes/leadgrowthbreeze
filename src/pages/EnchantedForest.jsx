@@ -90,9 +90,9 @@ const EnchantedForest = () => {
         </div>
 
         <div className="mt-12 text-center">
-          <Link to="/contact">
+          <Link to="/dragons-lair">
             <Button className="bg-[#E51010] hover:bg-[#B30000] text-white">
-              Get Started
+              Enter the Dragon's Lair
             </Button>
           </Link>
         </div>
