@@ -1,16 +1,20 @@
 import React from 'react';
 import { Button } from "@/components/ui/button";
-import WizardSceneBackground, { scenes } from '../components/WizardSceneBackground';
 import WizardContentCard from '../components/WizardContentCard';
 import WizardHatPopup from '../components/WizardHatPopup';
 import { Link } from 'react-router-dom';
 
+export const scenes = [
+  { bg: 'bg-gradient-to-b from-purple-500 to-blue-500', elements: '🧙‍♂️🌟🔮', title: 'Magical Beginnings' },
+  { bg: 'bg-gradient-to-b from-green-500 to-teal-500', elements: '🧙‍♂️🌳🍄', title: 'Enchanted Forest' },
+  { bg: 'bg-gradient-to-b from-orange-500 to-red-500', elements: '🧙‍♂️🔥🐉', title: "Dragon's Lair" },
+  { bg: 'bg-gradient-to-b from-blue-500 to-indigo-500', elements: '🧙‍♂️☁️🌙', title: 'Celestial Realm' },
+];
+
 const Index = () => {
   return (
     <div className="relative">
-      <WizardSceneBackground />
-      
-      <main className="relative z-10">
+      <main>
         {scenes.map((scene, index) => (
           <WizardContentCard
             key={index}
