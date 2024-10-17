@@ -12,6 +12,12 @@ import QuotesSection from '../components/QuotesSection';
 import VectorIconMarquee from '../components/VectorIconMarquee';
 
 const Index = () => {
+  const messages = [
+    "Welcome to Rocket Now, where AI-powered marketing meets relentless dedication to your growth.",
+    "We're not just another agency – we offer the highest level of service in the industry.",
+    "Ready to skyrocket your business? Let's get started!"
+  ];
+
   return (
     <div className="relative">
       <AnimatedBackground />
@@ -21,7 +27,7 @@ const Index = () => {
             <h1 className="text-4xl sm:text-6xl font-bold mb-6 sm:mb-8 text-center font-poppins small-caps gradient-text">
               Rocket Now
             </h1>
-            <TypewriterEffect />
+            <TypewriterEffect messages={messages} />
             <p className="text-xl sm:text-2xl mb-8 sm:mb-12">
               AI-powered marketing solutions for high-growth businesses
             </p>

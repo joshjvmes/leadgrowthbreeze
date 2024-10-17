@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 
-const TypewriterEffect = ({ messages, onComplete }) => {
+const TypewriterEffect = ({ messages = [], onComplete }) => {
   const [currentMessageIndex, setCurrentMessageIndex] = useState(0);
   const [currentText, setCurrentText] = useState('');
   const [isTyping, setIsTyping] = useState(true);
@@ -8,8 +8,13 @@ const TypewriterEffect = ({ messages, onComplete }) => {
   const [displayedMessages, setDisplayedMessages] = useState([]);
 
   useEffect(() => {
+    if (!Array.isArray(messages) || messages.length === 0) {
+      onComplete && onComplete();
+      return;
+    }
+
     if (currentMessageIndex >= messages.length) {
-      onComplete();
+      onComplete && onComplete();
       return;
     }
 
@@ -37,6 +42,10 @@ const TypewriterEffect = ({ messages, onComplete }) => {
       }
     }
   }, [currentMessageIndex, currentText, isTyping, messages, onComplete]);
+
+  if (!Array.isArray(messages) || messages.length === 0) {
+    return null;
+  }
 
   return (
     <div className="space-y-2">
