@@ -28,8 +28,8 @@ const Header = () => {
             </ul>
           </nav>
           <Link to="/contact">
-            <Button className="bg-[#E51010] hover:bg-[#B30000] text-white text-lg px-6 py-3 uppercase font-bold">
-              GET STARTED
+            <Button className="bg-[#E51010] hover:bg-[#B30000] text-white">
+              Get Started
             </Button>
           </Link>
         </div>
@@ -49,8 +49,8 @@ const Header = () => {
               <li><Link to="/admin" className="block hover:text-[#E51010] uppercase" onClick={toggleMenu}>ADMIN</Link></li>
               <li>
                 <Link to="/contact" onClick={toggleMenu}>
-                  <Button className="w-full bg-[#E51010] hover:bg-[#B30000] text-white text-lg px-6 py-3 uppercase font-bold">
-                    GET STARTED
+                  <Button className="w-full bg-[#E51010] hover:bg-[#B30000] text-white">
+                    Get Started
                   </Button>
                 </Link>
               </li>
