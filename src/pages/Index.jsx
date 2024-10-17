@@ -54,7 +54,7 @@ const Index = () => {
             <WizardHatPopup />
             <Link to="/contact" className="mt-8 inline-block">
               <Button className="bg-[#E51010] hover:bg-[#0097FD] text-white">
-                Contact Us
+                CONTACT US
               </Button>
             </Link>
           </div>
