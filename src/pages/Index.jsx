@@ -3,6 +3,7 @@ import { Button } from "@/components/ui/button";
 import WizardContentCard from '../components/WizardContentCard';
 import WizardHatPopup from '../components/WizardHatPopup';
 import { Link } from 'react-router-dom';
+import { motion } from 'framer-motion';
 
 export const scenes = [
   { bg: 'bg-gradient-to-b from-purple-500 to-blue-500', elements: '🧙‍♂️🌟🔮', title: 'Magical Beginnings' },
@@ -46,17 +47,28 @@ const Index = () => {
           />
         ))}
 
-        <section className="min-h-screen flex items-center justify-center bg-white bg-opacity-80 p-8">
+        <section className="min-h-screen flex items-center justify-center bg-white bg-opacity-80 p-4 sm:p-8">
           <div className="max-w-2xl text-center">
-            <h3 className="text-2xl sm:text-3xl font-bold mb-6 sm:mb-8 text-center font-poppins small-caps gradient-text">
+            <motion.h3 
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5 }}
+              className="text-xl sm:text-3xl font-bold mb-4 sm:mb-6 text-center font-poppins small-caps gradient-text"
+            >
               Unlock Your Potential
-            </h3>
+            </motion.h3>
             <WizardHatPopup />
-            <Link to="/contact" className="mt-8 inline-block">
-              <Button className="bg-[#E51010] hover:bg-[#0097FD] text-white">
-                Contact Us
-              </Button>
-            </Link>
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5, delay: 0.2 }}
+            >
+              <Link to="/contact" className="mt-6 sm:mt-8 inline-block">
+                <Button className="bg-[#E51010] hover:bg-[#0097FD] text-white text-sm sm:text-base px-4 sm:px-6 py-2 sm:py-3">
+                  Contact Us
+                </Button>
+              </Link>
+            </motion.div>
           </div>
         </section>
       </main>
