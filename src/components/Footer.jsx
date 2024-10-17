@@ -22,6 +22,9 @@ const Footer = () => {
           <Link to="/magical-beginnings" className="block mt-4 hover:text-[#E51010]">
             Magical Beginnings
           </Link>
+          <Link to="/enchanted-forest" className="block mt-2 hover:text-[#E51010]">
+            Enchanted Forest
+          </Link>
         </div>
       </div>
     </footer>
