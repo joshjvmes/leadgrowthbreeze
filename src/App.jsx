@@ -15,11 +15,7 @@ import ProcessPage from "./pages/ProcessPage";
 import Blog from "./pages/Blog";
 import ArticlePage from "./pages/ArticlePage";
 import SignIn from "./components/SignIn";
-import Adventure from "./pages/Adventure";
-import MagicalBeginnings from "./pages/MagicalBeginnings";
-import EnchantedForest from "./pages/EnchantedForest";
-import DragonsLair from "./pages/DragonsLair";
-import CelestialRealm from "./pages/CelestialRealm";
+import ProveIt from "./pages/ProveIt";
 
 const queryClient = new QueryClient();
 
@@ -41,11 +37,7 @@ const App = () => (
               <Route path="/blog" element={<Blog />} />
               <Route path="/blog/:slug" element={<ArticlePage />} />
               <Route path="/signin" element={<SignIn />} />
-              <Route path="/adventure" element={<Adventure />} />
-              <Route path="/adventure/magical-beginnings" element={<MagicalBeginnings />} />
-              <Route path="/adventure/enchanted-forest" element={<EnchantedForest />} />
-              <Route path="/adventure/dragons-lair" element={<DragonsLair />} />
-              <Route path="/adventure/celestial-realm" element={<CelestialRealm />} />
+              <Route path="/prove-it" element={<ProveIt />} />
             </Routes>
             <Footer />
           </BrowserRouter>
