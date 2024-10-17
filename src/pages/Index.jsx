@@ -1,4 +1,4 @@
-import React, { useRef, useState, useEffect } from 'react';
+import React, { useRef, useState, useEffect, useCallback } from 'react';
 import { Button } from "@/components/ui/button";
 import { RocketIcon, TargetIcon, TrendingUpIcon } from 'lucide-react';
 import CandySlider from '../components/CandySlider';
@@ -20,19 +20,19 @@ const Index = () => {
     threshold: 0,
   });
 
-  useEffect(() => {
-    const handleScroll = () => {
-      if (!inView) {
-        window.scrollTo({
-          top: window.innerHeight,
-          behavior: 'smooth'
-        });
-      }
-    };
+  const handleScroll = useCallback(() => {
+    if (!inView) {
+      window.scrollTo({
+        top: window.innerHeight,
+        behavior: 'smooth'
+      });
+    }
+  }, [inView]);
 
+  useEffect(() => {
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
-  }, [inView]);
+  }, [handleScroll]);
 
   const sliderItems = [
     {
