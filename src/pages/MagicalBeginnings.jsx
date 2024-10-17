@@ -1,21 +1,34 @@
 import React from 'react';
 import { Button } from "@/components/ui/button";
 import { Link } from 'react-router-dom';
+import { motion } from 'framer-motion';
 
 const MagicalBeginnings = () => {
   return (
     <div className="min-h-screen bg-gradient-to-b from-purple-500 to-blue-500 text-white py-16">
       <div className="container mx-auto px-4 max-w-4xl">
-        <h1 className="text-4xl font-bold mb-8 text-center">Magical Beginnings</h1>
+        <motion.div
+          initial={{ opacity: 0, y: -20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5 }}
+        >
+          <p className="text-sm font-bold mb-2 text-center">CUSTOM MESSAGING</p>
+          <h1 className="text-4xl font-bold mb-8 text-center">Magical Beginnings</h1>
+        </motion.div>
         
-        <section className="mb-12">
+        <motion.section 
+          className="mb-12"
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5, delay: 0.2 }}
+        >
           <h2 className="text-3xl font-bold mb-6">Prospecting the right customer is hard. Closing them is easy.</h2>
           <p className="mb-4">When your solution fixes a critical customer problem – the product sells itself.</p>
           <p className="mb-4">But finding those diamonds in the rough isn't easy.</p>
           <p className="mb-4">Reality is – 99% of your sales team's time is spent sifting through overwhelming amounts of information, only to end up chasing leads that go nowhere.</p>
           <p className="mb-4">No sales revenue for you, no commission check for them.</p>
           <p className="text-2xl font-bold">What if there was a better way?</p>
-        </section>
+        </motion.section>
 
         <section className="mb-12">
           <h3 className="text-2xl font-bold mb-4">Optimize Your Talent Resources to Do What They Do Best</h3>
