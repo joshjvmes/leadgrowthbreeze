@@ -16,21 +16,19 @@ const Footer = () => {
           </Link>
         </div>
         
+        {/* New Navigation Bar */}
+        <nav className="mb-8">
+          <ul className="flex justify-center space-x-6">
+            <li><Link to="/magical-beginnings" className="hover:text-[#E51010] transition-colors">Magical Beginnings</Link></li>
+            <li><Link to="/enchanted-forest" className="hover:text-[#E51010] transition-colors">Enchanted Forest</Link></li>
+            <li><Link to="/dragons-lair" className="hover:text-[#E51010] transition-colors">Dragon's Lair</Link></li>
+            <li><Link to="/celestial-realm" className="hover:text-[#E51010] transition-colors">Celestial Realm</Link></li>
+          </ul>
+        </nav>
+        
         <div className="text-center">
           <p>&copy; 2014-2024 ROCKET NOW. All rights reserved.</p>
           <p className="mt-2">The best marketing agency near you, period.</p>
-          <Link to="/magical-beginnings" className="block mt-4 hover:text-[#E51010]">
-            Magical Beginnings
-          </Link>
-          <Link to="/enchanted-forest" className="block mt-2 hover:text-[#E51010]">
-            Enchanted Forest
-          </Link>
-          <Link to="/dragons-lair" className="block mt-2 hover:text-[#E51010]">
-            Dragon's Lair
-          </Link>
-          <Link to="/celestial-realm" className="block mt-2 hover:text-[#E51010]">
-            Celestial Realm
-          </Link>
         </div>
       </div>
     </footer>
