@@ -18,6 +18,27 @@ const Index = () => {
   const [showProspectingPopup, setShowProspectingPopup] = useState(false);
   const headerRef = useRef(null);
 
+  const sliderItems = [
+    {
+      title: "Your Bridge Between Customization and Scale",
+      description: "We're not just another agency – at ROCKET NOW, we offer the highest level of service available in the industry. Our relentless dedication to your growth sets us apart.",
+      buttonText: "Accelerate Your Growth",
+      action: 'accelerate'
+    },
+    {
+      title: "Marketing Strategies Underperforming?",
+      description: "Your marketing deserves a breakthrough, not just an average return. ROCKET NOW brings cutting-edge digital strategies that translate directly into business growth.",
+      buttonText: "Get Your Breakthrough",
+      action: 'breakthrough'
+    },
+    {
+      title: "Need ROI? Book Out Your Sales Team?",
+      description: "With our multi-channel attribution and customer-first approach, ROCKET NOW ensures you get the best return on every marketing dollar—empowering you to hit your KPIs faster than ever.",
+      buttonText: "Maximize Your ROI",
+      action: 'maximize'
+    }
+  ];
+
   useEffect(() => {
     const header = headerRef.current;
     let lastScrollY = window.scrollY;
