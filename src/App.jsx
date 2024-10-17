@@ -16,7 +16,6 @@ import Blog from "./pages/Blog";
 import ArticlePage from "./pages/ArticlePage";
 import SignIn from "./components/SignIn";
 import ProveIt from "./pages/ProveIt";
-import MagicalBeginnings from "./pages/MagicalBeginnings";
 
 const queryClient = new QueryClient();
 
@@ -39,7 +38,6 @@ const App = () => (
               <Route path="/blog/:slug" element={<ArticlePage />} />
               <Route path="/signin" element={<SignIn />} />
               <Route path="/prove-it" element={<ProveIt />} />
-              <Route path="/magical-beginnings" element={<MagicalBeginnings />} />
             </Routes>
             <Footer />
           </BrowserRouter>
