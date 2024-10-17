@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState, useEffect, useCallback } from 'react';
 import { Button } from "@/components/ui/button";
 import WizardContentCard from '../components/WizardContentCard';
 import WizardHatPopup from '../components/WizardHatPopup';
@@ -12,6 +12,27 @@ export const scenes = [
 ];
 
 const Index = () => {
+  const [currentScene, setCurrentScene] = useState(0);
+
+  const handleScroll = useCallback(() => {
+    const scrollPosition = window.scrollY;
+    const windowHeight = window.innerHeight;
+    const docHeight = document.documentElement.scrollHeight;
+    const scrollPercentage = scrollPosition / (docHeight - windowHeight);
+    const newScene = Math.min(Math.floor(scrollPercentage * scenes.length), scenes.length - 1);
+    
+    if (newScene !== currentScene) {
+      setCurrentScene(newScene);
+    }
+  }, [currentScene]);
+
+  useEffect(() => {
+    window.addEventListener('scroll', handleScroll);
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+    };
+  }, [handleScroll]);
+
   return (
     <div className="relative">
       <main>
