@@ -22,7 +22,11 @@ const Adventure = () => {
       <h1 className="text-4xl font-bold text-center mb-12 text-[#0097FD]">Wizard's Adventure</h1>
       <div className="flex flex-wrap justify-center">
         {scenes.map((scene, index) => (
-          <AdventureCard key={index} {...scene} to={`/adventure/${scene.title.toLowerCase().replace(/\s+/g, '-')}`} />
+          <AdventureCard 
+            key={index} 
+            {...scene} 
+            to={`/adventure/${scene.title.toLowerCase().replace(/['s\s]+/g, '-')}`} 
+          />
         ))}
       </div>
     </div>
