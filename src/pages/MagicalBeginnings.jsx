@@ -30,11 +30,6 @@ const MagicalBeginnings = () => {
           <p className="mb-4">Imagine having a list of prospects who already know they need your solution. That's what we do—using AI to find your ideal customers and engage them in conversations about the problems you solve. No spam. No endless cold calls. Just real connections.</p>
         </section>
 
-        <section className="mb-12">
-          <h3 className="text-2xl font-bold mb-4">Why Customers Love Us</h3>
-          <p className="italic">CUSTOMER QUOTES</p>
-        </section>
-
         <section className="text-center">
           <h3 className="text-2xl font-bold mb-4">By partnering with us, you're not just automating tasks; you're supercharging your sales team.</h3>
           <p className="mb-6">Ready to transform complex buying journeys into business case studies?</p>
