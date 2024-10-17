@@ -1,4 +1,4 @@
-import React, { useRef, useState } from 'react';
+import React, { useRef, useState, useEffect } from 'react';
 import { Button } from "@/components/ui/button";
 import { RocketIcon, TargetIcon, TrendingUpIcon } from 'lucide-react';
 import CandySlider from '../components/CandySlider';
@@ -16,6 +16,21 @@ import ProspectingPopup from '../components/ProspectingPopup';
 const Index = () => {
   const nextSectionRef = useRef(null);
   const [showProspectingPopup, setShowProspectingPopup] = useState(false);
+  const headerRef = useRef(null);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      if (headerRef.current) {
+        const headerBottom = headerRef.current.getBoundingClientRect().bottom;
+        if (window.scrollY < headerBottom) {
+          window.scrollTo(0, headerBottom);
+        }
+      }
+    };
+
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
 
   const sliderItems = [
     {
@@ -65,7 +80,7 @@ const Index = () => {
       
       <main className="container mx-auto px-4 relative z-10">
         <FadeInSection>
-          <section className="text-center py-16 sm:py-32 bg-gradient-to-b from-[#0FCEFD] to-[#0097FD] text-white rounded-lg my-10 sm:my-20 shadow-2xl backdrop-blur-md bg-opacity-80 relative overflow-hidden">
+          <section ref={headerRef} className="text-center py-16 sm:py-32 bg-gradient-to-b from-[#0FCEFD] to-[#0097FD] text-white rounded-lg my-10 sm:my-20 shadow-2xl backdrop-blur-md bg-opacity-80 relative overflow-hidden">
             <AnimatedBackground />
             <div className="relative z-10">
               <h2 className="text-3xl sm:text-5xl font-extrabold mb-4 sm:mb-6 font-poppins small-caps gradient-text px-4 sm:px-0">
