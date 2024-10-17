@@ -75,10 +75,6 @@
   }
 }
 
-html, body {
-  overscroll-behavior-y: none;
-}
-
 .milky-reveal {
   position: relative;
 }
