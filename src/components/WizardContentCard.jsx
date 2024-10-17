@@ -18,17 +18,17 @@ const WizardContentCard = ({ title, content, bg, elements }) => {
       initial={{ opacity: 0, y: 50 }}
       animate={inView ? { opacity: 1, y: 0 } : {}}
       transition={{ duration: 0.5 }}
-      className={`min-h-screen flex items-center justify-center ${bg} p-4 sm:p-8`}
+      className={`min-h-screen flex items-center justify-center ${bg} p-8`}
     >
       <div className="max-w-2xl text-center text-white">
-        <h2 className="text-3xl sm:text-5xl font-bold mb-4 sm:mb-6 relative inline-block">
+        <h2 className="text-4xl sm:text-5xl font-bold mb-6 sm:mb-8 relative inline-block">
           {title}
           {title === "Magical Beginnings" && (
             <TooltipProvider>
               <Tooltip>
                 <TooltipTrigger asChild>
                   <Link to="/magical-beginnings">
-                    <Info className="inline-block ml-2 cursor-pointer" size={20} />
+                    <Info className="inline-block ml-2 cursor-pointer" size={24} />
                   </Link>
                 </TooltipTrigger>
                 <TooltipContent>
@@ -38,10 +38,10 @@ const WizardContentCard = ({ title, content, bg, elements }) => {
             </TooltipProvider>
           )}
         </h2>
-        <p className="text-lg sm:text-2xl mb-6 sm:mb-8">{content}</p>
-        <div className="text-5xl sm:text-7xl mb-6 sm:mb-8">{elements}</div>
+        <p className="text-xl sm:text-2xl mb-8 sm:mb-12">{content}</p>
+        <div className="text-6xl sm:text-7xl mb-8 sm:mb-12">{elements}</div>
         <Link to="/contact">
-          <Button className="bg-[#E51010] hover:bg-[#0097FD] text-white text-sm sm:text-base px-4 sm:px-6 py-2 sm:py-3">
+          <Button className="bg-[#E51010] hover:bg-[#0097FD] text-white">
             Get Started
           </Button>
         </Link>
