@@ -24,6 +24,7 @@ const Header = () => {
               <li><Link to="/process" className="hover:text-[#E51010] uppercase">PROCESS</Link></li>
               <li><Link to="/prove-it" className="hover:text-[#E51010] uppercase">PROVE IT</Link></li>
               <li><Link to="/blog" className="hover:text-[#E51010] uppercase">BLOG</Link></li>
+              <li><Link to="/magical-beginnings" className="hover:text-[#E51010] uppercase">MAGICAL BEGINNINGS</Link></li>
               <li><Link to="/admin" className="hover:text-[#E51010] uppercase">ADMIN</Link></li>
             </ul>
           </nav>
@@ -46,6 +47,7 @@ const Header = () => {
               <li><Link to="/process" className="block hover:text-[#E51010] uppercase" onClick={toggleMenu}>PROCESS</Link></li>
               <li><Link to="/prove-it" className="block hover:text-[#E51010] uppercase" onClick={toggleMenu}>PROVE IT</Link></li>
               <li><Link to="/blog" className="block hover:text-[#E51010] uppercase" onClick={toggleMenu}>BLOG</Link></li>
+              <li><Link to="/magical-beginnings" className="block hover:text-[#E51010] uppercase" onClick={toggleMenu}>MAGICAL BEGINNINGS</Link></li>
               <li><Link to="/admin" className="block hover:text-[#E51010] uppercase" onClick={toggleMenu}>ADMIN</Link></li>
               <li>
                 <Link to="/contact" onClick={toggleMenu}>
