@@ -1,9 +1,48 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { ArrowLeft } from 'lucide-react';
-import ProcessCardSlider from '../components/ProcessCardSlider';
+import CandySlider from '../components/CandySlider';
 
 const ProcessPage = () => {
+  const processSteps = [
+    {
+      title: "1. On-boarding + GTM Strategy Alignment",
+      description: "We work closely with you to understand your business, products, and target customers, creating a go-to-market strategy that's perfectly aligned with your goals. Then we integrate our systems with your current tech stack, it's that simple.",
+      buttonText: "Start Onboarding",
+      action: "accelerate"
+    },
+    {
+      title: "2. Social Conversation Monitoring",
+      description: "Guided by the GTM strategy + problem you solve – we monitor industry shifts, trigger events and conversations to identify and understand insights – so we can engage thoughtfully with those who may not even know they need your solution yet.",
+      buttonText: "Monitor Conversations",
+      action: "breakthrough"
+    },
+    {
+      title: "3. Lead Discovery & Enrichment",
+      description: "We use over 75 lead enrichment tools and AI research to find contact information and valuable insights about your ideal customers, automating complex research tasks to provide you with high-quality leads.",
+      buttonText: "Discover Leads",
+      action: "maximize"
+    },
+    {
+      title: "4. Message Crafting + Outreach",
+      description: "Based on what is learned – we craft personalized messages that address specific customer problems. No generic sales pitches—just genuine conversations that add value.",
+      buttonText: "Craft Messages",
+      action: "accelerate"
+    },
+    {
+      title: "5. Guiding Complex Customer Decisions",
+      description: "We nurture contacts via drip campaigns – providing support and information they need to move forward confidently. When they're ready, we seamlessly introduce them to your sales team.",
+      buttonText: "Guide Decisions",
+      action: "breakthrough"
+    },
+    {
+      title: "6. Arming Sales Reps",
+      description: "We provide your sales reps with key insights about each prospect before the call, so they can connect on what matters most to the customer and have a warm, successful conversation.",
+      buttonText: "Arm Sales Team",
+      action: "maximize"
+    }
+  ];
+
   return (
     <div className="min-h-screen bg-white text-gray-800">
       <div className="container mx-auto px-4 py-16">
@@ -21,7 +60,7 @@ const ProcessPage = () => {
           </p>
         </header>
 
-        <ProcessCardSlider />
+        <CandySlider items={processSteps} />
 
         <section className="mt-16">
           <h2 className="text-3xl font-bold mb-8 text-[#0097FD] font-poppins text-center">Our Process in Detail</h2>
@@ -38,32 +77,5 @@ const ProcessPage = () => {
     </div>
   );
 };
-
-const processSteps = [
-  {
-    title: "1. On-boarding + GTM Strategy Alignment",
-    description: "We work closely with you to understand your business, products, and target customers, creating a go-to-market strategy that's perfectly aligned with your goals. Then we integrate our systems with your current tech stack, it's that simple."
-  },
-  {
-    title: "2. Social Conversation Monitoring",
-    description: "Guided by the GTM strategy + problem you solve – we monitor industry shifts, trigger events and conversations to identify and understand insights – so we can engage thoughtfully with those who may not even know they need your solution yet."
-  },
-  {
-    title: "3. We Discover and Enrich Your Ideal Leads",
-    description: "We use over 75 lead enrichment tools and AI research to find contact information and valuable insights about your ideal customers, automating complex research tasks to provide you with high-quality leads."
-  },
-  {
-    title: "4. Message Crafting + Outreach",
-    description: "Based on what is learned – we craft a personalized message(s) that address their specific problem(s). No generic sales pitches—just genuine conversations that add value."
-  },
-  {
-    title: "5. Guiding Complex Customer Decision(s)",
-    description: "We nurture contacts via drip campaigns – providing support and information they need to move forward confidently. When they're ready, we seamlessly introduce them to your sales team."
-  },
-  {
-    title: "6. We Arm Your Reps for Meaningful Conversations",
-    description: "We provide your sales reps with key insights about each prospect before the call, so they can connect on what matters most to the customer and have a warm, successful conversation."
-  }
-];
 
 export default ProcessPage;
