@@ -11,7 +11,7 @@ const Footer = () => {
           <h3 className="text-2xl font-bold mb-4">Ready to Accelerate Your Growth?</h3>
           <Link to="/contact">
             <Button className="bg-[#E51010] hover:bg-[#B30000] text-white font-bold py-2 px-6 rounded-full text-lg">
-              Rocket Now
+              Get Started Now
             </Button>
           </Link>
         </div>
