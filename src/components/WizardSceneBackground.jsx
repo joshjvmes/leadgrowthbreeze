@@ -38,7 +38,7 @@ const WizardSceneBackground = () => {
   }, []);
 
   return (
-    <div className={`fixed inset-0 z-[-1] ${isMobile ? 'min-h-screen' : ''}`}>
+    <div className="fixed inset-0 z-[-1] overflow-hidden">
       <div className={`absolute inset-0 ${scenes[currentScene].bg}`}></div>
       <div className="absolute inset-0 flex items-center justify-center text-6xl sm:text-8xl animate-float">
         {scenes[currentScene].elements}
