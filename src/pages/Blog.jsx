@@ -19,7 +19,7 @@ const Blog = () => {
             Go Back
           </Button>
         </Link>
-        <h1 className="text-4xl sm:text-5xl font-extrabold mb-8 text-center font-poppins">Our Blog</h1>
+        <h1 className="text-4xl sm:text-5xl font-extrabold mb-8 text-center font-poppins">Articles</h1>
         <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
           {articles?.data?.map((article) => (
             <div key={article.id} className="bg-white rounded-lg shadow-xl overflow-hidden text-gray-800">
