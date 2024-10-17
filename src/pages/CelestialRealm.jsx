@@ -22,9 +22,6 @@ const CelestialRealm = () => {
           <p className="text-xl md:text-2xl mb-8">
             Customers crave conversations about their problems—not your product features & functions
           </p>
-          <p className="text-2xl md:text-3xl font-bold text-[#E51010] mb-8">
-            Razzo AI is your rising tide. Accelerate Your Revenue with Rocket Now.
-          </p>
         </header>
 
         <VectorIconMarquee />
