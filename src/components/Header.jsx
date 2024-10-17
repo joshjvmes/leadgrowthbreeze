@@ -24,6 +24,7 @@ const Header = () => {
               <li><Link to="/process" className="hover:text-[#E51010] uppercase">PROCESS</Link></li>
               <li><Link to="/blog" className="hover:text-[#E51010] uppercase">BLOG</Link></li>
               <li><Link to="/admin" className="hover:text-[#E51010] uppercase">ADMIN</Link></li>
+              <li><Link to="/adventure" className="hover:text-[#E51010] uppercase">ADVENTURE</Link></li>
             </ul>
           </nav>
           <Link to="/contact">
@@ -45,6 +46,7 @@ const Header = () => {
               <li><Link to="/process" className="block hover:text-[#E51010] uppercase" onClick={toggleMenu}>PROCESS</Link></li>
               <li><Link to="/blog" className="block hover:text-[#E51010] uppercase" onClick={toggleMenu}>BLOG</Link></li>
               <li><Link to="/admin" className="block hover:text-[#E51010] uppercase" onClick={toggleMenu}>ADMIN</Link></li>
+              <li><Link to="/adventure" className="block hover:text-[#E51010] uppercase" onClick={toggleMenu}>ADVENTURE</Link></li>
               <li>
                 <Link to="/contact" onClick={toggleMenu}>
                   <Button className="w-full bg-[#E51010] hover:bg-[#B30000] text-white">

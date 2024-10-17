@@ -15,6 +15,7 @@ import ProcessPage from "./pages/ProcessPage";
 import Blog from "./pages/Blog";
 import ArticlePage from "./pages/ArticlePage";
 import SignIn from "./components/SignIn";
+import Adventure from "./pages/Adventure";
 
 const queryClient = new QueryClient();
 
@@ -36,6 +37,7 @@ const App = () => (
               <Route path="/blog" element={<Blog />} />
               <Route path="/blog/:slug" element={<ArticlePage />} />
               <Route path="/signin" element={<SignIn />} />
+              <Route path="/adventure" element={<Adventure />} />
             </Routes>
             <Footer />
           </BrowserRouter>
