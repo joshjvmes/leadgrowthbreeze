@@ -19,6 +19,9 @@ const Footer = () => {
         <div className="text-center">
           <p>&copy; 2014-2024 ROCKET NOW. All rights reserved.</p>
           <p className="mt-2">The best marketing agency near you, period.</p>
+          <Link to="/magical-beginnings" className="block mt-4 hover:text-[#E51010]">
+            Magical Beginnings
+          </Link>
         </div>
       </div>
     </footer>
