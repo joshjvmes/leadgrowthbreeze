@@ -12,7 +12,7 @@ const WizardContentCard = ({ title, content, bg, elements }) => {
       <div className="bg-white bg-opacity-80 rounded-lg shadow-xl p-8 max-w-2xl">
         <h2 className="text-4xl font-bold mb-4 text-center">{title}</h2>
         <p className="text-xl mb-6">{content}</p>
-        <div className="text-center">{elements}</div>
+        <div className="text-6xl text-center">{elements}</div>
       </div>
     </motion.div>
   );

@@ -3,7 +3,6 @@ import { Button } from "@/components/ui/button";
 import WizardContentCard from '../components/WizardContentCard';
 import WizardHatPopup from '../components/WizardHatPopup';
 import { Link } from 'react-router-dom';
-import { motion, useScroll, useTransform } from 'framer-motion';
 
 export const scenes = [
   { bg: 'bg-gradient-to-b from-purple-500 to-blue-500', elements: '🧙‍♂️🌟🔮', title: 'Magical Beginnings' },
@@ -11,17 +10,6 @@ export const scenes = [
   { bg: 'bg-gradient-to-b from-orange-500 to-red-500', elements: '🧙‍♂️🔥🐉', title: "Dragon's Lair" },
   { bg: 'bg-gradient-to-b from-blue-500 to-indigo-500', elements: '🧙‍♂️☁️🌙', title: 'Celestial Realm' },
 ];
-
-const AnimatedEmoji = ({ children }) => {
-  const { scrollYProgress } = useScroll();
-  const y = useTransform(scrollYProgress, [0, 1], [0, 50]);
-
-  return (
-    <motion.div style={{ y }} className="inline-block">
-      {children}
-    </motion.div>
-  );
-};
 
 const Index = () => {
   return (
@@ -33,13 +21,7 @@ const Index = () => {
             title={scene.title}
             content={getContentForScene(index)}
             bg={scene.bg}
-            elements={
-              <div className="text-6xl">
-                {scene.elements.split('').map((emoji, i) => (
-                  <AnimatedEmoji key={i}>{emoji}</AnimatedEmoji>
-                ))}
-              </div>
-            }
+            elements={scene.elements}
           />
         ))}
 
