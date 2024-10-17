@@ -3,7 +3,6 @@ import { useParams, Link } from 'react-router-dom';
 import { useArticle } from '../integrations/supabase';
 import { Button } from "@/components/ui/button";
 import { ArrowLeft } from 'lucide-react';
-import ReactMarkdown from 'react-markdown';
 
 const ArticlePage = () => {
   const { slug } = useParams();
@@ -34,7 +33,9 @@ const ArticlePage = () => {
           <h2 className="text-2xl font-semibold mb-4 text-gray-600">{article.subtitle}</h2>
           <p className="text-sm text-gray-500 mb-6">By {article.author}</p>
           <div className="prose max-w-none">
-            <ReactMarkdown>{article.content}</ReactMarkdown>
+            {article.content && article.content.split('\n').map((paragraph, index) => (
+              <p key={index} className="mb-4">{paragraph}</p>
+            ))}
           </div>
         </article>
 
