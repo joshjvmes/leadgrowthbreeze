@@ -22,7 +22,6 @@ const Header = () => {
               <li><Link to="/" className="hover:text-[#E51010] uppercase">HOME</Link></li>
               <li><Link to="/about" className="hover:text-[#E51010] uppercase">ABOUT</Link></li>
               <li><Link to="/process" className="hover:text-[#E51010] uppercase">PROCESS</Link></li>
-              <li><Link to="/prove-it" className="hover:text-[#E51010] uppercase">PROVE IT</Link></li>
               <li><Link to="/blog" className="hover:text-[#E51010] uppercase">BLOG</Link></li>
               <li><Link to="/admin" className="hover:text-[#E51010] uppercase">ADMIN</Link></li>
             </ul>
@@ -44,7 +43,6 @@ const Header = () => {
               <li><Link to="/" className="block hover:text-[#E51010] uppercase" onClick={toggleMenu}>HOME</Link></li>
               <li><Link to="/about" className="block hover:text-[#E51010] uppercase" onClick={toggleMenu}>ABOUT</Link></li>
               <li><Link to="/process" className="block hover:text-[#E51010] uppercase" onClick={toggleMenu}>PROCESS</Link></li>
-              <li><Link to="/prove-it" className="block hover:text-[#E51010] uppercase" onClick={toggleMenu}>PROVE IT</Link></li>
               <li><Link to="/blog" className="block hover:text-[#E51010] uppercase" onClick={toggleMenu}>BLOG</Link></li>
               <li><Link to="/admin" className="block hover:text-[#E51010] uppercase" onClick={toggleMenu}>ADMIN</Link></li>
               <li>

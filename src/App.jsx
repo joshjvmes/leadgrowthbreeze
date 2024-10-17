@@ -2,7 +2,7 @@ import React from 'react';
 import { Toaster } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
-import { BrowserRouter, Routes, Route, useLocation } from "react-router-dom";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { SupabaseAuthProvider } from './integrations/supabase';
 import Header from "./components/Header";
 import Footer from "./components/Footer";
@@ -15,20 +15,8 @@ import ProcessPage from "./pages/ProcessPage";
 import Blog from "./pages/Blog";
 import ArticlePage from "./pages/ArticlePage";
 import SignIn from "./components/SignIn";
-import ProveIt from "./pages/ProveIt";
-import Test1 from "./pages/Test1";
 
 const queryClient = new QueryClient();
-
-const ScrollToTop = () => {
-  const { pathname } = useLocation();
-
-  React.useEffect(() => {
-    window.scrollTo(0, 0);
-  }, [pathname]);
-
-  return null;
-}
 
 const App = () => (
   <React.StrictMode>
@@ -37,7 +25,6 @@ const App = () => (
         <TooltipProvider>
           <Toaster />
           <BrowserRouter>
-            <ScrollToTop />
             <Header />
             <Routes>
               <Route path="/" element={<Index />} />
@@ -49,8 +36,6 @@ const App = () => (
               <Route path="/blog" element={<Blog />} />
               <Route path="/blog/:slug" element={<ArticlePage />} />
               <Route path="/signin" element={<SignIn />} />
-              <Route path="/prove-it" element={<ProveIt />} />
-              <Route path="/test-1" element={<Test1 />} />
             </Routes>
             <Footer />
           </BrowserRouter>
