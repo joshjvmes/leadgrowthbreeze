@@ -18,6 +18,7 @@ import SignIn from "./components/SignIn";
 import ProveIt from "./pages/ProveIt";
 import MagicalBeginnings from "./pages/MagicalBeginnings";
 import EnchantedForest from "./pages/EnchantedForest";
+import DragonsLair from "./pages/DragonsLair";
 
 const queryClient = new QueryClient();
 
@@ -42,6 +43,7 @@ const App = () => (
               <Route path="/prove-it" element={<ProveIt />} />
               <Route path="/magical-beginnings" element={<MagicalBeginnings />} />
               <Route path="/enchanted-forest" element={<EnchantedForest />} />
+              <Route path="/dragons-lair" element={<DragonsLair />} />
             </Routes>
             <Footer />
           </BrowserRouter>
