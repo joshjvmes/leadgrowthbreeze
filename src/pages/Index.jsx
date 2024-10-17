@@ -16,21 +16,23 @@ import ProspectingPopup from '../components/ProspectingPopup';
 const Index = () => {
   const nextSectionRef = useRef(null);
   const [showProspectingPopup, setShowProspectingPopup] = useState(false);
-  const headerRef = useRef(null);
+  const [headerRef, inView] = useInView({
+    threshold: 0,
+  });
 
   useEffect(() => {
     const handleScroll = () => {
-      if (headerRef.current) {
-        const headerBottom = headerRef.current.getBoundingClientRect().bottom;
-        if (window.scrollY < headerBottom) {
-          window.scrollTo(0, headerBottom);
-        }
+      if (!inView) {
+        window.scrollTo({
+          top: window.innerHeight,
+          behavior: 'smooth'
+        });
       }
     };
 
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
-  }, []);
+  }, [inView]);
 
   const sliderItems = [
     {
