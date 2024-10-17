@@ -2,9 +2,6 @@ import React from 'react';
 import { Button } from "@/components/ui/button";
 import WizardSceneBackground, { scenes } from '../components/WizardSceneBackground';
 import WizardContentCard from '../components/WizardContentCard';
-import CaseStudiesSection from '../components/CaseStudiesSection';
-import ReviewsSection from '../components/ReviewsSection';
-import MarketingCostsCalculator from '../components/MarketingCostsCalculator';
 import WizardHatPopup from '../components/WizardHatPopup';
 import { Link } from 'react-router-dom';
 
@@ -23,27 +20,6 @@ const Index = () => {
             elements={scene.elements}
           />
         ))}
-
-        <section className="min-h-screen flex items-center justify-center bg-white bg-opacity-80 p-8">
-          <div className="max-w-4xl">
-            <CaseStudiesSection />
-          </div>
-        </section>
-
-        <section className="min-h-screen flex items-center justify-center bg-white bg-opacity-80 p-8">
-          <div className="max-w-4xl">
-            <ReviewsSection />
-          </div>
-        </section>
-
-        <section className="min-h-screen flex items-center justify-center bg-white bg-opacity-80 p-8">
-          <div className="max-w-2xl">
-            <h3 className="text-2xl sm:text-3xl font-bold mb-6 sm:mb-8 text-center font-poppins small-caps gradient-text">
-              Marketing Costs Calculator
-            </h3>
-            <MarketingCostsCalculator />
-          </div>
-        </section>
 
         <section className="min-h-screen flex items-center justify-center bg-white bg-opacity-80 p-8">
           <div className="max-w-2xl text-center">

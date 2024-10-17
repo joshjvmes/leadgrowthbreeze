@@ -2,6 +2,7 @@ import React from 'react';
 import CaseStudyCard from '../components/CaseStudyCard';
 import MarketingCostsCalculator from '../components/MarketingCostsCalculator';
 import CaseStudiesSection from '../components/CaseStudiesSection';
+import ReviewsSection from '../components/ReviewsSection';
 
 const ProveIt = () => {
   return (
@@ -22,6 +23,8 @@ const ProveIt = () => {
         </section>
 
         <CaseStudiesSection />
+
+        <ReviewsSection />
       </div>
     </div>
   );
