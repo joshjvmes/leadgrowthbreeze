@@ -7,17 +7,9 @@ const options = {
   auth: {
     autoRefreshToken: true,
     persistSession: true,
-    detectSessionInUrl: true
-  },
-  global: {
-    headers: {
-      'Access-Control-Allow-Origin': '*',
-      'Access-Control-Allow-Headers': 'authorization, x-client-info, apikey, content-type',
-    },
-  },
+    detectSessionInUrl: false,
+    storage: window.localStorage
+  }
 };
 
 export const supabase = createClient(supabaseUrl, supabaseKey, options);
-
-// Storage is already configured as part of the Supabase client
-// No need to call setAuth separately
