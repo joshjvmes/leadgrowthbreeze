@@ -21,28 +21,40 @@ export const SupabaseAuthProviderInner = ({ children }) => {
   const queryClient = useQueryClient();
 
   useEffect(() => {
-    supabase.auth.getSession().then(({ data: { session } }) => {
-      setSession(session);
-      setLoading(false);
-    });
+    const getSession = async () => {
+      setLoading(true);
+      try {
+        const { data: { session }, error } = await supabase.auth.getSession();
+        if (error) throw error;
+        setSession(session);
+      } catch (error) {
+        console.error('Error fetching session:', error);
+        toast.error('Failed to retrieve session. Please sign in again.');
+        await supabase.auth.signOut();
+      } finally {
+        setLoading(false);
+      }
+    };
 
-    const { data: { subscription } } = supabase.auth.onAuthStateChange((_event, session) => {
+    const { data: authListener } = supabase.auth.onAuthStateChange(async (event, session) => {
       setSession(session);
       queryClient.invalidateQueries('user');
+      if (event === 'TOKEN_REFRESHED' || event === 'SIGNED_IN') {
+        // Optionally, you can refresh the session here
+        await getSession();
+      }
     });
 
-    return () => subscription.unsubscribe();
+    getSession();
+
+    return () => {
+      authListener.subscription.unsubscribe();
+    };
   }, [queryClient]);
 
   const signIn = async ({ email, password }) => {
     try {
-      const { data, error } = await supabase.auth.signInWithPassword({ 
-        email, 
-        password,
-        options: {
-          persistSession: true
-        }
-      });
+      const { data, error } = await supabase.auth.signInWithPassword({ email, password });
       if (error) throw error;
       return { data, error: null };
     } catch (error) {
@@ -54,7 +66,6 @@ export const SupabaseAuthProviderInner = ({ children }) => {
 
   const signOut = async () => {
     try {
-      await supabase.auth.clearSession();
       const { error } = await supabase.auth.signOut();
       if (error) throw error;
       setSession(null);
