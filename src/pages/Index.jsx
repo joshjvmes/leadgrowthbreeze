@@ -5,10 +5,10 @@ import WizardHatPopup from '../components/WizardHatPopup';
 import { Link } from 'react-router-dom';
 
 export const scenes = [
-  { bg: 'bg-gradient-to-b from-purple-500 to-blue-500', elements: '🧙‍♂️🌟🔮', title: 'Magical Beginnings' },
-  { bg: 'bg-gradient-to-b from-green-500 to-teal-500', elements: '🧙‍♂️🌳🍄', title: 'Enchanted Forest' },
-  { bg: 'bg-gradient-to-b from-orange-500 to-red-500', elements: '🧙‍♂️🔥🐉', title: "Dragon's Lair" },
-  { bg: 'bg-gradient-to-b from-blue-500 to-indigo-500', elements: '🧙‍♂️☁️🌙', title: 'Celestial Realm' },
+  { bg: 'bg-gradient-to-b from-purple-500 to-blue-500', elements: '🧙‍♂️🌟🔮', title: 'Magical Beginnings', path: '/magical-beginnings' },
+  { bg: 'bg-gradient-to-b from-green-500 to-teal-500', elements: '🧙‍♂️🌳🍄', title: 'Enchanted Forest', path: '/enchanted-forest' },
+  { bg: 'bg-gradient-to-b from-orange-500 to-red-500', elements: '🧙‍♂️🔥🐉', title: "Dragon's Lair", path: '/dragons-lair' },
+  { bg: 'bg-gradient-to-b from-blue-500 to-indigo-500', elements: '🧙‍♂️☁️🌙', title: 'Celestial Realm', path: '/celestial-realm' },
 ];
 
 const Index = () => {
@@ -37,13 +37,14 @@ const Index = () => {
     <div className="relative">
       <main>
         {scenes.map((scene, index) => (
-          <WizardContentCard
-            key={index}
-            title={scene.title}
-            content={getContentForScene(index)}
-            bg={scene.bg}
-            elements={scene.elements}
-          />
+          <Link key={index} to={scene.path} className="block cursor-pointer hover:opacity-95 transition-opacity">
+            <WizardContentCard
+              title={scene.title}
+              content={getContentForScene(index)}
+              bg={scene.bg}
+              elements={scene.elements}
+            />
+          </Link>
         ))}
 
         <section className="min-h-screen flex items-center justify-center bg-white bg-opacity-80 p-8">
